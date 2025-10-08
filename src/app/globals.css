@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f3f7f9;
+  --background: #e4e6f6;
   --foreground: #292929;
-  --brand-blue: #32b8cc;
+  --brand-blue: #3b28cc;
   --brand-green: #89fc00;
   --brand-dark: #292929;
+  --brand-white: #ffffff;
 }
 
 @theme inline {
@@ -34,6 +35,6 @@ a {
 }
 
 ::selection {
-  background: rgba(50, 184, 204, 0.3);
+  background: rgba(59, 40, 204, 0.3);
   color: var(--brand-dark);
 }
