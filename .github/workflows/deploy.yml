@@ -37,7 +37,6 @@ jobs:
       - name: Build & export
         run: |
           yarn build
-          yarn export
           touch out/.nojekyll
 
       - uses: actions/configure-pages@v5
