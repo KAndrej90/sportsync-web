@@ -27,14 +27,25 @@ jobs:
           node-version: 20
           cache: "yarn"
 
-      - name: Enable Corepack
-        run: corepack enable
+      # ✨ Make sure Yarn 4 is active (matches packageManager)
+      - name: Enable & activate Corepack/Yarn 4
+        run: |
+          corepack enable
+          corepack prepare yarn@4.9.4 --activate
+          yarn -v
 
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Build static site
-        run: yarn build
+      # If you're using `output: 'export'`, do BOTH build and export
+      - name: Build & export static site
+        run: |
+          yarn build
+          yarn export
+          touch out/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -51,3 +62,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
