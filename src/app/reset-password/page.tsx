@@ -25,14 +25,36 @@ export default function ResetPasswordPage() {
   }, [])
 
   const validate = () => {
+    if (!password) {
+      setError("Lozinka je obavezna.")
+      return false
+    }
+
     if (password.length < 8) {
-      setError("Password must be at least 8 characters")
+      setError("Lozinka mora imati najmanje 8 znakova.")
       return false
     }
+
+    if (!/[a-zčćđšž]/.test(password)) {
+      setError("Lozinka mora sadržavati barem jedno malo slovo.")
+      return false
+    }
+
+    if (!/[A-ZČĆĐŠŽ]/.test(password)) {
+      setError("Lozinka mora sadržavati barem jedno veliko slovo.")
+      return false
+    }
+
+    if (!/\d/.test(password)) {
+      setError("Lozinka mora sadržavati barem jednu brojku.")
+      return false
+    }
+
     if (password !== confirm) {
-      setError("Passwords do not match")
+      setError("Lozinke se ne podudaraju")
       return false
     }
+
     setError("")
     return true
   }
@@ -58,14 +80,14 @@ export default function ResetPasswordPage() {
       }
 
       const data = await res.json().catch(() => ({}))
-      setSuccess(data?.message || "Password reset successfully.")
+      setSuccess(data?.message || "Lozinka je uspješno promjenjena.")
       setPassword("")
       setConfirm("")
     } catch (err: unknown) {
       if (err instanceof Error) {
-        setError(err.message || "Failed to reset password. Please try again.")
+        setError(err.message || "Nismo uspjeli promjeniti lozinku. Molimo pokušajte ponovo.")
       } else {
-        setError(String(err) || "Failed to reset password. Please try again.")
+        setError(String(err) || "Nismo uspjeli promjeniti lozinku. Molimo pokušajte ponovo.")
       }
     } finally {
       setLoading(false)
@@ -92,7 +114,7 @@ export default function ResetPasswordPage() {
       <h1 className={styles.title}>Reset your password</h1>
       <form onSubmit={handleSubmit} aria-label="Reset password form" className={styles.form}>
         <div className={styles.field}>
-          <label className={styles.label} htmlFor="password">New password</label>
+          <label className={styles.label} htmlFor="password">Nova lozinka</label>
           <input
             id="password"
             className={styles.input}
@@ -101,12 +123,12 @@ export default function ResetPasswordPage() {
             onChange={(e) => setPassword(e.target.value)}
             disabled={disabled}
             autoComplete="new-password"
-            placeholder="Enter new password"
+            placeholder="Unesite novu lozinku"
           />
         </div>
 
         <div className={styles.field}>
-          <label className={styles.label} htmlFor="confirm">Confirm password</label>
+          <label className={styles.label} htmlFor="confirm">Potvrdi lozinku</label>
           <input
             id="confirm"
             className={styles.input}
@@ -115,7 +137,7 @@ export default function ResetPasswordPage() {
             onChange={(e) => setConfirm(e.target.value)}
             disabled={disabled}
             autoComplete="new-password"
-            placeholder="Repeat new password"
+            placeholder="Ponovite novu lozinku"
           />
         </div>
 
@@ -129,7 +151,7 @@ export default function ResetPasswordPage() {
 
         <div className={styles.buttonRow}>
           <button type="submit" disabled={disabled} className={styles.button}>
-            {loading ? "Saving…" : "Reset password"}
+            {loading ? "Spremanje" : "Potvrdi"}
           </button>
         </div>
       </form>
