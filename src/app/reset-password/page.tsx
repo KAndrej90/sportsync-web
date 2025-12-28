@@ -54,8 +54,12 @@ export default function ResetPasswordPage() {
       setSuccess(data?.message || "Password reset successfully.")
       setPassword("")
       setConfirm("")
-    } catch (err: any) {
-      setError(err?.message || "Failed to reset password. Please try again.")
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Failed to reset password. Please try again.")
+      } else {
+        setError(String(err) || "Failed to reset password. Please try again.")
+      }
     } finally {
       setLoading(false)
     }
