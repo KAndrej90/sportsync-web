@@ -1,8 +1,7 @@
 
 "use client"
 
-import { useState } from "react"
-import { useSearchParams } from "next/navigation"
+import { useState, useEffect } from "react"
 import Image from "next/image";
 import LogoAndName from "../assets/logoAndName.svg";
 import styles from "./reset-password.module.css"
@@ -14,8 +13,16 @@ export default function ResetPasswordPage() {
   const [success, setSuccess] = useState("")
   const [loading, setLoading] = useState(false)
 
-    const searchParams = useSearchParams()
-    const token = searchParams?.get("token") ?? ""
+  const [token, setToken] = useState("")
+
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search)
+      setToken(params.get("token") ?? "")
+    } catch (_err) {
+      setToken("")
+    }
+  }, [])
 
   const validate = () => {
     if (password.length < 8) {
