@@ -3,9 +3,8 @@
 
 import { useState } from "react"
 import { useSearchParams } from "next/navigation"
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import LogoAndName from "../assets/logoAndName.svg";
-import Link from "next/link";
 import styles from "./reset-password.module.css"
 
 export default function ResetPasswordPage() {
