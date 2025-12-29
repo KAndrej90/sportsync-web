@@ -80,14 +80,14 @@ export default function ResetPasswordPage() {
       }
 
       const data = await res.json().catch(() => ({}))
-      setSuccess(data?.message || "Lozinka je uspješno promjenjena.")
+      setSuccess(data?.message || "Lozinka je uspješno promijenjena.")
       setPassword("")
       setConfirm("")
     } catch (err: unknown) {
       if (err instanceof Error) {
-        setError(err.message || "Nismo uspjeli promjeniti lozinku. Molimo pokušajte ponovo.")
+        setError(err.message || "Nismo uspjeli promijeniti lozinku. Molimo pokušajte ponovo.")
       } else {
-        setError(String(err) || "Nismo uspjeli promjeniti lozinku. Molimo pokušajte ponovo.")
+        setError(String(err) || "Nismo uspjeli promijeniti lozinku. Molimo pokušajte ponovo.")
       }
     } finally {
       setLoading(false)
@@ -111,7 +111,7 @@ export default function ResetPasswordPage() {
                 </div>
               </header>
       <div className={styles.container}>
-      <h1 className={styles.title}>Reset your password</h1>
+      <h1 className={styles.title}>Postavljanje nove lozinke</h1>
       <form onSubmit={handleSubmit} aria-label="Reset password form" className={styles.form}>
         <div className={styles.field}>
           <label className={styles.label} htmlFor="password">Nova lozinka</label>
