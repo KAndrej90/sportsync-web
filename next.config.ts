@@ -5,8 +5,8 @@ const isProd = process.env.NODE_ENV === "production";
 const nextConfig: NextConfig = {
   output: "export", // ključna stavka za statički export
   images: { unoptimized: true }, // jer nema Image Optimization na GH Pages
-  basePath: isProd ? `/${repo}` : "", // za Project Pages (username.github.io/repo)
-  assetPrefix: isProd ? `/${repo}/` : "", // da asseti rade u pod-stazi
+  basePath: "", // za Project Pages (username.github.io/repo)
+  assetPrefix: "", // da asseti rade u pod-stazi
   // trailingSlash: true, // uključi ako koristiš relative linkove koji očekuju završni /
 };
 
