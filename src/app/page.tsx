@@ -26,9 +26,9 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    title: "Pametno sparivanje",
+    title: "Ocjenjivanje suigrača",
     description:
-      "SportSync ti predlaže najbolje partnere i ekipe prema tvojoj lokaciji, razini igre i omiljenim sportovima.",
+      "Izgradi povjerenje kroz recenzije i ocjene te pronađi pouzdane partnere za igru.",
     Icon: UsersRound,
     iconClass: "text-[#3B28CC]",
   },
@@ -81,10 +81,16 @@ const testimonials = [
   },
 ];
 
+// const stats = [
+//   { label: "Aktivnih sportaša", value: "12k+" },
+//   { label: "Organiziranih susreta mjesečno", value: "850+" },
+//   { label: "Gradova u Hrvatskoj", value: "38" },
+// ];
+
 const stats = [
-  { label: "Aktivnih sportaša", value: "12k+" },
-  { label: "Organiziranih susreta mjesečno", value: "850+" },
-  { label: "Gradova u Hrvatskoj", value: "38" },
+  { label: "Mnoštvo aktivnih sportaša", value: "" },
+  { label: "Nikad lakše organiziranje susreta", value: "" },
+  { label: "Pokrivenost cijele Regije", value: "" },
 ];
 
 const sports = [
@@ -190,12 +196,14 @@ export default function Home() {
       <header className="hero-animate fixed inset-x-0 top-0 z-30 border-b border-[#141031] bg-gradient-to-r from-[#16112e]/98 via-[#1b1650]/95 to-[#141031]/98 shadow-[0_18px_45px_rgba(12,9,30,0.35)] backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3 md:px-10">
           <div className="flex items-center gap-3">
-            <Image
-              src={LogoAndName}
-              alt="SportSync logotip"
-              priority
-              className="h-11 w-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
-            />
+            <Link href="/" aria-label="SportSync početna" className="inline-flex">
+              <Image
+                src={LogoAndName}
+                alt="SportSync logotip"
+                priority
+                className="h-11 w-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+              />
+            </Link>
           </div>
           <nav className="hidden items-center gap-8 text-sm font-semibold text-white/75 lg:flex">
             <Link href="#feature" className="transition-colors hover:text-white">
@@ -227,7 +235,8 @@ export default function Home() {
               #IgrajZajedno
             </span>
             <h1 className="text-4xl font-semibold tracking-tight text-[#101010] sm:text-5xl lg:text-6xl">
-              Pronađi svoj tim. <span className="text-[#3B28CC]">Sinkroniziraj</span> svoju igru.
+              Pronađi svoj tim.{" "}
+              <span className="text-[#3B28CC]">Sinkroniziraj</span> svoju igru.
             </h1>
             <p className="max-w-xl text-lg text-[#292929]/80">
               SportSync okuplja sportske rekreativce diljem Hrvatske i pomaže im da lako dogovore termine, podijele strast i osjete energiju igre. Više traženja, manje otkazivanja – samo čista sportska vibra.
@@ -265,7 +274,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="relative flex-1">
+          {/* <div className="relative flex-1">
             <div className="relative mx-auto w-full max-w-[420px] overflow-hidden rounded-[3rem] border border-[#3B28CC]/25 bg-[#101010] px-6 pb-16 pt-14 text-white shadow-[0_40px_80px_-40px_rgba(35,19,120,0.6)]">
               <div className="absolute -left-6 top-12 h-12 w-12 rounded-full bg-[#3B28CC]/40 blur-xl" />
               <div className="absolute -right-4 bottom-10 h-16 w-16 rounded-full bg-[#89FC00]/40 blur-3xl" />
@@ -303,7 +312,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
 
         <section
@@ -445,7 +454,7 @@ export default function Home() {
                   Energija zajednice
                 </p>
                 <h3 className="text-3xl font-semibold">
-                  Svaki tjedan stotine novih termina i sportskih priča.
+                  Svaki tjedan mnoštvo novih termina i sportskih priča.
                 </h3>
                 <p className="text-base text-white/70">
                   Prati rezultate, šalji reakcije i dijeli svoje uspjehe. SportSync čuva sve tvoje sportske trenutke na jednom mjestu.
@@ -508,14 +517,17 @@ export default function Home() {
           <div className="fade-item mt-12 flex flex-col gap-4 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} SportSync. Sva prava pridržana.</p>
             <div className="flex gap-6">
-              <Link href="mailto:hello@sportsync.hr" className="transition hover:text-white">
+              <Link href="/contact" className="transition hover:text-white">
                 Kontakt
               </Link>
-              <Link href="#" className="transition hover:text-white">
+              <Link href="/privacy" className="transition hover:text-white">
                 Politika privatnosti
               </Link>
-              <Link href="#" className="transition hover:text-white">
+              <Link href="/terms" className="transition hover:text-white">
                 Uvjeti korištenja
+              </Link>
+              <Link href="/delete-account" className="transition hover:text-white">
+                Brisanje podataka
               </Link>
             </div>
           </div>

@@ -1,0 +1,66 @@
+﻿.pageTitle {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.15;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+}
+
+.lastUpdated {
+  margin: 0 0 24px 0;
+  color: rgba(41, 41, 41, 0.7);
+  font-size: 14px;
+}
+
+.sectionTitle {
+  margin: 28px 0 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.prose p {
+  margin: 10px 0;
+}
+
+.prose ul {
+  margin: 10px 0 10px 20px;
+}
+
+.prose li {
+  margin: 6px 0;
+}
+
+.notice {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(59, 40, 204, 0.08);
+  border: 1px solid rgba(59, 40, 204, 0.15);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 18px 0 0 0;
+}
+
+@media (min-width: 640px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  border: 1px solid rgba(20, 16, 49, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 16px;
+}
+
+.muted {
+  color: rgba(41, 41, 41, 0.7);
+}
+
+.small {
+  font-size: 14px;
+}

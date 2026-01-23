@@ -1,8 +1,8 @@
-
 "use client"
 
 import { useState, useEffect } from "react"
 import Image from "next/image";
+import Link from "next/link";
 import LogoAndName from "../assets/logoAndName.svg";
 import styles from "./reset-password.module.css"
 
@@ -99,17 +99,19 @@ export default function ResetPasswordPage() {
   return (
     <main className={styles.page}>
       <header className="hero-animate fixed inset-x-0 top-0 z-30 border-b border-[#141031] bg-gradient-to-r from-[#16112e]/98 via-[#1b1650]/95 to-[#141031]/98 shadow-[0_18px_45px_rgba(12,9,30,0.35)] backdrop-blur">
-                <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3 md:px-10">
-                  <div className="flex items-center gap-3">
-                    <Image
-                      src={LogoAndName}
-                      alt="SportSync logotip"
-                      priority
-                      className="h-11 w-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
-                    />
-                  </div>
-                </div>
-              </header>
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3 md:px-10">
+          <div className="flex items-center gap-3">
+            <Link href="/" aria-label="SportSync početna" className="inline-flex">
+              <Image
+                src={LogoAndName}
+                alt="SportSync logotip"
+                priority
+                className="h-11 w-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+              />
+            </Link>
+          </div>
+        </div>
+      </header>
       <div className={styles.container}>
       <h1 className={styles.title}>Postavljanje nove lozinke</h1>
       <form onSubmit={handleSubmit} aria-label="Reset password form" className={styles.form}>
