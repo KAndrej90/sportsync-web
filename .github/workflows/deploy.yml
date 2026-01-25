@@ -28,16 +28,23 @@ jobs:
         run: |
           corepack enable
           corepack prepare yarn@4.9.4 --activate
-          yarn -v
-          yarn config get nodeLinker
+          yarnPath="$(corepack which yarn)"
+          echo "Using Yarn at: ${yarnPath}"
+          "${yarnPath}" -v
+          "${yarnPath}" config get nodeLinker
 
-      - name: Install deps
-        run: yarn install --immutable
+      - name: Install deps (immutable)
+        run: |
+          "$(corepack which yarn)" install --immutable
 
       - name: Build & export
         run: |
-          yarn build
+          "$(corepack which yarn)" build
           touch out/.nojekyll
+
+      - name: Ensure lockfile didn't change
+        run: |
+          git diff --exit-code -- yarn.lock
 
       - uses: actions/configure-pages@v5
 
