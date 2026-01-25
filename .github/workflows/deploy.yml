@@ -24,28 +24,20 @@ jobs:
         with:
           node-version: 20
 
-      - name: Enable Corepack & activate Yarn from packageManager
+      - name: Enable Corepack & Yarn 4
         run: |
-          set -euxo pipefail
-          node -v
-          corepack --version
           corepack enable
-          corepack install
-          corepack yarn -v
-          corepack yarn config get nodeLinker
+          corepack prepare yarn@4.9.4 --activate
+          yarn -v
+          yarn config get nodeLinker
 
-      - name: Install deps (immutable)
-        run: |
-          corepack yarn install --immutable
+      - name: Install deps
+        run: yarn install --immutable
 
       - name: Build & export
         run: |
-          corepack yarn build
+          yarn build
           touch out/.nojekyll
-
-      - name: Ensure lockfile didn't change
-        run: |
-          git diff --exit-code -- yarn.lock
 
       - uses: actions/configure-pages@v5
 
