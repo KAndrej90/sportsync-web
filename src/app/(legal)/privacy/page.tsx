@@ -16,9 +16,9 @@ export default function PrivacyPage() {
       <p>
         Ova Politika privatnosti opisuje kako <strong>Codemem Consulting d.o.o.</strong>,
         sa sjedištem u Obedišću, Općina Križ, Republika Hrvatska
-        (u daljnjem tekstu: „SportSync", „mi", „nas"), prikuplja, obrađuje i
+        (u daljnjem tekstu: {"\u201eSportSync\u201c"}, {"\u201emi\u201c"}, {"\u201enas\u201c"}), prikuplja, obrađuje i
         čuva vaše osobne podatke kada koristite mobilnu aplikaciju SportSync i
-        pridruženu web‑stranicu (zajedno: „Platforma").
+        pridruženu web‑stranicu (zajedno: {"\u201ePlatforma\u201c"}).
       </p>
       <p>
         Obrada osobnih podataka provodi se u skladu s Uredbom (EU) 2016/679
@@ -348,7 +348,7 @@ export default function PrivacyPage() {
           izmijeniti u postavkama profila.
         </li>
         <li>
-          <strong>Pravo na brisanje („pravo na zaborav")</strong> – možete
+          <strong>Pravo na brisanje ({"\u201epravo na zaborav\u201c"})</strong> – možete
           zatražiti brisanje računa i svih osobnih podataka. Detalje pogledajte
           na stranici{" "}
           <Link href="/delete-account">Brisanje računa</Link>.
@@ -439,7 +439,7 @@ export default function PrivacyPage() {
         značajnim izmjenama obavijestit ćemo vas putem push obavijesti i/ili
         e‑maila najkasnije <strong>15 dana</strong> prije stupanja izmjena na
         snagu. Nova verzija bit će objavljena na ovoj stranici s ažuriranim
-        datumom „Zadnje ažuriranje".
+        datumom {"\u201eZadnje ažuriranje\u201c"}.
       </p>
       <p>
         Nastavak korištenja Platforme nakon stupanja izmjena na snagu smatra

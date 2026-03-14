@@ -14,12 +14,12 @@ export default function TermsPage() {
       <p className={styles.lastUpdated}>Zadnje ažuriranje: 14. ožujka 2026.</p>
 
       <p>
-        Ovi Uvjeti korištenja („Uvjeti") pravno obvezujući su ugovor između vas i
+        Ovi Uvjeti korištenja ({"\u201eUvjeti\u201c"}) pravno obvezujući su ugovor između vas i
         društva <strong>Codemem Consulting d.o.o.</strong>, sa sjedištem u
         Obedišću, Općina Križ, Republika Hrvatska (OIB: 26881262647),
-        (u daljnjem tekstu: „SportSync", „mi", „nas", „naše") te uređuju vaš
+        (u daljnjem tekstu: {"\u201eSportSync\u201c"}, {"\u201emi\u201c"}, {"\u201enas\u201c"}, {"\u201enaše\u201c"}) te uređuju vaš
         pristup i korištenje mobilne aplikacije SportSync i pridružene
-        web‑stranice (zajedno: „Platforma"). Molimo pažljivo pročitajte ove
+        web‑stranice (zajedno: {"\u201ePlatforma\u201c"}). Molimo pažljivo pročitajte ove
         Uvjete prije korištenja Platforme.
       </p>
 
@@ -42,34 +42,34 @@ export default function TermsPage() {
       <h2 className={styles.sectionTitle}>2. Definicije</h2>
       <ul>
         <li>
-          <strong>„Platforma"</strong> – mobilna aplikacija SportSync i
+          <strong>{"\u201ePlatforma\u201c"}</strong> – mobilna aplikacija SportSync i
           web‑stranica dostupna na sportsync.hr, uključujući sve pridružene
           usluge, sadržaje i funkcionalnosti.
         </li>
         <li>
-          <strong>„Korisnik"</strong> – svaka fizička osoba koja je registrirana
+          <strong>{"\u201eKorisnik\u201c"}</strong> – svaka fizička osoba koja je registrirana
           na Platformi i koristi je.
         </li>
         <li>
-          <strong>„Igrač"</strong> – Korisnik koji rezervira sportske termine,
+          <strong>{"\u201eIgrač\u201c"}</strong> – Korisnik koji rezervira sportske termine,
           traži ili se pridružuje dostupnim terminima.
         </li>
         <li>
-          <strong>„Organizator"</strong> – Korisnik s administratorskim
+          <strong>{"\u201eOrganizator\u201c"}</strong> – Korisnik s administratorskim
           ovlastima koji kreira i upravlja sportskim terminima te poziva ili
           prihvaća druge Igrače.
         </li>
         <li>
-          <strong>„Termin"</strong> – sportska aktivnost kreirana na Platformi,
+          <strong>{"\u201eTermin\u201c"}</strong> – sportska aktivnost kreirana na Platformi,
           s definiranim datumom, vremenom, mjestom i sportom.
         </li>
         <li>
-          <strong>„Korisnički sadržaj"</strong> – sve informacije, fotografije i
+          <strong>{"\u201eKorisnički sadržaj\u201c"}</strong> – sve informacije, fotografije i
           drugi materijali koje Korisnik učitava ili objavljuje na Platformu,
           uključujući profilnu sliku.
         </li>
         <li>
-          <strong>„Ocjena"</strong> – ocjena i/ili komentar koji jedan Korisnik
+          <strong>{"\u201eOcjena\u201c"}</strong> – ocjena i/ili komentar koji jedan Korisnik
           ostavlja drugom Korisniku nakon zajednički odigranog Termina.
         </li>
       </ul>
@@ -257,7 +257,7 @@ export default function TermsPage() {
         </li>
         <li>
           <strong>Buduća postavka privatnosti</strong> – SportSync planira uvesti
-          mogućnost postavljanja profila u „privatni" način rada, čime bi
+          mogućnost postavljanja profila u {"\u201eprivatni\u201c"} način rada, čime bi
           korisnik bio isključen iz rezultata pretraživanja. O uvođenju ove
           funkcionalnosti korisnici će biti obaviješteni.
         </li>
@@ -399,7 +399,7 @@ export default function TermsPage() {
       {/* 15 */}
       <h2 className={styles.sectionTitle}>15. Ograničenje odgovornosti</h2>
       <p>
-        Platforma se pruža „kakva jest" i „kako je dostupna", bez ikakvih
+        Platforma se pruža {"\u201ekakva jest\u201c"} i {"\u201ekako je dostupna\u201c"}, bez ikakvih
         izričitih ili impliciranih jamstava u pogledu dostupnosti, točnosti,
         potpunosti ili prikladnosti za određenu svrhu.
       </p>
