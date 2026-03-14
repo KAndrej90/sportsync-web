@@ -48,7 +48,7 @@ export default function DeleteAccountPage() {
           U naslov upišite: <strong>&quot;Zahtjev za brisanje računa&quot;</strong>.
         </li>
         <li>
-          U poruci navedite email adresu računa i (ako je moguće) korisničko ime.
+          U poruci navedite email adresu računa i (ako je moguće) ime i prezime.
         </li>
       </ul>
 

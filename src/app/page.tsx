@@ -218,6 +218,9 @@ export default function Home() {
             <Link href="#download" className="transition-colors hover:text-white">
               Preuzmi
             </Link>
+            <Link href="/contact" className="transition-colors hover:text-white">
+              Kontakt
+            </Link>
           </nav>
           <Link
             href="#download"

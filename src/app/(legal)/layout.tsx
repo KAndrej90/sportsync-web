@@ -40,6 +40,9 @@ export default function LegalLayout({
             <Link href="/#download" className="transition-colors hover:text-white">
               Preuzmi
             </Link>
+            <Link href="/contact" className="transition-colors hover:text-white">
+              Kontakt
+            </Link>
           </nav>
           <Link
             href="/#download"
