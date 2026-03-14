@@ -450,7 +450,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative grid gap-6 rounded-[3rem] border border-[#3B28CC]/20 bg-[#101010] p-10 text-white shadow-[0_40px_80px_-40px_rgba(28,18,102,0.7)]">
+            {/* <div className="relative grid gap-6 rounded-[3rem] border border-[#3B28CC]/20 bg-[#101010] p-10 text-white shadow-[0_40px_80px_-40px_rgba(28,18,102,0.7)]">
               <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-[#3B28CC]/25 via-transparent to-[#89FC00]/15" />
               <div className="relative space-y-6">
                 <p className="text-sm uppercase tracking-[0.38em] text-white/60">
@@ -479,7 +479,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>

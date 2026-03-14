@@ -56,11 +56,6 @@ export default function DeleteAccountPage() {
       <p>
         Zahtjeve obrađujemo u razumnom roku, najkasnije u rokovima propisanim GDPR-om.
       </p>
-
-      <div className={styles.notice}>
-        Ovu stranicu možeš koristiti kao &quot;Data deletion instructions URL&quot; za Google
-        Play/App Store listing.
-      </div>
     </article>
   );
 }
