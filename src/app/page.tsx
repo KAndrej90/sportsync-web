@@ -518,8 +518,13 @@ export default function Home() {
             </div>
           </div>
           <div className="fade-item mt-12 flex flex-col gap-4 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} SportSync. Sva prava pridržana.</p>
-            <div className="flex gap-6">
+            <div className="space-y-1">
+              <p>© {new Date().getFullYear()} SportSync. Sva prava pridržana.</p>
+              <p>
+                Codemem Consulting d.o.o. &nbsp;·&nbsp; Obedišće, Općina Križ, Hrvatska &nbsp;·&nbsp; OIB: 26881262647
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-6">
               <Link href="/contact" className="transition hover:text-white">
                 Kontakt
               </Link>

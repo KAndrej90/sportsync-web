@@ -14,12 +14,12 @@ export default function TermsPage() {
       <p className={styles.lastUpdated}>Zadnje ažuriranje: 14. ožujka 2026.</p>
 
       <p>
-        Ovi Uvjeti korištenja ("Uvjeti") pravno obvezujući su ugovor između vas i
+        Ovi Uvjeti korištenja (&ldquo;Uvjeti&rdquo;) pravno obvezujući su ugovor između vas i
         društva <strong>Codemem Consulting d.o.o.</strong>, sa sjedištem u
         Obedišću, Općina Križ, Republika Hrvatska (OIB: 26881262647),
-        (u daljnjem tekstu: "SportSync", "mi", "nas", "naše") te uređuju vaš
+        (u daljnjem tekstu: &ldquo;SportSync&rdquo;, &ldquo;mi&rdquo;, &ldquo;nas&rdquo;, &ldquo;naše&rdquo;) te uređuju vaš
         pristup i korištenje mobilne aplikacije SportSync i pridružene
-        web‑stranice (zajedno: "Platforma"). Molimo pažljivo pročitajte ove
+        web‑stranice (zajedno: &ldquo;Platforma&rdquo;). Molimo pažljivo pročitajte ove
         Uvjete prije korištenja Platforme.
       </p>
 
@@ -41,34 +41,34 @@ export default function TermsPage() {
       {/* 2 */}
       <h2 className={styles.sectionTitle}>2. Definicije</h2>
       <p>
-        <strong>"Platforma"</strong> – mobilna aplikacija SportSync i
+        <strong>&ldquo;Platforma&rdquo;</strong> – mobilna aplikacija SportSync i
         web‑stranica dostupna na sportsync.hr, uključujući sve pridružene
         usluge, sadržaje i funkcionalnosti.
       </p>
       <p>
-        <strong>"Korisnik"</strong> – svaka fizička osoba koja je registrirana
+        <strong>&ldquo;Korisnik&rdquo;</strong> – svaka fizička osoba koja je registrirana
         na Platformi i koristi je.
       </p>
       <p>
-        <strong>"Igrač"</strong> – Korisnik koji rezervira sportske termine,
+        <strong>&ldquo;Igrač&rdquo;</strong> – Korisnik koji rezervira sportske termine,
         traži ili se pridružuje dostupnim terminima.
       </p>
       <p>
-        <strong>"Organizator"</strong> – Korisnik s administratorskim
+        <strong>&ldquo;Organizator&rdquo;</strong> – Korisnik s administratorskim
         ovlastima koji kreira i upravlja sportskim terminima te poziva ili
         prihvaća druge Igrače.
       </p>
       <p>
-        <strong>"Termin"</strong> – sportska aktivnost kreirana na Platformi,
+        <strong>&ldquo;Termin&rdquo;</strong> – sportska aktivnost kreirana na Platformi,
         s definiranim datumom, vremenom, mjestom i sportom.
       </p>
       <p>
-        <strong>"Korisnički sadržaj"</strong> – sve informacije, fotografije i
+        <strong>&ldquo;Korisnički sadržaj&rdquo;</strong> – sve informacije, fotografije i
         drugi materijali koje Korisnik učitava ili objavljuje na Platformu,
         uključujući profilnu sliku.
       </p>
       <p>
-        <strong>"Ocjena"</strong> – ocjena i/ili komentar koji jedan Korisnik
+        <strong>&ldquo;Ocjena&rdquo;</strong> – ocjena i/ili komentar koji jedan Korisnik
         ostavlja drugom Korisniku nakon zajednički odigranog Termina.
       </p>
 
@@ -236,7 +236,7 @@ export default function TermsPage() {
       </p>
       <p>
         <strong>Buduća postavka privatnosti</strong> – SportSync planira uvesti
-        mogućnost postavljanja profila u "privatni" način rada, čime bi
+        mogućnost postavljanja profila u &ldquo;privatni&rdquo; način rada, čime bi
         korisnik bio isključen iz rezultata pretraživanja. O uvođenju ove
         funkcionalnosti korisnici će biti obaviješteni.
       </p>
@@ -370,7 +370,7 @@ export default function TermsPage() {
       {/* 15 */}
       <h2 className={styles.sectionTitle}>15. Ograničenje odgovornosti</h2>
       <p>
-        Platforma se pruža "kakva jest" i "kako je dostupna", bez ikakvih
+        Platforma se pruža &ldquo;kakva jest&rdquo; i &ldquo;kako je dostupna&rdquo;, bez ikakvih
         izričitih ili impliciranih jamstava u pogledu dostupnosti, točnosti,
         potpunosti ili prikladnosti za određenu svrhu.
       </p>
@@ -467,11 +467,11 @@ export default function TermsPage() {
         (NN 19/2022 i dr.) imaju pravo podnijeti prigovor Europskoj platformi
         za online rješavanje sporova dostupnoj na{" "}
         <a
-          href="https://ec.europa.eu/consumers/odr"
+          href="https://consumer-redress.ec.europa.eu"
           target="_blank"
           rel="noopener noreferrer"
         >
-          ec.europa.eu/consumers/odr
+          consumer-redress.ec.europa.eu
         </a>
         .
       </p>
