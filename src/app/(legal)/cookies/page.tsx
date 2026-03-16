@@ -35,11 +35,6 @@ export default function CookiesPage() {
         Kolačiće možete izbrisati ili blokirati u postavkama svog preglednika.
         Imajte na umu da blokiranje može utjecati na funkcionalnost.
       </p>
-
-      <div className={styles.notice}>
-        Ako kasnije dodamo analitiku/trackere, ažurirat ćemo ovu stranicu i dodati
-        mehanizam privole.
-      </div>
     </article>
   );
 }

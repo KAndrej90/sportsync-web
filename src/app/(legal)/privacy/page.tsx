@@ -16,9 +16,9 @@ export default function PrivacyPage() {
       <p>
         Ova Politika privatnosti opisuje kako <strong>Codemem Consulting d.o.o.</strong>,
         sa sjedištem u Obedišću, Općina Križ, Republika Hrvatska
-        (u daljnjem tekstu: {"\u201eSportSync\u201c"}, {"\u201emi\u201c"}, {"\u201enas\u201c"}), prikuplja, obrađuje i
+        (u daljnjem tekstu: "SportSync", "mi", "nas"), prikuplja, obrađuje i
         čuva vaše osobne podatke kada koristite mobilnu aplikaciju SportSync i
-        pridruženu web‑stranicu (zajedno: {"\u201ePlatforma\u201c"}).
+        pridruženu web‑stranicu (zajedno: "Platforma").
       </p>
       <p>
         Obrada osobnih podataka provodi se u skladu s Uredbom (EU) 2016/679
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
       <p>
         <strong>Codemem Consulting d.o.o.</strong>
         <br />
-        Obedišće, Općina Križ, Republika Hrvatska
+        Selska ulica 35, Obedišće, Općina Križ, Republika Hrvatska
         <br />
         OIB: 26881262647
         <br />
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
         <a href="mailto:ante.kadic@sportsync.hr">ante.kadic@sportsync.hr</a>
         <br />
         Kontaktni obrazac:{" "}
-        <Link href="/contact">sportsync.hr/contact</Link>
+        <Link href="/contact">contact</Link>
       </p>
       <p>
         SportSync trenutačno nema imenovanog službenika za zaštitu podataka
@@ -68,12 +68,9 @@ export default function PrivacyPage() {
           putem jednokratnog SMS koda (OTP) pri registraciji i promjeni broja.
         </li>
         <li>
-          <strong>Datum rođenja</strong> – za provjeru minimalne dobi (16
-          godina). Datum rođenja unosi se u postavkama profila nakon
-          registracije. Napomena: SportSync planira premjestiti provjeru dobi u
-          sam tok registracije radi potpune usklađenosti s čl. 8. GDPR‑a; do
-          tada korisnici potvrđuju da imaju najmanje 16 godina prihvaćanjem ovih
-          Uvjeta i Politike privatnosti pri registraciji.
+          <strong>Godina rođenja</strong> – za provjeru minimalne dobi (16
+          godina). Godina rođenja unosi se tijekom registracije i neophodna je
+          za pristup Platformi.
         </li>
         <li>
           <strong>Ime i prezime</strong> – za identifikaciju
@@ -130,8 +127,8 @@ export default function PrivacyPage() {
           t. b) GDPR‑a). Bez ovih podataka nije moguće kreirati račun.
         </li>
         <li>
-          <strong>Provjera minimalne dobi</strong> (datum rođenja) – unosi se u
-          postavkama profila nakon registracije; pravna osnova:{" "}
+          <strong>Provjera minimalne dobi</strong> (godina rođenja) – unosi se
+          tijekom registracije; pravna osnova:{" "}
           <em>zakonska obveza</em> (čl. 6. st. 1. t. c) GDPR‑a, u vezi s čl. 8.
           GDPR‑a). Prihvaćanjem Uvjeta pri registraciji korisnik potvrđuje da
           ima najmanje 16 godina.
@@ -162,7 +159,7 @@ export default function PrivacyPage() {
           svim registriranim korisnicima u rezultatima tražilice. Javni profil
           temeljno je obilježje usluge i neophodan je za povezivanje igrača.
           Pravna osnova: <em>izvršavanje ugovora</em> (čl. 6. st. 1. t. b)
-          GDPR‑a). Kontaktni podaci (e‑mail, broj mobitela, datum rođenja)
+          GDPR‑a). Kontaktni podaci (e‑mail, broj mobitela, godina rođenja)
           nikada nisu vidljivi drugim korisnicima. Do uvođenja postavke
           privatnog profila u aplikaciji, korisnik koji želi biti uklonjen iz
           pretraživanja može to zatražiti putem{" "}
@@ -201,7 +198,7 @@ export default function PrivacyPage() {
       <ul>
         <li>
           <strong>Pružatelji cloud infrastrukture i hostinga</strong> – pohrana
-          podataka i isporuka aplikacije (npr. AWS, Google Cloud ili ekvivalent).
+          podataka i isporuka aplikacije.
         </li>
         <li>
           <strong>SMS gateway</strong> – dostava OTP kodova pri registraciji i
@@ -209,15 +206,14 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>Pružatelj usluge push obavijesti</strong> – dostava push
-          obavijesti na vaš uređaj (npr. Firebase Cloud Messaging / APNs).
+          obavijesti na vaš uređaj.
         </li>
         <li>
           <strong>Servis za slanje e‑maila</strong> – isporuka e‑maila za reset
           lozinke.
         </li>
         <li>
-          <strong>Pohrana datoteka</strong> – pohrana profilnih fotografija
-          (npr. Amazon S3 ili ekvivalent).
+          <strong>Pohrana datoteka</strong> – pohrana profilnih fotografija.
         </li>
       </ul>
       <p>
@@ -239,8 +235,7 @@ export default function PrivacyPage() {
       </p>
       <ul>
         <li>
-          Odluke Europske komisije o primjerenoj razini zaštite (npr. EU–US
-          Data Privacy Framework), ili
+          Odluke Europske komisije o primjerenoj razini zaštite, ili
         </li>
         <li>
           Standardnih ugovornih klauzula (SCC) odobrenih od strane Europske
@@ -257,7 +252,7 @@ export default function PrivacyPage() {
       <ul>
         <li>
           <strong>Korisnički račun i profil</strong> (e‑mail, broj mobitela,
-          datum rođenja, ime, fotografija, sportske preferencije) – čuvaju se
+          godina rođenja, ime, fotografija, sportske preferencije) – čuvaju se
           dok je račun aktivan. Nakon zatvaranja računa podaci se brišu ili
           anonimiziraju u roku od <strong>30 dana</strong>, osim ako zakon ne
           nalaže dulje čuvanje.
@@ -279,7 +274,7 @@ export default function PrivacyPage() {
           sukladno primjenjivim propisima, u pravilu do <strong>7 godina</strong>.
         </li>
         <li>
-          <strong>Marketing</strong> (kada bude uveden) – do opoziva privole
+          <strong>Marketing</strong> – do opoziva privole
           ili odjave.
         </li>
       </ul>
@@ -321,14 +316,15 @@ export default function PrivacyPage() {
       <h2 className={styles.sectionTitle}>9. Maloljetnici</h2>
       <p>
         Platforma je namijenjena osobama starijim od <strong>16 godina</strong>.
-        Datum rođenja prikupljamo pri registraciji isključivo radi provjere
+        Godinu rođenja prikupljamo pri registraciji isključivo radi provjere
         ispunjenja ovog uvjeta. Ne prikupljamo svjesno osobne podatke osoba
         mlađih od 16 godina.
       </p>
       <p>
         Ako posumnjate da je osoba mlađa od 16 godina registrirala račun ili
         ako ste roditelj/skrbnik i primijetili ste da vaše dijete koristi
-        Platformu, molimo vas da nas odmah kontaktirate. Takve ćemo račune
+        Platformu, molimo vas da nas odmah kontaktirate putem{" "}
+        <Link href="/contact">kontaktnog obrasca</Link>. Takve ćemo račune
         odmah zatvoriti i obrisati sve povezane osobne podatke.
       </p>
 
@@ -348,7 +344,7 @@ export default function PrivacyPage() {
           izmijeniti u postavkama profila.
         </li>
         <li>
-          <strong>Pravo na brisanje ({"\u201epravo na zaborav\u201c"})</strong> – možete
+          <strong>Pravo na brisanje ("pravo na zaborav")</strong> – možete
           zatražiti brisanje računa i svih osobnih podataka. Detalje pogledajte
           na stranici{" "}
           <Link href="/delete-account">Brisanje računa</Link>.
@@ -377,8 +373,7 @@ export default function PrivacyPage() {
       </ul>
       <p>
         Zahtjeve za ostvarenje prava podnesite putem{" "}
-        <Link href="/contact">kontaktnog obrasca</Link> ili e‑mailom na{" "}
-        <a href="mailto:ante.kadic@sportsync.hr">ante.kadic@sportsync.hr</a>.
+        <Link href="/contact">kontaktnog obrasca</Link>.
         Odgovorit ćemo u roku od <strong>30 dana</strong> od primitka zahtjeva
         (uz mogućnost produženja za složene slučajeve, o čemu ćemo vas
         obavijestiti).
@@ -393,7 +388,7 @@ export default function PrivacyPage() {
       <p>
         <strong>Agencija za zaštitu osobnih podataka (AZOP)</strong>
         <br />
-        Martićeva ulica 14, 10 000 Zagreb
+        Ulica Metela Ožegovića 16, 10 000 Zagreb
         <br />
         Web:{" "}
         <a
@@ -439,7 +434,7 @@ export default function PrivacyPage() {
         značajnim izmjenama obavijestit ćemo vas putem push obavijesti i/ili
         e‑maila najkasnije <strong>15 dana</strong> prije stupanja izmjena na
         snagu. Nova verzija bit će objavljena na ovoj stranici s ažuriranim
-        datumom {"\u201eZadnje ažuriranje\u201c"}.
+        datumom "Zadnje ažuriranje".
       </p>
       <p>
         Nastavak korištenja Platforme nakon stupanja izmjena na snagu smatra
@@ -450,18 +445,9 @@ export default function PrivacyPage() {
       <h2 className={styles.sectionTitle}>15. Kontakt</h2>
       <p>
         Za sva pitanja, prigovore ili zahtjeve vezane uz obradu osobnih podataka
-        obratite nam se:
+        obratite nam se putem{" "}
+        <Link href="/contact">kontaktnog obrasca</Link>.
       </p>
-      <ul>
-        <li>
-          Putem kontaktnog obrasca:{" "}
-          <Link href="/contact">sportsync.hr/contact</Link>
-        </li>
-        <li>
-          E‑mailom:{" "}
-          <a href="mailto:ante.kadic@sportsync.hr">ante.kadic@sportsync.hr</a>
-        </li>
-      </ul>
     </article>
   );
 }

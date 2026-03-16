@@ -21,6 +21,12 @@
   margin: 10px 0;
 }
 
+.prose a {
+  color: #3b28cc;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .prose ul {
   margin: 10px 0 10px 20px;
 }
