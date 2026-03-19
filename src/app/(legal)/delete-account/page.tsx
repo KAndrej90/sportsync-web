@@ -31,7 +31,8 @@ export default function DeleteAccountPage() {
       <p>
         Ako nemate pristup računu (npr. izgubljen uređaj ili problem s prijavom),
         pošaljite nam zahtjev putem{" "}
-        <Link href="/contact">kontaktnog obrasca</Link>.
+        <Link href="/contact">kontaktnog obrasca</Link> ili emailom na{" "}
+        <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>.
       </p>
       <p>U poruci navedite email adresu računa i (ako je moguće) ime i prezime.</p>
 

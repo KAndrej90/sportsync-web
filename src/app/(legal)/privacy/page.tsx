@@ -38,7 +38,7 @@ export default function PrivacyPage() {
         OIB: 26881262647
         <br />
         E‑mail:{" "}
-        <a href="mailto:ante.kadic@sportsync.hr">ante.kadic@sportsync.hr</a>
+        <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>
         <br />
         Kontaktni obrazac:{" "}
         <Link href="/contact">contact</Link>
@@ -446,7 +446,8 @@ export default function PrivacyPage() {
       <p>
         Za sva pitanja, prigovore ili zahtjeve vezane uz obradu osobnih podataka
         obratite nam se putem{" "}
-        <Link href="/contact">kontaktnog obrasca</Link>.
+        <Link href="/contact">kontaktnog obrasca</Link> ili emailom na{" "}
+        <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>.
       </p>
     </article>
   );

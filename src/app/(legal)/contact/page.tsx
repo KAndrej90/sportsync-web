@@ -1,5 +1,4 @@
 ﻿import type { Metadata } from "next";
-import Link from "next/link";
 import styles from "../legal.module.css";
 import ContactForm from "./ContactForm";
 
@@ -21,7 +20,13 @@ export default function ContactPage() {
           <h2 className={styles.sectionTitle} style={{ marginTop: 0 }}>
             Pošalji poruku podršci
           </h2>
-          <p className={styles.muted}>Koristi formular ispod za prijavu problema ili općih upita.</p>
+          <p className={styles.muted}>
+            Koristi formular ispod za prijavu problema ili općih upita.
+          </p>
+          <p className={styles.muted}>
+            Ako želiš, možeš nam se javiti i direktno na{" "}
+            <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>.
+          </p>
           <ContactForm />
         </section>
       </div>

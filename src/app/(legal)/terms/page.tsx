@@ -490,7 +490,8 @@ export default function TermsPage() {
       <p>
         Za sva pitanja, prigovore ili zahtjeve vezane uz ove Uvjete ili
         korištenje Platforme obratite nam se putem{" "}
-        <Link href="/contact">kontaktnog obrasca</Link>.
+        <Link href="/contact">kontaktnog obrasca</Link> ili emailom na{" "}
+        <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>.
       </p>
       <p>
         Nastojimo odgovoriti na svaki upit u roku od <strong>5 radnih dana</strong>.
