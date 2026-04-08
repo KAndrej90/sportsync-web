@@ -11,7 +11,7 @@ export default function TermsPage() {
   return (
     <article className={styles.prose}>
       <h1 className={styles.pageTitle}>Uvjeti korištenja</h1>
-      <p className={styles.lastUpdated}>Zadnje ažuriranje: 14. ožujka 2026.</p>
+      <p className={styles.lastUpdated}>Zadnje ažuriranje: 8. travnja 2026.</p>
 
       <p>
         Ovi Uvjeti korištenja (&ldquo;Uvjeti&rdquo;) pravno obvezujući su ugovor između vas i
@@ -70,6 +70,11 @@ export default function TermsPage() {
       <p>
         <strong>&ldquo;Ocjena&rdquo;</strong> – ocjena i/ili komentar koji jedan Korisnik
         ostavlja drugom Korisniku nakon zajednički odigranog Termina.
+      </p>
+      <p>
+        <strong>&ldquo;Chat&rdquo;</strong> – funkcionalnost razmjene poruka unutar
+        Platforme, uključujući privatne razgovore između dva Korisnika (DM)
+        i grupni chat unutar pojedinog Termina.
       </p>
 
       {/* 3 */}
@@ -189,22 +194,26 @@ export default function TermsPage() {
       {/* 8 */}
       <h2 className={styles.sectionTitle}>8. Korisnički sadržaj</h2>
       <p>
-        Korisnici mogu na Platformu učitati profilnu fotografiju. Učitavanjem
-        fotografije potvrđujete sljedeće:
+        Korisnici mogu na Platformu učitati profilnu fotografiju te objavljivati
+        poruke u DM chatu i chatu Termina. Objavom takvog sadržaja potvrđujete
+        sljedeće:
       </p>
       <p>
-        Imate sva potrebna prava (autorska i prava na sliku) za objavu te
-        fotografije te njezinom objavom ne kršite prava trećih osoba.
+        Imate sva potrebna prava (autorska i prava na sliku) za objavu
+        fotografije te slanjem poruka ili drugih sadržaja ne kršite prava trećih
+        osoba.
       </p>
       <p>
-        Fotografija ne sadrži nezakonit, uvredljiv, seksualno eksplicitan,
-        mrzilački ili na drugi način neprikladan sadržaj.
+        Fotografija, poruke i drugi Korisnički sadržaj ne sadrže nezakonit,
+        uvredljiv, seksualno eksplicitan, mrzilački, prijeteći, spam ili na
+        drugi način neprikladan sadržaj.
       </p>
       <p>
-        Objavom fotografije dajete SportSync‑u neisključivu, besplatnu,
-        globalnu licencu za pohranu, prikaz i prilagodbu fotografije isključivo
-        u svrhu pružanja i poboljšanja usluge Platforme, i to za vrijeme
-        trajanja vašeg korisničkog računa.
+        Objavom fotografije ili slanjem poruke dajete SportSync‑u neisključivu,
+        besplatnu, globalnu licencu za pohranu, prikaz, prijenos i tehničku
+        prilagodbu takvog sadržaja isključivo u svrhu pružanja, sigurnosti,
+        moderacije i poboljšanja Platforme, i to za vrijeme potrebno za
+        izvršavanje tih svrha.
       </p>
       <p>
         SportSync zadržava pravo ukloniti svaki Korisnički sadržaj koji krši ove
@@ -235,6 +244,13 @@ export default function TermsPage() {
         korisnicima.
       </p>
       <p>
+        <strong>DM komunikacija između korisnika</strong> – svaki registrirani
+        korisnik može pokrenuti DM chat s drugim registriranim korisnikom.
+        Pokretanje DM razgovora ne otkriva vaše kontaktne podatke drugom
+        korisniku; vidljivi ostaju samo podaci koji su javno prikazani unutar
+        Platforme.
+      </p>
+      <p>
         <strong>Buduća postavka privatnosti</strong> – SportSync planira uvesti
         mogućnost postavljanja profila u &ldquo;privatni&rdquo; način rada, čime bi
         korisnik bio isključen iz rezultata pretraživanja. O uvođenju ove
@@ -261,8 +277,9 @@ export default function TermsPage() {
       <p>
         <strong>Push obavijesti</strong> – za događaje vezane uz Termine
         (potvrda rezervacije, otkazivanje Termina, novi zahtjev igrača,
-        popunjavanje Termina i sl.). Možete upravljati push obavijestima u
-        postavkama uređaja.
+        popunjavanje Termina i sl.) te za nove chat poruke. Push obavijesti
+        mogu sadržavati i pregled teksta poruke, ovisno o postavkama vašeg
+        uređaja. Možete upravljati push obavijestima u postavkama uređaja.
       </p>
       <p>
         <strong>E‑mail obavijesti</strong> – šalju se isključivo u svrhu
@@ -279,7 +296,36 @@ export default function TermsPage() {
       </p>
 
       {/* 11 */}
-      <h2 className={styles.sectionTitle}>11. Plaćanja i pretplate</h2>
+      <h2 className={styles.sectionTitle}>11. Chat, blokiranje i prijave</h2>
+      <p>
+        Platforma omogućuje dvije vrste chata: <strong>DM chat</strong> između
+        dva registrirana korisnika i <strong>chat Termina</strong> koji je
+        dostupan isključivo članovima tog Termina. Organizator nema posebna
+        moderatorska prava za brisanje poruka u chatu Termina.
+      </p>
+      <p>
+        Chat poruke nisu end-to-end enkriptirane. SportSync može pristupiti i
+        pročitati poruke kada je to nužno za pružanje funkcionalnosti chata,
+        korisničku podršku, sigurnost računa, ručnu obradu prijava i sprječavanje
+        zlouporaba.
+      </p>
+      <p>
+        Korisnici mogu blokirati i prijaviti druge korisnike, prijaviti
+        pojedinačne poruke te utišati DM razgovore i chatove Termina. Svaku
+        prijavu pregledava SportSync ručno.
+      </p>
+      <p>
+        Poslane poruke nije moguće naknadno urediti ni obrisati putem
+        Platforme. Chat Termina ostaje dostupan dok Termin postoji; ako se Termin
+        izbriše, briše se i pripadajući chat. DM poruke i poruke u chatu Termina
+        čuvaju se najdulje <strong>3 mjeseca</strong>, osim ako ih je potrebno
+        dulje zadržati radi prijave, zaštite prava, sprječavanja zlouporaba ili
+        poštivanja zakonskih obveza, kako je detaljnije opisano u{" "}
+        <Link href="/privacy">Politici privatnosti</Link>.
+      </p>
+
+      {/* 12 */}
+      <h2 className={styles.sectionTitle}>12. Plaćanja i pretplate</h2>
       <p>
         Platforma je trenutačno <strong>besplatna</strong> za sve korisnike.
         SportSync planira u budućnosti uvesti pretplatne planove
@@ -304,8 +350,8 @@ export default function TermsPage() {
         bit će posebno navedeni pri uvođenju plaćenih planova.
       </p>
 
-      {/* 12 */}
-      <h2 className={styles.sectionTitle}>12. Zabranjena ponašanja</h2>
+      {/* 13 */}
+      <h2 className={styles.sectionTitle}>13. Zabranjena ponašanja</h2>
       <p>Zabranjeno je koristiti Platformu za:</p>
       <p>
         Pružanje lažnih podataka pri registraciji ili korištenju bilo koje
@@ -316,9 +362,18 @@ export default function TermsPage() {
         Igrača.
       </p>
       <p>
+        Slanje nezakonitih, prijetećih, uznemirujućih, diskriminatornih,
+        obmanjujućih ili spam poruka putem DM chata ili chata Termina.
+      </p>
+      <p>
         Uznemiravanje, zastrašivanje, diskriminaciju ili uvredu drugih
         korisnika na temelju rase, spola, dobi, vjere, seksualne orijentacije,
         invaliditeta ili drugog zaštićenog obilježja.
+      </p>
+      <p>
+        Zaobilaženje funkcionalnosti blokiranja, zlouporabu sustava prijava ili
+        ponovljeno kontaktiranje korisnika protivno njihovoj jasno izraženoj
+        volji.
       </p>
       <p>
         Neovlašteni pristup infrastrukturi Platforme, pokušaje hakiranja,
@@ -335,8 +390,8 @@ export default function TermsPage() {
         trećim osobama.
       </p>
 
-      {/* 13 */}
-      <h2 className={styles.sectionTitle}>13. Intelektualno vlasništvo</h2>
+      {/* 14 */}
+      <h2 className={styles.sectionTitle}>14. Intelektualno vlasništvo</h2>
       <p>
         Sva prava intelektualnog vlasništva na Platformi – uključujući dizajn,
         izvorni kod, grafičke elemente, logotipe, baze podataka i tekstove – u
@@ -351,8 +406,8 @@ export default function TermsPage() {
         javno prikazivanje ili preinaka sadržaja Platforme strogo je zabranjeno.
       </p>
 
-      {/* 14 */}
-      <h2 className={styles.sectionTitle}>14. Zaštita osobnih podataka</h2>
+      {/* 15 */}
+      <h2 className={styles.sectionTitle}>15. Zaštita osobnih podataka</h2>
       <p>
         Prikupljanje i obrada osobnih podataka korisnika uređena je našom{" "}
         <Link href="/privacy">Politikom privatnosti</Link>, koja je sastavni dio
@@ -361,14 +416,15 @@ export default function TermsPage() {
       </p>
       <p>
         Platforma prikuplja i obrađuje, između ostalog, e‑mail adresu, broj
-        mobilnog telefona, godinu rođenja i profilnu fotografiju. Za detalje o
-        svrhama obrade, pravnoj osnovi, rokovima čuvanja i vašim pravima kao
-        ispitanika molimo pogledajte{" "}
+        mobilnog telefona, godinu rođenja, profilnu fotografiju, chat poruke,
+        podatke o blokiranju i utišavanju te podatke o prijavama korisnika i
+        poruka. Za detalje o svrhama obrade, pravnoj osnovi, rokovima čuvanja i
+        vašim pravima kao ispitanika molimo pogledajte{" "}
         <Link href="/privacy">Politiku privatnosti</Link>.
       </p>
 
-      {/* 15 */}
-      <h2 className={styles.sectionTitle}>15. Ograničenje odgovornosti</h2>
+      {/* 16 */}
+      <h2 className={styles.sectionTitle}>16. Ograničenje odgovornosti</h2>
       <p>
         Platforma se pruža &ldquo;kakva jest&rdquo; i &ldquo;kako je dostupna&rdquo;, bez ikakvih
         izričitih ili impliciranih jamstava u pogledu dostupnosti, točnosti,
@@ -382,6 +438,12 @@ export default function TermsPage() {
       <p>
         SportSync ne odgovara za štete nastale zbog netočnih informacija koje su
         unijeli korisnici.
+      </p>
+      <p>
+        SportSync ne odgovara za sadržaj poruka, stavove ili ponašanje korisnika
+        u DM chatu ili chatu Termina, osim u mjeri u kojoj je drugačije propisano
+        obveznim pravom. Činjenica da SportSync omogućuje prijavu ili ručnu
+        moderaciju ne znači obvezu prethodnog nadzora svake poruke.
       </p>
       <p>
         SportSync ne odgovara za ozljede ili materijalnu štetu nastalu za vrijeme
@@ -400,13 +462,13 @@ export default function TermsPage() {
         zaštićena prisilnim propisima.
       </p>
 
-      {/* 16 */}
-      <h2 className={styles.sectionTitle}>16. Suspenzija i zatvaranje računa</h2>
+      {/* 17 */}
+      <h2 className={styles.sectionTitle}>17. Suspenzija i zatvaranje računa</h2>
       <p>
         SportSync može privremeno suspendirati ili trajno zatvoriti korisnički
         račun u slučaju kršenja ovih Uvjeta, sumnje na prijevarno ponašanje,
-        na zahtjev nadležnih tijela ili iz razloga zaštite integriteta
-        Platforme.
+        zlouporabe chata, osnovanih prijava drugih korisnika, na zahtjev
+        nadležnih tijela ili iz razloga zaštite integriteta Platforme.
       </p>
       <p>
         O suspenziji ili zatvaranju računa korisnik će biti obaviješten
@@ -423,8 +485,8 @@ export default function TermsPage() {
         <Link href="/delete-account">Brisanje računa</Link>.
       </p>
 
-      {/* 17 */}
-      <h2 className={styles.sectionTitle}>17. Usluge trećih strana</h2>
+      {/* 18 */}
+      <h2 className={styles.sectionTitle}>18. Usluge trećih strana</h2>
       <p>
         Platforma može koristiti usluge trećih pružatelja (npr. pružatelji push
         obavijesti, SMS gateway, usluge pohrane podataka u oblaku). Ove treće
@@ -438,8 +500,8 @@ export default function TermsPage() {
         odgovornost za njihov sadržaj ili praksu privatnosti.
       </p>
 
-      {/* 18 */}
-      <h2 className={styles.sectionTitle}>18. Izmjene Uvjeta</h2>
+      {/* 19 */}
+      <h2 className={styles.sectionTitle}>19. Izmjene Uvjeta</h2>
       <p>
         SportSync zadržava pravo izmjene ovih Uvjeta u bilo koje vrijeme.
         O svim značajnijim izmjenama korisnici će biti obaviješteni putem push
@@ -453,8 +515,8 @@ export default function TermsPage() {
         prestati koristiti Platformu i možete zatvoriti račun.
       </p>
 
-      {/* 19 */}
-      <h2 className={styles.sectionTitle}>19. Mjerodavno pravo i rješavanje sporova</h2>
+      {/* 20 */}
+      <h2 className={styles.sectionTitle}>20. Mjerodavno pravo i rješavanje sporova</h2>
       <p>
         Ovi Uvjeti uređeni su pravom Republike Hrvatske. Za sve sporove koji
         nastanu u vezi s ovim Uvjetima ili korištenjem Platforme, a koji se ne
@@ -476,8 +538,8 @@ export default function TermsPage() {
         .
       </p>
 
-      {/* 20 */}
-      <h2 className={styles.sectionTitle}>20. Razdvojivost odredbi</h2>
+      {/* 21 */}
+      <h2 className={styles.sectionTitle}>21. Razdvojivost odredbi</h2>
       <p>
         Ako bilo koja odredba ovih Uvjeta bude proglašena ništavnom,
         nezakonitom ili neprovedivom od strane nadležnog suda, ta odredba
@@ -485,11 +547,12 @@ export default function TermsPage() {
         opsegu.
       </p>
 
-      {/* 21 */}
-      <h2 className={styles.sectionTitle}>21. Kontakt</h2>
+      {/* 22 */}
+      <h2 className={styles.sectionTitle}>22. Kontakt</h2>
       <p>
         Za sva pitanja, prigovore ili zahtjeve vezane uz ove Uvjete ili
-        korištenje Platforme obratite nam se putem{" "}
+        korištenje Platforme, uključujući prijave korisnika ili poruka u chatu,
+        obratite nam se putem{" "}
         <Link href="/contact">kontaktnog obrasca</Link> ili emailom na{" "}
         <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>.
       </p>

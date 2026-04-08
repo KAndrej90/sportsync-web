@@ -12,13 +12,21 @@ export default function DeleteAccountPage() {
   return (
     <article className={styles.prose}>
       <h1 className={styles.pageTitle}>Brisanje računa i podataka</h1>
-      <p className={styles.lastUpdated}>Zadnje ažuriranje: 14. ožujka 2026.</p>
+      <p className={styles.lastUpdated}>Zadnje ažuriranje: 8. travnja 2026.</p>
 
       <p>
         SportSync omogućuje brisanje računa izravno unutar mobilne aplikacije.
         Brisanjem računa brišu se povezani osobni podaci u skladu s pravilima
         privatnosti, osim podataka koje smo dužni zadržati radi zakonskih obveza
         ili legitimnih interesa (npr. sigurnost i sprječavanje zlouporaba).
+      </p>
+      <p>
+        Ako ste prije brisanja računa slali chat poruke, one se ne moraju
+        trenutačno ukloniti iz DM razgovora ili chatova Termina drugih korisnika.
+        Redovni chat zapisi brišu se najkasnije u roku od <strong>3 mjeseca</strong>
+        od slanja, a prijavljene poruke i povezani sigurnosni zapisi mogu se
+        zadržati dulje ako je to potrebno radi obrade prijave, zaštite prava,
+        sprječavanja zlouporaba ili poštivanja zakonskih obveza.
       </p>
 
       <h2 className={styles.sectionTitle}>1. Brisanje računa u aplikaciji (preporučeno)</h2>

@@ -40,9 +40,9 @@ const features: Feature[] = [
     iconClass: "text-[#59b200]",
   },
   {
-    title: "Živa energija zajednice",
+    title: "Dogovor u jednom chatu",
     description:
-      "Pridruži se grupama za nogomet, košarku, odbojku i druge sportove te upoznaj ljude koji dijele tvoj ritam.",
+      "Razmjenjuj privatne poruke 1:1 i dogovaraj detalje unutar chata svakog termina bez prebacivanja na druge aplikacije.",
     Icon: Sparkles,
     iconClass: "text-[#3B28CC]",
   },
@@ -371,7 +371,7 @@ export default function Home() {
                 Od ideje do igre u nekoliko minuta
               </h2>
               <p className="text-lg text-[#292929]/75">
-                Bez beskonačnih poruka i nedolazaka. SportSync prati dolaske, podsjeća tim, sinkronizira kalendar i šalje ti nove prijedloge dok ti planiraš sljedeći potez.
+                Bez prebacivanja između više aplikacija i bez nepotrebnih nedolazaka. SportSync prati dolaske, omogućuje komunikaciju sudionika, sinkronizira kalendar i šalje ti nove prijedloge dok ti planiraš sljedeći potez.
               </p>
             </div>
             <div className="rounded-3xl border border-[#cbcde4] bg-white p-8 shadow-lg">

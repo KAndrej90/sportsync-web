@@ -11,7 +11,7 @@ export default function PrivacyPage() {
   return (
     <article className={styles.prose}>
       <h1 className={styles.pageTitle}>Politika privatnosti</h1>
-      <p className={styles.lastUpdated}>Zadnje ažuriranje: 14. ožujka 2026.</p>
+      <p className={styles.lastUpdated}>Zadnje ažuriranje: 8. travnja 2026.</p>
 
       <p>
         Ova Politika privatnosti opisuje kako <strong>Codemem Consulting d.o.o.</strong>,
@@ -84,6 +84,12 @@ export default function PrivacyPage() {
           <strong>Sportske preferencije i razina igre</strong> – za
           personalizaciju prikaza termina i ocjenjivanje prema sportu.
         </li>
+        <li>
+          <strong>Sigurnosne i komunikacijske postavke</strong> – podaci o
+          blokiranim korisnicima, utišanim DM razgovorima i utišanim chatovima
+          Termina te prijave korisnika ili pojedinačnih poruka koje nam
+          podnosite.
+        </li>
       </ul>
 
       <p><strong>2.2. Podaci koji nastaju korištenjem Platforme</strong></p>
@@ -99,11 +105,23 @@ export default function PrivacyPage() {
           sport.
         </li>
         <li>
+          <strong>Chat podaci</strong> – sadržaj DM poruka i poruka u chatovima
+          Termina, identitet pošiljatelja i primatelja odnosno članova chata,
+          pripadajući Termin, vrijeme slanja te podaci povezani s blokiranjem,
+          utišavanjem i prijavama unutar chata.
+        </li>
+        <li>
           <strong>Tehnički podaci</strong> – IP adresa, tip uređaja, verzija
           operativnog sustava i aplikacije, token za push obavijesti. Ovi podaci
           prikupljaju se automatski radi ispravnog rada Platforme i sigurnosti.
         </li>
       </ul>
+      <p>
+        Chat poruke nisu end-to-end enkriptirane. SportSync može pristupiti i
+        pročitati poruke kada je to nužno za isporuku funkcionalnosti chata,
+        korisničku podršku, sigurnost računa, ručnu obradu prijava i
+        sprječavanje zlouporaba.
+      </p>
 
       <p><strong>2.3. Podaci koje NE prikupljamo</strong></p>
       <ul>
@@ -144,9 +162,27 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>Push obavijesti</strong> (token uređaja) – za informiranje o
-          statusu termina (potvrda rezervacije, otkazivanje, novi igrači i sl.) –
-          <em>izvršavanje ugovora</em>. Možete isključiti push obavijesti u
-          postavkama uređaja.
+          statusu termina (potvrda rezervacije, otkazivanje, novi igrači i sl.)
+          te o novim chat porukama; push obavijesti mogu sadržavati i pregled
+          teksta poruke, ovisno o postavkama uređaja – <em>izvršavanje
+          ugovora</em>. Možete isključiti push obavijesti u postavkama uređaja.
+        </li>
+        <li>
+          <strong>DM chat i chatovi Termina</strong> (sadržaj poruka, sudionici,
+          pripadajući Termin) – <em>izvršavanje ugovora</em>; bez ove obrade nije
+          moguće omogućiti komunikaciju među korisnicima unutar Platforme.
+        </li>
+        <li>
+          <strong>Blokiranje i utišavanje</strong> – <em>izvršavanje ugovora</em>;
+          ove postavke koristimo kako bismo primijenili vaše sigurnosne i
+          komunikacijske preference unutar aplikacije.
+        </li>
+        <li>
+          <strong>Prijava korisnika i poruka te ručna moderacija</strong> –
+          <em>legitimni interes</em> (čl. 6. st. 1. t. f) GDPR‑a) radi zaštite
+          korisnika, sprječavanja zlouporaba, provedbe Uvjeta korištenja te,
+          kada je primjenjivo, radi postavljanja, ostvarivanja ili obrane
+          pravnih zahtjeva.
         </li>
         <li>
           <strong>Prikaz profila i profilne fotografije</strong> – <em>izvršavanje
@@ -222,6 +258,12 @@ export default function PrivacyPage() {
         marketinške svrhe.
       </p>
       <p>
+        Chat poruke pohranjujemo na vlastitim poslužiteljima odnosno unutar
+        naše serverske infrastrukture. Ne koristimo zasebnog vanjskog pružatelja
+        chat usluge, ali pružatelji hostinga i cloud infrastrukture mogu djelovati
+        kao izvršitelji obrade u mjeri nužnoj za rad Platforme.
+      </p>
+      <p>
         Možemo dijeliti podatke s nadležnim tijelima ako to zahtijeva zakon ili
         sudski nalog.
       </p>
@@ -262,6 +304,20 @@ export default function PrivacyPage() {
           korisnika; nakon brisanja računa anonimiziraju se ili brišu.
         </li>
         <li>
+          <strong>DM poruke i poruke u chatovima Termina</strong> – čuvaju se
+          najdulje <strong>3 mjeseca</strong> od slanja. Ako se Termin izbriše
+          prije isteka tog roka, briše se i pripadajući chat Termina. Brisanje
+          korisničkog računa ne znači nužno trenutačno uklanjanje ranije poslanih
+          poruka iz razgovora drugih korisnika; na njih se primjenjuje ovaj rok
+          čuvanja.
+        </li>
+        <li>
+          <strong>Prijave, blokiranja, utišavanja i povezani sigurnosni zapisi</strong>
+          – čuvaju se dok je to potrebno za provedbu vaših postavki, obradu
+          prijave, zaštitu prava, sprječavanje zlouporaba i ispunjenje zakonskih
+          obveza, a najdulje onoliko koliko to zahtijeva konkretna svrha.
+        </li>
+        <li>
           <strong>Tehnički zapisi (logovi)</strong> – do <strong>12 mjeseci</strong>{" "}
           od nastanka, a potom se trajno brišu ili anonimiziraju.
         </li>
@@ -288,6 +344,7 @@ export default function PrivacyPage() {
         <li>TLS enkripciju pri svakom prijenosu podataka između aplikacije i poslužitelja.</li>
         <li>Hashiranje lozinki – lozinke se nikada ne pohranjuju u čitljivom obliku.</li>
         <li>Višestruku verifikaciju identiteta (OTP putem SMS‑a) pri registraciji i osjetljivim promjenama.</li>
+        <li>Kontrolu pristupa chat porukama – pristup sadržaju poruka imaju samo ovlaštene osobe kada je to nužno za podršku, sigurnost i ručnu obradu prijava.</li>
         <li>Kontrolu pristupa podacima – zaposlenici i suradnici imaju pristup samo podacima koji su im nužni za obavljanje posla.</li>
         <li>Redovite sigurnosne preglede koda i infrastrukture.</li>
       </ul>
@@ -296,6 +353,10 @@ export default function PrivacyPage() {
         slučaju sigurnosnog incidenta koji bi mogao ugroziti vaše podatke,
         obavijestit ćemo vas i nadležno nadzorno tijelo (AZOP) u rokovima
         propisanim GDPR‑om.
+      </p>
+      <p>
+        Iako chat poruke štitimo tijekom prijenosa i pohrane primjenom
+        odgovarajućih sigurnosnih mjera, one nisu end-to-end enkriptirane.
       </p>
 
       {/* 8 */}
@@ -347,7 +408,9 @@ export default function PrivacyPage() {
           <strong>Pravo na brisanje (&ldquo;pravo na zaborav&rdquo;)</strong> – možete
           zatražiti brisanje računa i svih osobnih podataka. Detalje pogledajte
           na stranici{" "}
-          <Link href="/delete-account">Brisanje računa</Link>.
+          <Link href="/delete-account">Brisanje računa</Link>. Imajte na umu da
+          se ranije poslane chat poruke ne moraju obrisati trenutno, već se na
+          njih primjenjuju rokovi čuvanja opisani u čl. 6 ove Politike.
         </li>
         <li>
           <strong>Pravo na ograničenje obrade</strong> – u određenim slučajevima
