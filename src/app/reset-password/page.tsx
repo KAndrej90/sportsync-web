@@ -70,11 +70,15 @@ export default function ResetPasswordPage() {
         headers: { "Content-Type": "application/json" }
       })
 
+      if (!res.ok) {
+        throw new Error();
+      }
+
       setSuccess("Lozinka je uspješno promijenjena.")
       setPassword("")
       setConfirm("")
     } catch (err: unknown) {
-      setError("Nismo uspjeli promijeniti lozinku. Molimo pokušajte ponovo.")
+      setError("Nismo uspjeli promijeniti lozinku. Molimo pokušajte ponovo. Ako problem i dalje bude prisutan, kontaktirajte podršku.")
     } finally {
       setLoading(false)
     }
