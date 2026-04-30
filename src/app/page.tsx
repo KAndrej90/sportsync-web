@@ -110,7 +110,7 @@ type StoreLink = {
 
 const storeLinks: StoreLink[] = [
   {
-    href: "https://play.google.com/store",
+    href: "https://play.google.com/store/apps/details?id=com.andrejk90.SPORTSYNC",
     badge: GooglePlayBadge,
     alt: "Preuzmi SportSync na Google Play trgovini",
   },

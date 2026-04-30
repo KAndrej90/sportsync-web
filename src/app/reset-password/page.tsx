@@ -70,25 +70,11 @@ export default function ResetPasswordPage() {
         headers: { "Content-Type": "application/json" }
       })
 
-      if (!res.ok) {
-        let msg = `Request failed: ${res.status}`
-        try {
-          const body = await res.json()
-          if (body?.message) msg = body.message
-        } catch (_) {}
-        throw new Error(msg)
-      }
-
-      const data = await res.json().catch(() => ({}))
-      setSuccess(data?.message || "Lozinka je uspješno promijenjena.")
+      setSuccess("Lozinka je uspješno promijenjena.")
       setPassword("")
       setConfirm("")
     } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message || "Nismo uspjeli promijeniti lozinku. Molimo pokušajte ponovo.")
-      } else {
-        setError(String(err) || "Nismo uspjeli promijeniti lozinku. Molimo pokušajte ponovo.")
-      }
+      setError("Nismo uspjeli promijeniti lozinku. Molimo pokušajte ponovo.")
     } finally {
       setLoading(false)
     }

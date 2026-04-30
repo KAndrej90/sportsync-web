@@ -46,7 +46,7 @@ export default function ContactForm() {
         try {
           const body = await res.json();
           if (body?.message) msg = body.message;
-        } catch (_) {}
+        } catch {}
         throw new Error(msg);
       }
 
