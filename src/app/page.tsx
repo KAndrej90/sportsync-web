@@ -115,7 +115,7 @@ const storeLinks: StoreLink[] = [
     alt: "Preuzmi SportSync na Google Play trgovini",
   },
   {
-    href: "https://www.apple.com/app-store/",
+    href: "https://apps.apple.com/hr/app/sportsync/id6758768052?l=hr",
     badge: AppStoreBadgeLight,
     alt: "Preuzmi SportSync na App Storeu",
   },
