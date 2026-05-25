@@ -2,10 +2,10 @@
 
 :root {
   --background: #e4e6f6;
-  --foreground: #292929;
-  --brand-blue: #3b28cc;
+  --foreground: #222222;
+  --brand-blue: #3026c1;
   --brand-green: #89fc00;
-  --brand-dark: #292929;
+  --brand-dark: #222222;
   --brand-white: #ffffff;
 }
 
@@ -18,6 +18,10 @@
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -35,6 +39,6 @@ a {
 }
 
 ::selection {
-  background: rgba(59, 40, 204, 0.3);
+  background: rgba(48, 38, 193, 0.28);
   color: var(--brand-dark);
 }

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
@@ -64,44 +64,64 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mt-6 space-y-4" aria-label="Kontakt forma">
+    <form
+      onSubmit={handleSubmit}
+      className="mt-8 space-y-5"
+      aria-label="Kontakt forma"
+    >
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <input
           type="text"
           placeholder="Ime i prezime (opcionalno)"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="rounded-md border border-gray-300 px-3 py-2"
+          className="rounded-2xl border border-[#cfd3f4] bg-[#f8f9ff] px-4 py-3 text-[#222222] outline-none transition placeholder:text-[#7a8093] focus:border-[#3026C1] focus:bg-white focus:ring-4 focus:ring-[#3026C1]/10"
         />
         <input
           type="email"
           placeholder="Email (obavezno)"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="rounded-md border border-gray-300 px-3 py-2"
+          className="rounded-2xl border border-[#cfd3f4] bg-[#f8f9ff] px-4 py-3 text-[#222222] outline-none transition placeholder:text-[#7a8093] focus:border-[#3026C1] focus:bg-white focus:ring-4 focus:ring-[#3026C1]/10"
         />
       </div>
 
       <div>
-        <label className="sr-only" htmlFor="message">Poruka</label>
+        <label className="sr-only" htmlFor="message">
+          Poruka
+        </label>
         <textarea
           id="message"
           placeholder="Opis problema ili pitanje"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full rounded-md border border-gray-300 px-3 py-2 min-h-[120px]"
+          className="min-h-[160px] w-full rounded-[1.5rem] border border-[#cfd3f4] bg-[#f8f9ff] px-4 py-3 text-[#222222] outline-none transition placeholder:text-[#7a8093] focus:border-[#3026C1] focus:bg-white focus:ring-4 focus:ring-[#3026C1]/10"
           required
         />
       </div>
 
-      {error && <div role="alert" className="text-sm text-red-600">{error}</div>}
-      {success && <div role="status" className="text-sm text-green-600">{success}</div>}
+      {error && (
+        <div
+          role="alert"
+          className="rounded-2xl border border-[#efb1b1] bg-[#fff1f1] px-4 py-3 text-sm text-[#a12d2d]"
+        >
+          {error}
+        </div>
+      )}
+      {success && (
+        <div
+          role="status"
+          className="rounded-2xl border border-[#bde486] bg-[#f4ffe6] px-4 py-3 text-sm text-[#345b08]"
+        >
+          {success}
+        </div>
+      )}
 
       <div>
         <button
           type="submit"
           disabled={loading}
-          className="inline-flex items-center justify-center rounded-full bg-[#3B28CC] px-5 py-2 text-sm font-semibold text-white disabled:opacity-50"
+          className="inline-flex items-center justify-center rounded-full bg-[#89FC00] px-6 py-3 text-sm font-semibold text-[#3026C1] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {loading ? "Šaljem..." : "Pošalji poruku"}
         </button>

@@ -15,47 +15,46 @@ export default function LegalLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <header className="hero-animate fixed inset-x-0 top-0 z-30 border-b border-[#141031] bg-gradient-to-r from-[#16112e]/98 via-[#1b1650]/95 to-[#141031]/98 shadow-[0_18px_45px_rgba(12,9,30,0.35)] backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3 md:px-10">
-          <div className="flex items-center gap-3">
-            <Link href="/" aria-label="SportSync početna" className="inline-flex">
+      <div className="min-h-screen bg-[#E4E6F6] text-[#222222]">
+        <header className="sticky top-0 z-40 border-b border-[#4138d0] bg-[#3026C1]">
+          <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-5 py-5 md:px-8">
+            <Link href="/" aria-label="SportSync početna" className="shrink-0">
               <Image
                 src={LogoAndName}
                 alt="SportSync logotip"
                 priority
-                className="h-11 w-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+                className="h-9 w-auto md:h-10"
               />
             </Link>
-          </div>
-          <nav className="hidden items-center gap-8 text-sm font-semibold text-white/75 lg:flex">
-            <Link href="/#feature" className="transition-colors hover:text-white">
-              Značajke
-            </Link>
-            <Link href="/#kako" className="transition-colors hover:text-white">
-              Kako funkcionira
-            </Link>
-            <Link href="/#sports" className="transition-colors hover:text-white">
-              Sportovi
-            </Link>
-            <Link href="/#download" className="transition-colors hover:text-white">
-              Preuzmi
-            </Link>
-            <Link href="/contact" className="transition-colors hover:text-white">
-              Kontakt
-            </Link>
-          </nav>
-          <Link
-            href="/#download"
-            className="hidden rounded-full bg-gradient-to-r from-[#89FC00] to-[#54C600] px-6 py-2 text-sm font-semibold text-[#101010] shadow-lg shadow-[#89FC00]/25 transition hover:brightness-110 lg:inline-flex"
-          >
-            Preuzmi aplikaciju
-          </Link>
-        </div>
-      </header>
 
-      <main className="mx-auto w-full max-w-4xl px-6 pb-20 pt-32 md:px-10">
-        {children}
-      </main>
+            <nav className="hidden items-center gap-8 text-sm text-white/80 lg:flex">
+              <Link href="/#znacajke" className="transition hover:text-white">
+                Značajke
+              </Link>
+              <Link href="/#kako-funkcionira" className="transition hover:text-white">
+                Kako funkcionira
+              </Link>
+              <Link href="/#sportovi" className="transition hover:text-white">
+                Sportovi
+              </Link>
+              <Link href="/contact" className="transition hover:text-white">
+                Kontakt
+              </Link>
+            </nav>
+
+            <Link
+              href="/#preuzmi"
+              className="hidden rounded-full bg-[#89FC00] px-6 py-3 text-sm font-semibold text-[#3026C1] transition hover:brightness-95 lg:inline-flex"
+            >
+              Preuzmi aplikaciju
+            </Link>
+          </div>
+        </header>
+
+        <main className="mx-auto w-full max-w-5xl px-5 pb-20 pt-14 md:px-8 md:pt-16">
+          {children}
+        </main>
+      </div>
     </>
   );
 }
