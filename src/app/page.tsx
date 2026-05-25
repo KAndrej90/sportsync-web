@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Facebook, Instagram, Star } from "lucide-react";
+import { Facebook, Instagram, Search, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import LogoAndName from "./assets/logoAndName.svg";
@@ -13,7 +13,6 @@ import FeatureIconOne from "./assets/Frame 131.svg";
 import FeatureIconTwo from "./assets/Frame 131 (1).svg";
 import FeatureIconThree from "./assets/Frame 131 (2).svg";
 import StepIconOne from "./assets/Frame 131 (3).svg";
-import StepIconTwo from "./assets/Frame 131 (4).svg";
 import StepIconThree from "./assets/state-layer.svg";
 import HeroPhone from "./assets/mobiteeel 1.svg";
 import SportImageOne from "./assets/11 1.png";
@@ -70,24 +69,28 @@ const steps = [
     description:
       "Postavi sportske preferencije i dozvoli SportSyncu da pronađe prave suigrače umjesto tebe.",
     icon: StepIconOne,
+    iconType: "image",
   },
   {
-    title: "Nađi termin",
+    title: "Nađi termin ili igrače",
     description:
       "Pregledaj otvorene susrete u tvojoj blizini ili otvori novi i pozovi ekipu.",
-    icon: StepIconTwo,
+    icon: null,
+    iconType: "search",
   },
   {
     title: "Igraj bez brige",
     description:
       "Potvrdi dolazak, sinkroniziraj kalendar i prepusti se igri bez stresa oko organizacije.",
     icon: StepIconThree,
+    iconType: "image",
   },
   {
     title: "Ocijeni suigrače",
     description:
       "Nakon igre ostavi ocjenu i komentar kako bi zajednica lakše pronašla pouzdane partnere za sljedeći termin.",
     icon: null,
+    iconType: "star",
   },
 ];
 
@@ -340,13 +343,20 @@ export default function Home() {
                   className="fade-item rounded-[1.6rem] bg-white px-5 py-5 text-[#222222] shadow-[0_24px_40px_rgba(13,8,67,0.18)] md:min-h-[180px] md:px-6"
                 >
                   <div className="flex items-start gap-4">
-                    {step.icon ? (
+                    {step.iconType === "image" && step.icon ? (
                       <Image
                         src={step.icon}
                         alt=""
                         aria-hidden="true"
                         className="h-16 w-16 shrink-0"
                       />
+                    ) : step.iconType === "search" ? (
+                      <span
+                        aria-hidden="true"
+                        className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#DDF7A9]"
+                      >
+                        <Search className="h-8 w-8 text-[#3026C1]" />
+                      </span>
                     ) : (
                       <span
                         aria-hidden="true"
@@ -476,7 +486,7 @@ export default function Home() {
 
                 <div className="flex items-center gap-5">
                   <a
-                    href="https://www.facebook.com/"
+                    href="https://www.facebook.com/profile.php?id=61589590073833"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="SportSync Facebook"
@@ -485,7 +495,7 @@ export default function Home() {
                     <Facebook className="h-5 w-5" />
                   </a>
                   <a
-                    href="https://www.instagram.com/"
+                    href="https://www.instagram.com/sportsync_hr/"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="SportSync Instagram"
