@@ -11,7 +11,7 @@ export default function PrivacyPage() {
   return (
     <article className={styles.prose}>
       <h1 className={styles.pageTitle}>Politika privatnosti</h1>
-      <p className={styles.lastUpdated}>Zadnje ažuriranje: 8. travnja 2026.</p>
+      <p className={styles.lastUpdated}>Zadnje ažuriranje: 3. lipnja 2026.</p>
 
       <p>
         Ova Politika privatnosti opisuje kako <strong>Codemem Consulting d.o.o.</strong>,
@@ -115,6 +115,13 @@ export default function PrivacyPage() {
           operativnog sustava i aplikacije, token za push obavijesti. Ovi podaci
           prikupljaju se automatski radi ispravnog rada Platforme i sigurnosti.
         </li>
+        <li>
+          <strong>Analitički podaci web‑stranice</strong> – uz vašu privolu,
+          putem Google Analytics prikupljamo anonimizirane podatke o korištenju
+          web‑stranice: posjećene stranice, trajanje posjeta, vrsta preglednika
+          i uređaja te približna geografska lokacija (na razini grada). IP
+          adresa se anonimizira prije obrade.
+        </li>
       </ul>
       <p>
         Chat poruke nisu end-to-end enkriptirane. SportSync može pristupiti i
@@ -212,6 +219,13 @@ export default function PrivacyPage() {
           koristimo ih samo anonimno ili agregirano gdje je moguće.
         </li>
         <li>
+          <strong>Analitika web‑stranice</strong> (analitički kolačići Google
+          Analytics) – <em>privola</em> (čl. 6. st. 1. t. a) GDPR‑a);
+          kolačići se postavljaju isključivo nakon što date izričitu privolu
+          putem bannera za kolačiće. Privolu možete povući u bilo kojem
+          trenutku brisanjem kolačića u pregledniku.
+        </li>
+        <li>
           <strong>Poštivanje zakonskih obveza</strong> (npr. računovodstveni
           zapisi, zahtjevi nadležnih tijela) – <em>zakonska obveza</em> (čl. 6.
           st. 1. t. c) GDPR‑a).
@@ -251,6 +265,10 @@ export default function PrivacyPage() {
         <li>
           <strong>Pohrana datoteka</strong> – pohrana profilnih fotografija.
         </li>
+        <li>
+          <strong>Google Ireland Limited</strong> (Google Analytics) –
+          analitika web‑stranice; podatke obrađuje isključivo uz vašu privolu.
+        </li>
       </ul>
       <p>
         Ne prodajemo, ne iznajmljujemo niti na drugi način komercijalno
@@ -272,12 +290,15 @@ export default function PrivacyPage() {
       <h2 className={styles.sectionTitle}>5. Prijenos podataka izvan EU/EEA</h2>
       <p>
         Neki od naših pružatelja infrastrukture mogu obrađivati podatke izvan
-        Europskog gospodarskog prostora (EGP). U takvim slučajevima prijenos
+        Europskog gospodarskog prostora (EGP). To uključuje Google LLC
+        (Sjedinjene Američke Države) koji obrađuje analitičke podatke
+        prikupljene putem Google Analytics. U takvim slučajevima prijenos
         provodimo isključivo na temelju odgovarajućih zaštitnih mjera:
       </p>
       <ul>
         <li>
-          Odluke Europske komisije o primjerenoj razini zaštite, ili
+          Odluke Europske komisije o primjerenoj razini zaštite (uključujući
+          EU‑U.S. Data Privacy Framework za prijenose u SAD), ili
         </li>
         <li>
           Standardnih ugovornih klauzula (SCC) odobrenih od strane Europske
@@ -362,9 +383,11 @@ export default function PrivacyPage() {
       {/* 8 */}
       <h2 className={styles.sectionTitle}>8. Kolačići i slične tehnologije</h2>
       <p>
-        Web‑stranica sportsync.hr koristi samo tehničke kolačiće neophodne za
-        njezino ispravno funkcioniranje i ne koristi kolačiće za praćenje
-        posjetitelja niti analitiku trećih strana. Detalji su opisani u našoj{" "}
+        Web‑stranica sportsync.hr koristi tehničke kolačiće neophodne za
+        njezino ispravno funkcioniranje te, uz vašu izričitu privolu,
+        analitičke kolačiće (Google Analytics) za poboljšanje korisničkog
+        iskustva. Analitički kolačići postavljaju se tek nakon što prihvatite
+        banner za kolačiće pri prvom posjetu. Detalji su opisani u našoj{" "}
         <Link href="/cookies">Politici kolačića</Link>.
       </p>
       <p>
