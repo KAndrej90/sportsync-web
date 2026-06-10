@@ -14,7 +14,7 @@ import FeatureIconTwo from "./assets/Frame 131 (1).svg";
 import FeatureIconThree from "./assets/Frame 131 (2).svg";
 import StepIconOne from "./assets/Frame 131 (3).svg";
 import StepIconThree from "./assets/state-layer.svg";
-import HeroPhone from "./assets/mobiteeel 1.svg";
+import HeroImage from "./assets/hero.svg";
 import SportImageOne from "./assets/11 1.png";
 import SportImageTwo from "./assets/12 1.png";
 import SportImageThree from "./assets/13 1.png";
@@ -44,15 +44,15 @@ const storeLinks = [
 
 const features = [
   {
-    title: "Organiziraj u sekundi",
+    title: "Vodi stalne termine",
     description:
-      "Kreiraj termin u par dodira, podijeli s prijateljima i prati potvrde u stvarnom vremenu.",
+      "Postavi svoj redovni termin, okupljaj poznatu ekipu i prati tko dolazi svaki tjedan bez beskrajnih poruka.",
     icon: FeatureIconOne,
   },
   {
-    title: "Ocijeni igrače",
+    title: "Popuni ekipu po potrebi",
     description:
-      "Izgradi povjerenje kroz recenzije i ocjene te pronađi pouzdane partnere za igru.",
+      "Kad ti nedostaje igrač, otvori slobodno mjesto i pronađi provjerenog rekreativca koji odgovara terminu.",
     icon: FeatureIconTwo,
   },
   {
@@ -65,30 +65,30 @@ const features = [
 
 const steps = [
   {
-    title: "Kreiraj profil",
+    title: "Postavi svoj termin",
     description:
-      "Postavi sportske preferencije i dozvoli SportSyncu da pronađe prave suigrače umjesto tebe.",
+      "Unesi sport, lokaciju i vrijeme za stalni ili jednokratni termin koji želiš voditi.",
     icon: StepIconOne,
     iconType: "image",
   },
   {
-    title: "Nađi termin ili igrače",
+    title: "Pozovi svoju ekipu",
     description:
-      "Pregledaj otvorene susrete u tvojoj blizini ili otvori novi i pozovi ekipu.",
+      "Podijeli termin s prijateljima, prati potvrde dolazaka i odmah vidi koliko je mjesta još otvoreno.",
     icon: null,
     iconType: "search",
   },
   {
-    title: "Igraj bez brige",
+    title: "Popuni prazna mjesta",
     description:
-      "Potvrdi dolazak, sinkroniziraj kalendar i prepusti se igri bez stresa oko organizacije.",
+      "Ako netko otkaže ili trebaš dodatne igrače, objavi slobodna mjesta zajednici u tvojoj blizini.",
     icon: StepIconThree,
     iconType: "image",
   },
   {
     title: "Ocijeni suigrače",
     description:
-      "Nakon igre ostavi ocjenu i komentar kako bi zajednica lakše pronašla pouzdane partnere za sljedeći termin.",
+      "Nakon igre ostavi ocjenu kako bi zajednica lakše pronašla pouzdane igrače za sljedeći termin.",
     icon: null,
     iconType: "star",
   },
@@ -219,17 +219,17 @@ export default function Home() {
           <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-24">
             <div className="hero-animate">
               <h1 className="max-w-[12ch] text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-[#1f2430] sm:text-5xl lg:text-[3.9rem]">
-                Pronađi svoj tim.
+                Organiziraj svoj termin.
                 <br />
                 <span className="text-[#3026C1]">Sinkroniziraj</span> svoju
                 igru.
               </h1>
 
               <p className="mt-6 max-w-xl text-base leading-8 text-[#2f3443] md:text-lg">
-                SportSync okuplja sportske rekreativce diljem Hrvatske i pomaže
-                im da lako dogovore termine, podijele strast i osjete energiju
-                igre. Više traženja, manje otkazivanja.{" "}
-                <strong>Samo čista sportska vibra.</strong>
+                SportSync ti pomaže voditi stalne sportske termine, pratiti
+                dolaske svoje ekipe i po potrebi pronaći dodatne igrače kad se
+                otvori slobodno mjesto.{" "}
+                <strong>Manje dogovaranja, više igre.</strong>
               </p>
 
               <div
@@ -256,11 +256,11 @@ export default function Home() {
             </div>
 
             <div className="hero-animate relative flex justify-center lg:justify-end">
-              <div className="absolute top-1/2 h-52 w-52 -translate-y-1/2 rounded-full bg-[#3026C1]/30 blur-3xl md:h-100 md:w-100" />
               <Image
-                src={HeroPhone}
+                src={HeroImage}
                 alt="SportSync mobilna aplikacija"
-                className="relative w-full max-w-[330px] drop-shadow-[0_28px_45px_rgba(48,38,193,0.28)] md:max-w-[490px]"
+                priority
+                className="relative w-[460px] max-w-[92vw] md:w-[660px] lg:max-w-none lg:translate-x-8"
               />
             </div>
           </div>
@@ -274,12 +274,12 @@ export default function Home() {
             <div className="fade-item text-center">
               <SectionTag>Zašto SportSync?</SectionTag>
               <h2 className="mx-auto mt-8 max-w-3xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
-                Sportska zajednica koja diše kao i ti
+                Tvoj termin ima sve pod kontrolom
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/75 md:text-base">
-                Kombiniramo tehnologiju i strast prema sportu kako bismo ti dali
-                platformu na kojoj svaki trening i utakmica postaju jednostavni
-                za dogovor.
+                Organiziraj redovne treninge, utakmice i rekreativne susrete na
+                jednom mjestu. SportSync čuva pregled ekipe, potvrda i slobodnih
+                mjesta, a zajednica uskače tek kad trebaš pojačanje.
               </p>
             </div>
 
@@ -326,13 +326,13 @@ export default function Home() {
             <div className="fade-item text-center">
               <SectionTag>Korak po korak</SectionTag>
               <h2 className="mx-auto mt-8 max-w-3xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
-                Od ideje do igre u nekoliko minuta
+                Od stalnog termina do pune ekipe
               </h2>
               <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-white/80 md:text-base">
                 Bez prebacivanja između više aplikacija i bez nepotrebnih
                 nedolazaka. SportSync prati dolaske, omogućuje komunikaciju
-                sudionika, sinkronizira kalendar i šalje ti nove prijedloge dok
-                ti planiraš sljedeći potez.
+                sudionika, sinkronizira kalendar i pomaže pronaći nove igrače
+                samo kad ih stvarno trebaš.
               </p>
             </div>
 
@@ -388,12 +388,12 @@ export default function Home() {
             <div className="fade-item">
               <SectionTag>Izaberi ritam</SectionTag>
               <h2 className="mt-8 max-w-3xl text-3xl font-semibold tracking-[-0.03em] text-[#1f2430] sm:text-4xl">
-                Sve što ti treba za sportsku avanturu
+                Za termine koje igraš svaki tjedan
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-[#4a4f5e] md:text-base">
                 Bez obzira treniraš li ozbiljno ili igraš rekreativno, SportSync
-                ti daje pregled najpopularnijih sportova i zajednica u tvojoj
-                okolini.
+                ti daje prostor za organizaciju omiljenog sporta, tvoje ekipe i
+                novih igrača kada ih zatreba.
               </p>
             </div>
 
@@ -428,11 +428,11 @@ export default function Home() {
                   Budućnost sporta
                 </span>
                 <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-[-0.03em] text-white md:text-5xl">
-                  Pridruži se SportSync pokretu i igraj s najboljima.
+                  Vodi svoj termin lakše i igraj s punom ekipom.
                 </h2>
                 <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">
-                  Osjeti kako je jednostavno ostati aktivan kad imaš zajednicu
-                  koja te podržava. Preuzmi aplikaciju i vidimo se na terenu!
+                  Postavi stalni termin, okupi svoje igrače i pronađi zamjenu
+                  kad ti zatreba. Preuzmi aplikaciju i vidimo se na terenu!
                 </p>
               </div>
 
