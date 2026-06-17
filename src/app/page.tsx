@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Facebook, Instagram, Search, Star } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Search, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import LogoAndName from "./assets/logoAndName.svg";
@@ -502,6 +502,15 @@ export default function Home() {
                     className="transition hover:text-white"
                   >
                     <Instagram className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/sport-sync"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="SportSync LinkedIn"
+                    className="transition hover:text-white"
+                  >
+                    <Linkedin className="h-5 w-5" />
                   </a>
                 </div>
               </div>
