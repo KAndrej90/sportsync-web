@@ -11,7 +11,7 @@ export default function TermsPage() {
   return (
     <article className={styles.prose}>
       <h1 className={styles.pageTitle}>Uvjeti korištenja</h1>
-      <p className={styles.lastUpdated}>Zadnje ažuriranje: 8. travnja 2026.</p>
+      <p className={styles.lastUpdated}>Zadnje ažuriranje: 26. lipnja 2026.</p>
 
       <p>
         Ovi Uvjeti korištenja (&ldquo;Uvjeti&rdquo;) pravno obvezujući su ugovor između vas i
@@ -37,64 +37,72 @@ export default function TermsPage() {
         Ako koristite Platformu u ime pravne osobe, jamčite da imate ovlast
         prihvatiti ove Uvjete u njezino ime.
       </p>
+      <p>
+        Kupnja dodatne funkcionalnosti unutar aplikacije podliježe i uvjetima
+        Apple App Storea odnosno Google Playa koji se prikazuju tijekom kupnje.
+      </p>
 
       {/* 2 */}
       <h2 className={styles.sectionTitle}>2. Definicije</h2>
       <p>
         <strong>&ldquo;Platforma&rdquo;</strong> – mobilna aplikacija SportSync i
-        web‑stranica dostupna na sportsync.hr, uključujući sve pridružene
-        usluge, sadržaje i funkcionalnosti.
+        web‑stranica sportsync.hr, uključujući pridružene usluge i funkcionalnosti.
+      </p>
+      <p><strong>&ldquo;Korisnik&rdquo;</strong> – registrirana fizička osoba.</p>
+      <p>
+        <strong>&ldquo;Igrač&rdquo;</strong> – Korisnik koji rezervira, traži ili se
+        pridružuje sportskim terminima.
       </p>
       <p>
-        <strong>&ldquo;Korisnik&rdquo;</strong> – svaka fizička osoba koja je registrirana
-        na Platformi i koristi je.
+        <strong>&ldquo;Organizator&rdquo; ili &ldquo;administrator Termina&rdquo;</strong> –
+        Korisnik s administratorskim ovlastima za pojedini Termin.
       </p>
       <p>
-        <strong>&ldquo;Igrač&rdquo;</strong> – Korisnik koji rezervira sportske termine,
-        traži ili se pridružuje dostupnim terminima.
+        <strong>&ldquo;Termin&rdquo;</strong> – sportska aktivnost kreirana na
+        Platformi, s definiranim sportom i organizacijskim podacima.
       </p>
       <p>
-        <strong>&ldquo;Organizator&rdquo;</strong> – Korisnik s administratorskim
-        ovlastima koji kreira i upravlja sportskim terminima te poziva ili
-        prihvaća druge Igrače.
+        <strong>&ldquo;Sezona&rdquo;</strong> – funkcionalnost dostupna za nogometni
+        Termin koja omogućuje unos ekipa, utakmica, rezultata, poretka i
+        statistike tijekom razdoblja od najviše jedne godine.
       </p>
       <p>
-        <strong>&ldquo;Termin&rdquo;</strong> – sportska aktivnost kreirana na Platformi,
-        s definiranim datumom, vremenom, mjestom i sportom.
+        <strong>&ldquo;Jednogodišnja sezona&rdquo;</strong> – jednokratni digitalni
+        proizvod kupljen unutar aplikacije kojim se za konkretni nogometni
+        Termin omogućuje pokretanje jedne nove Sezone.
       </p>
       <p>
-        <strong>&ldquo;Korisnički sadržaj&rdquo;</strong> – sve informacije, fotografije i
-        drugi materijali koje Korisnik učitava ili objavljuje na Platformu,
-        uključujući profilnu sliku.
+        <strong>&ldquo;Korisnički sadržaj&rdquo;</strong> – informacije, fotografije,
+        poruke i drugi materijali koje Korisnik učitava ili objavljuje.
       </p>
       <p>
-        <strong>&ldquo;Ocjena&rdquo;</strong> – ocjena i/ili komentar koji jedan Korisnik
-        ostavlja drugom Korisniku nakon zajednički odigranog Termina.
+        <strong>&ldquo;Ocjena&rdquo;</strong> – ocjena i/ili komentar koji jedan
+        Korisnik ostavlja drugom nakon zajednički odigranog Termina.
       </p>
       <p>
-        <strong>&ldquo;Chat&rdquo;</strong> – funkcionalnost razmjene poruka unutar
-        Platforme, uključujući privatne razgovore između dva Korisnika (DM)
-        i grupni chat unutar pojedinog Termina.
+        <strong>&ldquo;Chat&rdquo;</strong> – privatni DM razgovori i grupni chat
+        pojedinog Termina.
       </p>
-
       {/* 3 */}
       <h2 className={styles.sectionTitle}>3. Podobnost i minimalna dob</h2>
       <p>
-        Korištenje Platforme dopušteno je isključivo osobama koje su navršile{" "}
-        <strong>16 godina</strong>. Godina rođenja unosi se tijekom registracije
-        i služi provjeri dobi te personalizaciji iskustva. Prihvaćanjem ovih
-        Uvjeta izričito potvrđujete da ispunjavate ovaj uvjet.
+        Korištenje Platforme dopušteno je isključivo osobama koje su navršile
+        <strong> 16 godina</strong>. Godina rođenja unosi se tijekom
+        registracije radi provedbe ovog ograničenja. Prihvaćanjem Uvjeta
+        potvrđujete da ispunjavate uvjet minimalne dobi.
       </p>
       <p>
-        Ako imate između 16 i 18 godina, preporučujemo da roditelja ili
-        zakonskog zastupnika upoznate s ovim Uvjetima.
+        Korisnik između 16 i 18 godina smije obaviti kupnju samo ako za to ima
+        potrebnu poslovnu sposobnost ili suglasnost roditelja odnosno zakonskog
+        zastupnika kada je ona potrebna prema primjenjivom pravu. Odobravanje i
+        ograničavanje kupnji provodi se kroz mehanizme Applea i Googlea; SportSync
+        ne provodi dodatnu roditeljsku provjeru.
       </p>
       <p>
-        Zadržavamo pravo bez prethodne najave suspendirati ili trajno zatvoriti
-        račun za koji posumnjamo da ga koristi osoba mlađa od 16 godina te
-        odmah ukloniti sve povezane osobne podatke.
+        Zadržavamo pravo suspendirati ili zatvoriti račun za koji osnovano
+        sumnjamo da ga koristi osoba mlađa od 16 godina te postupiti s povezanim
+        podacima u skladu s Politikom privatnosti.
       </p>
-
       {/* 4 */}
       <h2 className={styles.sectionTitle}>4. Registracija i korisnički račun</h2>
       <p>
@@ -138,8 +146,10 @@ export default function TermsPage() {
       <p>
         <strong>Organizator (administrator Termina)</strong> – uz sve
         mogućnosti Igrača, može kreirati nove Termine, postavljati uvjete
-        sudjelovanja (npr. broj igrača, sport, lokaciju i vremenski okvir),
-        prihvaćati ili odbijati zahtjeve Igrača te otkazivati Termine.
+        sudjelovanja, prihvaćati ili odbijati zahtjeve Igrača, otkazivati
+        Termine te, za nogometni Termin, kupiti, pokrenuti, uređivati i završiti
+        Sezonu. Ako Termin ima više administratora, svaki od njih ima navedene
+        ovlasti.
       </p>
       <p>
         SportSync zadržava pravo uvesti dodatne uloge ili mijenjati ovlasti
@@ -325,33 +335,91 @@ export default function TermsPage() {
       </p>
 
       {/* 12 */}
-      <h2 className={styles.sectionTitle}>12. Plaćanja i pretplate</h2>
+      <h2 className={styles.sectionTitle}>12. Nogometne Sezone</h2>
       <p>
-        Platforma je trenutačno <strong>besplatna</strong> za sve korisnike.
-        SportSync planira u budućnosti uvesti pretplatne planove
-        (engl. <em>subscription</em>) koji će omogućiti pristup dodatnim
-        funkcionalnostima. O uvođenju plaćenih planova korisnici će biti
-        pravovremeno obaviješteni, a ovi Uvjeti bit će ažurirani.
+        Funkcionalnost Sezone trenutačno je dostupna samo za Termine čiji je
+        sport nogomet. Za ostale sportove nije moguće kupiti niti pokrenuti
+        Sezonu.
       </p>
       <p>
-        Kada budu dostupne, plaćene usluge funkcionirat će na sljedeći način:
+        Jednu novu Sezonu može kupiti i pokrenuti samo administrator konkretnog
+        Termina. Nakon uspješne potvrde kupnje administrator unosi podatke za
+        početak Sezone, uključujući naziv Sezone te nazive i broj ekipa.
       </p>
       <p>
-        Cijene i sadržaj pretplatnih planova bit će jasno navedeni u aplikaciji
-        prije zaključenja narudžbe.
+        Sezona traje najdulje jednu godinu od dana uspješne kupnje. Administrator
+        je može završiti i ranije. Tijekom aktivne Sezone administratori mogu
+        unositi i uređivati podatke, a svi sudionici pripadajućeg Termina mogu
+        pregledavati Sezonu, rezultate i statistiku.
       </p>
       <p>
-        Plaćanja će se obrađivati putem pouzdanih trećih pružatelja platnih
-        usluga. SportSync neće pohranjivati podatke o platnoj kartici na
-        vlastitim poslužiteljima.
+        Završena Sezona ostaje dostupna sudionicima Termina u načinu samo za
+        čitanje. Za nastavak unosa novih utakmica, rezultata i statistike nakon
+        završetka ili isteka Sezone potrebno je kupiti novu Jednogodišnju sezonu.
+        Nova Sezona započinje zasebno, od prve nove utakmice, dok prethodne
+        Sezone ostaju u arhivi.
       </p>
       <p>
-        Uvjeti otkaza pretplate, povrata novca i trajanja pretplatnog perioda
-        bit će posebno navedeni pri uvođenju plaćenih planova.
+        Kupnja i Sezona vezane su uz konkretni Termin. Ne mogu se prenijeti na
+        drugi Termin, drugi korisnički račun ili drugu osobu. Prijenos ili dodjela
+        administratorske uloge drugom Korisniku omogućuje tom administratoru
+        upravljanje postojećom Sezonom, ali ne prenosi samu kupnju izvan Termina.
+      </p>
+      <p>
+        Brisanjem Termina prestaje pristup aktivnoj i arhiviranim Sezonama tog
+        Termina. Samo brisanje Termina, napuštanje Termina ili promjena
+        administratora ne stvara automatsko pravo na povrat cijene, ne dovodeći
+        u pitanje prava koja Korisniku pripadaju prema prisilnim propisima ili
+        pravilima trgovine kroz koju je kupnja izvršena.
       </p>
 
       {/* 13 */}
-      <h2 className={styles.sectionTitle}>13. Zabranjena ponašanja</h2>
+      <h2 className={styles.sectionTitle}>13. Kupnja, cijena i povrati</h2>
+      <p>
+        &ldquo;Jednogodišnja sezona&rdquo; jednokratni je proizvod, a ne pretplata.
+        Kupnja se ne obnavlja automatski. Dostupnost proizvoda, konačna cijena, valuta
+        i uključeni porezi prikazuju se u Apple App Storeu ili Google Playu neposredno
+        prije potvrde kupnje.
+      </p>
+      <p>
+        Na iOS‑u kupnju i naplatu obrađuje Apple putem In‑App Purchasea, a na
+        Androidu Google putem Google Play Billinga. Apple odnosno Google izdaje
+        potvrdu o kupnji i obrađuje podatke o načinu plaćanja. SportSync ne prima
+        niti pohranjuje broj kartice, podatke o bankovnom računu ili druge
+        vjerodajnice za plaćanje.
+      </p>
+      <p>
+        RevenueCat se koristi za tehničku potvrdu transakcije i sinkronizaciju
+        statusa kupnje. Dok kupnja nije uspješno potvrđena, uključujući slučaj
+        kada je u statusu čekanja, Sezona se ne može pokrenuti. Neuspjela ili
+        prekinuta kupnja ne aktivira proizvod.
+      </p>
+      <p>
+        Valjana kupnja vezana uz Termin dostupna je na iOS i Android uređajima
+        nakon prijave na odgovarajući SportSync račun. Ne postoji zaseban prijenos
+        kupljenog proizvoda na drugi Termin ili drugog korisnika.
+      </p>
+      <p>
+        Zahtjev za povrat podnosi se Appleu za kupnje na iOS‑u odnosno Googleu
+        za kupnje na Androidu, prema pravilima odgovarajuće trgovine i
+        primjenjivim prisilnim propisima. Za pomoć u vezi s dvostrukom naplatom,
+        pogrešnom aktivacijom ili tehničkim problemom možete se obratiti
+        SportSync podršci putem <Link href="/contact">kontaktnog obrasca </Link>
+        ili na <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>.
+      </p>
+      <p>
+        Ako Apple ili Google odobri povrat, opozove kupnju ili utvrdi chargeback,
+        SportSync nakon zaprimljene potvrde putem RevenueCata prekida Sezonu
+        povezanu s tom transakcijom i onemogućuje njezino daljnje uređivanje.
+        Opoziv jedne transakcije ne utječe na zasebnu, kasniju valjanu kupnju
+        za novu Sezonu.
+      </p>
+      <p>
+        Ništa u ovim Uvjetima ne ograničava prava potrošača koja se prema primjenjivim
+        prisilnim propisima ne mogu isključiti ili ograničiti ugovorom.
+      </p>
+      {/* 14 */}
+      <h2 className={styles.sectionTitle}>14. Zabranjena ponašanja</h2>
       <p>Zabranjeno je koristiti Platformu za:</p>
       <p>
         Pružanje lažnih podataka pri registraciji ili korištenju bilo koje
@@ -390,8 +458,8 @@ export default function TermsPage() {
         trećim osobama.
       </p>
 
-      {/* 14 */}
-      <h2 className={styles.sectionTitle}>14. Intelektualno vlasništvo</h2>
+      {/* 15 */}
+      <h2 className={styles.sectionTitle}>15. Intelektualno vlasništvo</h2>
       <p>
         Sva prava intelektualnog vlasništva na Platformi – uključujući dizajn,
         izvorni kod, grafičke elemente, logotipe, baze podataka i tekstove – u
@@ -406,29 +474,29 @@ export default function TermsPage() {
         javno prikazivanje ili preinaka sadržaja Platforme strogo je zabranjeno.
       </p>
 
-      {/* 15 */}
-      <h2 className={styles.sectionTitle}>15. Zaštita osobnih podataka</h2>
-      <p>
-        Prikupljanje i obrada osobnih podataka korisnika uređena je našom{" "}
-        <Link href="/privacy">Politikom privatnosti</Link>, koja je sastavni dio
-        ovih Uvjeta. Osobni podaci obrađuju se u skladu s Uredbom (EU) 2016/679
-        (GDPR) i Zakonom o provedbi Opće uredbe o zaštiti podataka (NN 42/2018).
-      </p>
-      <p>
-        Platforma prikuplja i obrađuje, između ostalog, e‑mail adresu, broj
-        mobilnog telefona, godinu rođenja, profilnu fotografiju, chat poruke,
-        podatke o blokiranju i utišavanju te podatke o prijavama korisnika i
-        poruka. Za detalje o svrhama obrade, pravnoj osnovi, rokovima čuvanja i
-        vašim pravima kao ispitanika molimo pogledajte{" "}
-        <Link href="/privacy">Politiku privatnosti</Link>.
-      </p>
-
       {/* 16 */}
-      <h2 className={styles.sectionTitle}>16. Ograničenje odgovornosti</h2>
+      <h2 className={styles.sectionTitle}>16. Zaštita osobnih podataka</h2>
       <p>
-        Platforma se pruža &ldquo;kakva jest&rdquo; i &ldquo;kako je dostupna&rdquo;, bez ikakvih
-        izričitih ili impliciranih jamstava u pogledu dostupnosti, točnosti,
-        potpunosti ili prikladnosti za određenu svrhu.
+        Prikupljanje i obrada osobnih podataka uređeni su našom{" "}
+        <Link href="/privacy">Politikom privatnosti</Link>, koja je sastavni dio
+        ovih Uvjeta. Podaci se obrađuju u skladu s GDPR‑om i hrvatskim propisima
+        o zaštiti osobnih podataka.
+      </p>
+      <p>
+        U vezi s kupnjom obrađujemo tehničke transakcijske podatke, uključujući
+        identifikatore transakcije ili narudžbe, proizvod, platformu, vrijeme i
+        status kupnje, povrata ili opoziva te interne identifikatore Korisnika i
+        Termina. Ne primamo podatke o platnoj kartici ni bankovnom računu.
+        Detalji o primateljima, svrhama, pravnim osnovama i rokovima čuvanja
+        nalaze se u Politici privatnosti.
+      </p>
+      {/* 17 */}
+      <h2 className={styles.sectionTitle}>17. Ograničenje odgovornosti</h2>
+      <p>
+        Platforma se pruža &ldquo;kakva jest&rdquo; i &ldquo;kako je dostupna&rdquo;, u granicama
+        dopuštenima primjenjivim pravom. Ova odredba ne ograničava zakonska
+        prava potrošača u vezi s usklađenošću i funkcioniranjem plaćenog
+        digitalnog sadržaja ili digitalne usluge.
       </p>
       <p>
         U mjeri dopuštenoj primjenjivim zakonom, SportSync neće biti odgovoran
@@ -462,8 +530,8 @@ export default function TermsPage() {
         zaštićena prisilnim propisima.
       </p>
 
-      {/* 17 */}
-      <h2 className={styles.sectionTitle}>17. Suspenzija i zatvaranje računa</h2>
+      {/* 18 */}
+      <h2 className={styles.sectionTitle}>18. Suspenzija i zatvaranje računa</h2>
       <p>
         SportSync može privremeno suspendirati ili trajno zatvoriti korisnički
         račun u slučaju kršenja ovih Uvjeta, sumnje na prijevarno ponašanje,
@@ -485,61 +553,62 @@ export default function TermsPage() {
         <Link href="/delete-account">Brisanje računa</Link>.
       </p>
 
-      {/* 18 */}
-      <h2 className={styles.sectionTitle}>18. Usluge trećih strana</h2>
-      <p>
-        Platforma može koristiti usluge trećih pružatelja (npr. pružatelji push
-        obavijesti, SMS gateway, usluge pohrane podataka u oblaku). Ove treće
-        strane imaju vlastite uvjete korištenja i politike privatnosti za koje
-        SportSync ne preuzima odgovornost.
-      </p>
-      <p>
-        Na web‑stranici mogu se nalaziti poveznice na vanjske stranice trećih
-        strana. Takve poveznice pružaju se isključivo radi informiranja i ne
-        znače da SportSync podupire sadržaj tih stranica niti preuzima
-        odgovornost za njihov sadržaj ili praksu privatnosti.
-      </p>
-
       {/* 19 */}
-      <h2 className={styles.sectionTitle}>19. Izmjene Uvjeta</h2>
+      <h2 className={styles.sectionTitle}>19. Usluge trećih strana</h2>
       <p>
-        SportSync zadržava pravo izmjene ovih Uvjeta u bilo koje vrijeme.
-        O svim značajnijim izmjenama korisnici će biti obaviješteni putem push
-        obavijesti i/ili e‑maila najkasnije <strong>15 dana</strong> prije
-        stupanja izmjena na snagu. Nova verzija Uvjeta bit će objavljena na ovoj
-        stranici s ažuriranim datumom zadnjeg ažuriranja.
+        Platforma koristi usluge trećih pružatelja, uključujući cloud hosting,
+        push obavijesti, SMS gateway, pohranu podataka, Apple App Store, Google
+        Play i RevenueCat. Kupnja unutar aplikacije dodatno podliježe uvjetima
+        i pravilima Applea odnosno Googlea.
       </p>
       <p>
-        Nastavak korištenja Platforme nakon stupanja izmjena na snagu smatra
-        se prihvaćanjem novih Uvjeta. Ako se ne slažete s izmjenama, dužni ste
-        prestati koristiti Platformu i možete zatvoriti račun.
+        SportSync nije odgovoran za samostalne odluke Applea ili Googlea o
+        naplati, statusu računa ili povratu, ali ćemo razumno surađivati u
+        rješavanju tehničkog problema koji se odnosi na aktivaciju proizvoda u
+        Platformi. Ova odredba ne isključuje odgovornost SportSynca za vlastite
+        obveze prema prisilnim propisima.
       </p>
-
+      <p>
+        Vanjske poveznice pružaju se radi informiranja i ne znače da SportSync
+        podupire njihov sadržaj ili preuzima odgovornost za prakse trećih strana.
+      </p>
       {/* 20 */}
-      <h2 className={styles.sectionTitle}>20. Mjerodavno pravo i rješavanje sporova</h2>
+      <h2 className={styles.sectionTitle}>20. Izmjene Uvjeta</h2>
       <p>
-        Ovi Uvjeti uređeni su pravom Republike Hrvatske. Za sve sporove koji
-        nastanu u vezi s ovim Uvjetima ili korištenjem Platforme, a koji se ne
-        mogu riješiti sporazumno, nadležan je stvarno nadležni sud u Sisku,
-        osim ako primjenjivi propisi o zaštiti potrošača određuju drukčiju
-        nadležnost.
+        Uvjete možemo mijenjati radi novih funkcionalnosti, sigurnosnih,
+        tehničkih ili pravnih razloga. Nova verzija objavljuje se na ovoj
+        stranici s ažuriranim datumom.
       </p>
       <p>
-        Korisnici koji su potrošači u smislu Zakona o zaštiti potrošača
-        (NN 19/2022 i dr.) imaju pravo podnijeti prigovor Europskoj platformi
-        za online rješavanje sporova dostupnoj na{" "}
-        <a
-          href="https://consumer-redress.ec.europa.eu"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          consumer-redress.ec.europa.eu
-        </a>
-        .
+        O izmjenama koje značajno utječu na postojeća prava ili obveze
+        obavijestit ćemo korisnike unaprijed kada je to potrebno prema
+        primjenjivom pravu. Odredbe koje uređuju novu i opcionalnu funkcionalnost,
+        kao što je Jednogodišnja sezona, mogu stupiti na snagu istodobno s
+        njezinom objavom. Izmjene ne djeluju retroaktivno na već sklopljene
+        kupnje na način koji bi umanjio obvezna prava potrošača.
       </p>
-
       {/* 21 */}
-      <h2 className={styles.sectionTitle}>21. Razdvojivost odredbi</h2>
+      <h2 className={styles.sectionTitle}>21. Mjerodavno pravo i rješavanje sporova</h2>
+      <p>
+        Ovi Uvjeti uređeni su pravom Republike Hrvatske, ne dovodeći u pitanje
+        prisilna prava koja potrošaču pripadaju prema pravu države njegova
+        uobičajenog boravišta kada je ono primjenjivo.
+      </p>
+      <p>
+        Spor ćemo najprije pokušati riješiti mirnim putem. Za sudski spor
+        nadležan je sud određen primjenjivim pravilima o nadležnosti; potrošaču
+        se ovim Uvjetima ne nameće isključiva nadležnost suda koja bi bila
+        protivna prisilnim propisima.
+      </p>
+      <p>
+        Potrošač može razmotriti i alternativno rješavanje spora pred
+        notificiranim hrvatskim tijelima za alternativno rješavanje potrošačkih
+        sporova. Informacije o dostupnim tijelima objavljene su na Središnjem
+        portalu za potrošače. Ranija europska platforma za online rješavanje
+        sporova više nije dostupna.
+      </p>
+      {/* 22 */}
+      <h2 className={styles.sectionTitle}>22. Razdvojivost odredbi</h2>
       <p>
         Ako bilo koja odredba ovih Uvjeta bude proglašena ništavnom,
         nezakonitom ili neprovedivom od strane nadležnog suda, ta odredba
@@ -547,17 +616,20 @@ export default function TermsPage() {
         opsegu.
       </p>
 
-      {/* 22 */}
-      <h2 className={styles.sectionTitle}>22. Kontakt</h2>
+      {/* 23 */}
+      <h2 className={styles.sectionTitle}>23. Kontakt i pisani prigovori</h2>
       <p>
-        Za sva pitanja, prigovore ili zahtjeve vezane uz ove Uvjete ili
-        korištenje Platforme, uključujući prijave korisnika ili poruka u chatu,
-        obratite nam se putem{" "}
-        <Link href="/contact">kontaktnog obrasca</Link> ili emailom na{" "}
+        Za pitanja, tehničku podršku, prijave korisnika ili poruka te prigovore
+        u vezi s Platformom ili kupnjom obratite nam se putem{" "}
+        <Link href="/contact">kontaktnog obrasca</Link> ili e‑mailom na{" "}
         <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>.
       </p>
       <p>
-        Nastojimo odgovoriti na svaki upit u roku od <strong>5 radnih dana</strong>.
+        Potrošač može navedenim putem podnijeti pisani prigovor. Na pisani
+        prigovor odgovorit ćemo u pisanom obliku najkasnije u roku od
+        <strong> 15 dana</strong> od njegova primitka, jasno navodeći prihvaćamo
+        li njegovu osnovanost. Evidenciju pisanih prigovora čuvamo u roku
+        propisanom zakonom.
       </p>
     </article>
   );
