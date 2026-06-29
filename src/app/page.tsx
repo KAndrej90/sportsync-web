@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Facebook, Instagram, Linkedin, Search, Star } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Search, Star, Trophy } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import LogoAndName from "./assets/logoAndName.svg";
@@ -12,6 +12,7 @@ import GooglePlayBadge from "./assets/GetItOnGooglePlay_Badge_Web_color_Croatian
 import FeatureIconOne from "./assets/Frame 131.svg";
 import FeatureIconTwo from "./assets/Frame 131 (1).svg";
 import FeatureIconThree from "./assets/Frame 131 (2).svg";
+import FeatureIconFour from "./assets/Frame 131 (4).svg";
 import StepIconOne from "./assets/Frame 131 (3).svg";
 import StepIconThree from "./assets/state-layer.svg";
 import HeroImage from "./assets/hero.svg";
@@ -61,6 +62,12 @@ const features = [
       "Razmjenjuj privatne poruke 1:1 i dogovaraj detalje unutar chata svakog termina bez prebacivanja na druge aplikacije.",
     icon: FeatureIconThree,
   },
+  {
+    title: "Prati sezonu",
+    description:
+      "Postavi ekipe za svoj termin, prati rezultate utakmica, statistiku igrača te MVP-a svake utakmice.",
+    icon: FeatureIconFour,
+  },
 ];
 
 const steps = [
@@ -91,6 +98,13 @@ const steps = [
       "Nakon igre ostavi ocjenu kako bi zajednica lakše pronašla pouzdane igrače za sljedeći termin.",
     icon: null,
     iconType: "star",
+  },
+  {
+    title: "Pokreni sezonu",
+    description:
+      "Organiziraj natjecanje između ekipa, prati rezultate utakmica i statistiku igrača po sezoni te glasaj za MVP-a svake utakmice.",
+    icon: null,
+    iconType: "trophy",
   },
 ];
 
@@ -228,7 +242,7 @@ export default function Home() {
               <p className="mt-6 max-w-xl text-base leading-8 text-[#2f3443] md:text-lg">
                 SportSync ti pomaže voditi stalne sportske termine, pratiti
                 dolaske svoje ekipe i po potrebi pronaći dodatne igrače kad se
-                otvori slobodno mjesto.{" "}
+                otvori slobodno mjesto. Također podržavamo mogućnost sezona, gdje možeš pratiti rezultate utakmica, strijelce, asistente i MVP.{" "}
                 <strong>Manje dogovaranja, više igre.</strong>
               </p>
 
@@ -283,7 +297,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-14 grid gap-6 md:grid-cols-3">
+            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {features.map((feature) => (
                 <article
                   key={feature.title}
@@ -337,10 +351,10 @@ export default function Home() {
             </div>
 
             <div className="relative mt-16 grid gap-5 md:grid-cols-2 md:gap-6">
-              {steps.map((step) => (
+              {steps.map((step, i) => (
                 <article
                   key={step.title}
-                  className="fade-item rounded-[1.6rem] bg-white px-5 py-5 text-[#222222] shadow-[0_24px_40px_rgba(13,8,67,0.18)] md:min-h-[180px] md:px-6"
+                  className={`fade-item rounded-[1.6rem] bg-white px-5 py-5 text-[#222222] shadow-[0_24px_40px_rgba(13,8,67,0.18)] md:min-h-[180px] md:px-6${i === steps.length - 1 && steps.length % 2 !== 0 ? " md:col-span-2" : ""}`}
                 >
                   <div className="flex items-start gap-4">
                     {step.iconType === "image" && step.icon ? (
@@ -356,6 +370,13 @@ export default function Home() {
                         className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#DDF7A9]"
                       >
                         <Search className="h-8 w-8 text-[#3026C1]" />
+                      </span>
+                    ) : step.iconType === "trophy" ? (
+                      <span
+                        aria-hidden="true"
+                        className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#DDF7A9]"
+                      >
+                        <Trophy className="h-8 w-8 text-[#3026C1]" />
                       </span>
                     ) : (
                       <span
