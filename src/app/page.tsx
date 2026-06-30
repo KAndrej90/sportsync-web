@@ -263,8 +263,9 @@ export default function Home() {
               <p className="mt-6 max-w-xl text-base leading-8 text-[#2f3443] md:text-lg">
                 SportSync ti pomaže voditi stalne sportske termine, pratiti
                 dolaske svoje ekipe i po potrebi pronaći dodatne igrače kad se
-                otvori slobodno mjesto.{" "}
-                <strong>Manje dogovaranja, više igre.</strong>
+                otvori slobodno mjesto. Također podržavamo mogućnost sezona,
+                gdje možeš pratiti rezultate utakmica, strijelce, asistente i
+                MVP. <strong>Manje dogovaranja, više igre.</strong>
               </p>
 
               <div
@@ -438,7 +439,7 @@ export default function Home() {
                     <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
                       Odaberi sport, lokaciju i vrijeme, pa od jednog dogovora
                       napravi termin koji se može ponavljati svaki tjedan. Tako
-                      sve kreće od tvoje ekipe, a ne od traženja zamjena.
+                      sve kreće od tvoje ekipe.
                     </p>
                   </div>
 
@@ -510,8 +511,8 @@ export default function Home() {
                       Ako vas nema dovoljno, tek tada tražiš dodatne igrače.
                     </h3>
                     <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
-                      Najprije proširi poziv među svojim prijateljima. Ako još
-                      fali igrača, objavi slobodna mjesta i otvori termin drugim
+                      Proširi poziv među svojim prijateljima. Ako još fali
+                      igrača, objavi slobodna mjesta i otvori termin drugim
                       korisnicima aplikacije koji žele uskočiti.
                     </p>
                   </div>
