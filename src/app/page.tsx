@@ -3,17 +3,12 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Facebook, Instagram, Linkedin, Search, Star } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import LogoAndName from "./assets/logoAndName.svg";
 import AppStoreBadge from "./assets/Download_on_the_App_Store_Badge_HR_blk_082124.svg";
 import GooglePlayBadge from "./assets/GetItOnGooglePlay_Badge_Web_color_Croatian.svg";
-import FeatureIconOne from "./assets/Frame 131.svg";
-import FeatureIconTwo from "./assets/Frame 131 (1).svg";
-import FeatureIconThree from "./assets/Frame 131 (2).svg";
-import StepIconOne from "./assets/Frame 131 (3).svg";
-import StepIconThree from "./assets/state-layer.svg";
 import HeroImage from "./assets/hero.svg";
 import SportImageOne from "./assets/11 1.png";
 import SportImageTwo from "./assets/12 1.png";
@@ -21,9 +16,18 @@ import SportImageThree from "./assets/13 1.png";
 import SportImageFour from "./assets/14 1.png";
 import HandballImage from "./assets/handball-pexels.jpg";
 import WaterPoloImage from "./assets/waterpolo-pexels.jpg";
+import SeasonScreenshotTable from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.27.png";
+import SeasonScreenshotResults from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.34.png";
+import SeasonScreenshotPlayers from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.41.png";
+import SeasonScreenshotTrophy from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.55.png";
+import SeasonScreenshotAchievements from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.30.02.png";
+import AttendanceScreenshot from "./assets/howitworks/dolazakiobjavi.png";
+import CreateTermScreenshot from "./assets/howitworks/Termin create 2026-06-29 at 14.24.46.png";
+import PublishMatchScreenshot from "./assets/howitworks/Objavi 2026-06-29 at 14.26.45.png";
+import RatingScreenshot from "./assets/howitworks/ocijeni.png";
 
 const navLinks = [
-  { href: "#znacajke", label: "Značajke" },
+  { href: "#sezone", label: "Sezone", isNew: true },
   { href: "#kako-funkcionira", label: "Kako funkcionira" },
   { href: "#sportovi", label: "Sportovi" },
   { href: "/contact", label: "Kontakt" },
@@ -39,58 +43,6 @@ const storeLinks = [
     href: "https://apps.apple.com/hr/app/sportsync/id6758768052?l=hr",
     label: "Preuzmi SportSync na App Storeu",
     badge: AppStoreBadge,
-  },
-];
-
-const features = [
-  {
-    title: "Vodi stalne termine",
-    description:
-      "Postavi svoj redovni termin, okupljaj poznatu ekipu i prati tko dolazi svaki tjedan bez beskrajnih poruka.",
-    icon: FeatureIconOne,
-  },
-  {
-    title: "Popuni ekipu po potrebi",
-    description:
-      "Kad ti nedostaje igrač, otvori slobodno mjesto i pronađi provjerenog rekreativca koji odgovara terminu.",
-    icon: FeatureIconTwo,
-  },
-  {
-    title: "Dogovori u jednom chatu",
-    description:
-      "Razmjenjuj privatne poruke 1:1 i dogovaraj detalje unutar chata svakog termina bez prebacivanja na druge aplikacije.",
-    icon: FeatureIconThree,
-  },
-];
-
-const steps = [
-  {
-    title: "Postavi svoj termin",
-    description:
-      "Unesi sport, lokaciju i vrijeme za stalni ili jednokratni termin koji želiš voditi.",
-    icon: StepIconOne,
-    iconType: "image",
-  },
-  {
-    title: "Pozovi svoju ekipu",
-    description:
-      "Podijeli termin s prijateljima, prati potvrde dolazaka i odmah vidi koliko je mjesta još otvoreno.",
-    icon: null,
-    iconType: "search",
-  },
-  {
-    title: "Popuni prazna mjesta",
-    description:
-      "Ako netko otkaže ili trebaš dodatne igrače, objavi slobodna mjesta zajednici u tvojoj blizini.",
-    icon: StepIconThree,
-    iconType: "image",
-  },
-  {
-    title: "Ocijeni suigrače",
-    description:
-      "Nakon igre ostavi ocjenu kako bi zajednica lakše pronašla pouzdane igrače za sljedeći termin.",
-    icon: null,
-    iconType: "star",
   },
 ];
 
@@ -121,11 +73,62 @@ const sports = [
   },
 ];
 
+const seasonScreens = [
+  {
+    title: "Tablica",
+    image: SeasonScreenshotTable,
+  },
+  {
+    title: "Rezultati",
+    image: SeasonScreenshotResults,
+  },
+  {
+    title: "Igrači",
+    image: SeasonScreenshotPlayers,
+  },
+  {
+    title: "Postignuća",
+    image: SeasonScreenshotTrophy,
+  },
+  {
+    title: "Trofeji",
+    image: SeasonScreenshotAchievements,
+  },
+];
+
+const seasonScreenPositions = [
+  "lg:translate-y-12",
+  "lg:translate-y-5",
+  "lg:z-10",
+  "lg:translate-y-5",
+  "lg:translate-y-12",
+];
+
 function SectionTag({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex rounded-full bg-[#89FC00] px-4 py-2 text-xs font-semibold uppercase tracking-[0.03em] text-[#3026C1] shadow-[0_10px_25px_rgba(137,252,0,0.25)]">
       {children}
     </span>
+  );
+}
+
+function AppPhonePreview({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`relative mx-auto w-[250px] sm:w-[290px] ${className}`}>
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-5 top-12 h-48 rounded-full bg-[#3026C1]/15 blur-3xl"
+      />
+      <div className="relative aspect-[1206/2622] overflow-hidden rounded-[2.35rem] border-[6px] border-[#181c32] bg-[#f4f4fb] shadow-[0_30px_60px_rgba(24,28,50,0.24)]">
+        {children}
+      </div>
+    </div>
   );
 }
 
@@ -170,6 +173,23 @@ export default function Home() {
           },
         );
       });
+
+      gsap.utils.toArray<HTMLElement>(".journey-step").forEach((step) => {
+        gsap.fromTo(
+          step,
+          { y: 56, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: step,
+              start: "top 82%",
+            },
+          },
+        );
+      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -196,18 +216,33 @@ export default function Home() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="transition hover:text-white"
+                className="group inline-flex items-center gap-2 rounded-full px-1 py-1 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
                 {link.label}
+                {link.isNew ? (
+                  <span className="rounded-full bg-[#89FC00] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[#3026C1] transition group-hover:scale-[1.04]">
+                    Novo
+                  </span>
+                ) : null}
               </Link>
             ))}
           </nav>
+
+          <Link
+            href="#sezone"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-2 text-xs font-medium text-white transition hover:border-white/40 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white lg:hidden"
+          >
+            Sezone
+            <span className="rounded-full bg-[#89FC00] px-2 py-0.5 text-[0.58rem] font-semibold uppercase tracking-[0.1em] text-[#3026C1]">
+              Novo
+            </span>
+          </Link>
 
           <a
             href="https://apps.apple.com/hr/app/sportsync/id6758768052?l=hr"
             target="_blank"
             rel="noreferrer"
-            className="hidden rounded-full bg-[#89FC00] px-6 py-3 text-sm font-semibold text-[#3026C1] transition hover:brightness-95 lg:inline-flex"
+            className="hidden rounded-full bg-[#89FC00] px-6 py-3 text-sm font-semibold text-[#3026C1] transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white lg:inline-flex"
           >
             Preuzmi aplikaciju
           </a>
@@ -267,115 +302,260 @@ export default function Home() {
         </section>
 
         <section
-          id="znacajke"
-          className="fade-section overflow-hidden bg-[#3026C1] px-5 py-16 text-white md:px-8 md:py-20"
+          id="sezone"
+          className="fade-section overflow-hidden bg-[#E4E6F6] px-5 pb-16 pt-6 md:px-8 md:pb-24 md:pt-10"
         >
           <div className="mx-auto max-w-6xl">
-            <div className="fade-item text-center">
-              <SectionTag>Zašto SportSync?</SectionTag>
-              <h2 className="mx-auto mt-8 max-w-3xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
-                Tvoj termin ima sve pod kontrolom
+            <div className="fade-item mx-auto max-w-3xl text-center">
+              <SectionTag>Novo · Sezone</SectionTag>
+              <h2 className="mt-7 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#1f2430] sm:text-5xl lg:text-[3.5rem]">
+                Svaki termin sada piše veću priču.
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/75 md:text-base">
-                Organiziraj redovne treninge, utakmice i rekreativne susrete na
-                jednom mjestu. SportSync čuva pregled ekipe, potvrda i slobodnih
-                mjesta, a zajednica uskače tek kad trebaš pojačanje.
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#4a4f5e] md:text-lg">
+                Poveži utakmice u sezonu, prati tablicu i rezultate te otkrij
+                tko predvodi ekipu. Statistika, postignuća i trofeji ostaju
+                sačuvani na jednom mjestu.
               </p>
             </div>
 
-            <div className="mt-14 grid gap-6 md:grid-cols-3">
-              {features.map((feature) => (
-                <article
-                  key={feature.title}
-                  className="fade-item rounded-[1.75rem] bg-white px-7 py-8 text-center text-[#222222] shadow-[0_24px_40px_rgba(13,8,67,0.18)]"
-                >
-                  <Image
-                    src={feature.icon}
-                    alt=""
-                    aria-hidden="true"
-                    className="mx-auto h-[78px] w-[78px]"
-                  />
-                  <h3 className="mt-5 text-2xl font-medium tracking-[-0.02em]">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-[#4a4f5e]">
-                    {feature.description}
-                  </p>
-                </article>
-              ))}
+            <div className="fade-item relative mt-12 overflow-hidden rounded-[2.5rem] bg-[#3026C1] pb-8 pt-9 shadow-[0_30px_70px_rgba(48,38,193,0.2)] md:mt-14 md:pb-12 md:pt-11 lg:rounded-[3rem] lg:px-8 lg:pb-20">
+              <div
+                aria-hidden="true"
+                className="absolute -left-24 -top-24 h-72 w-72 rounded-full border-[52px] border-white/[0.06]"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute -right-20 top-12 h-60 w-60 rounded-full bg-[#89FC00]/15 blur-3xl"
+              />
+
+              <div className="relative flex flex-col items-center px-6 text-center text-white">
+                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#89FC00]">
+                  Cijela sezona u džepu
+                </span>
+                <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
+                  Od prvog kola do zadnjeg trofeja
+                </h3>
+                <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-medium text-white/80 sm:text-sm">
+                  {["Tablica", "Rezultati", "Statistika", "Postignuća"].map(
+                    (item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 backdrop-blur-sm"
+                      >
+                        {item}
+                      </span>
+                    ),
+                  )}
+                </div>
+              </div>
+
+              <div className="relative mt-9 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[12vw] pb-6 pt-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:px-[20vw] lg:mt-12 lg:grid lg:grid-cols-5 lg:items-start lg:gap-3 lg:overflow-visible lg:px-0 lg:pb-0">
+                {seasonScreens.map((screen, index) => (
+                  <figure
+                    key={screen.title}
+                    className={`group w-[68vw] max-w-[260px] shrink-0 snap-center lg:w-auto lg:max-w-none ${seasonScreenPositions[index]}`}
+                  >
+                    <div className="overflow-hidden rounded-[2rem] border-[5px] border-[#16123f] bg-[#16123f] shadow-[0_24px_45px_rgba(10,6,62,0.38)] transition duration-300 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_30px_55px_rgba(10,6,62,0.5)] lg:rounded-[1.55rem] lg:border-[4px]">
+                      <Image
+                        src={screen.image}
+                        alt={`SportSync prikaz: ${screen.title}`}
+                        className="h-auto w-full"
+                        quality={100}
+                        sizes="(max-width: 1023px) 68vw, 210px"
+                      />
+                    </div>
+                    <figcaption className="mt-4 text-center text-sm font-semibold text-white lg:text-xs">
+                      <span className="inline-flex rounded-full bg-white/10 px-3 py-1.5 backdrop-blur-sm">
+                        {screen.title}
+                      </span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+
+              <p className="relative mt-1 text-center text-xs text-white/55 lg:hidden">
+                Povuci za pregled svih mogućnosti
+              </p>
             </div>
           </div>
         </section>
 
         <section
           id="kako-funkcionira"
-          className="fade-section relative overflow-hidden bg-[#3026C1] px-5 py-16 text-white md:px-8 md:py-24"
+          className="fade-section overflow-hidden bg-[radial-gradient(circle_at_top,_#f4f5ff_0%,_#eef1ff_45%,_#e8ecff_100%)] px-5 py-16 md:px-8 md:py-24"
         >
-          <div className="absolute inset-x-0 bottom-0 top-[28%]">
-            <Image
-              src={SportImageTwo}
-              alt=""
-              aria-hidden="true"
-              fill
-              className="object-cover opacity-35 blur-[1px]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#3026C1] via-[#3026C1]/55 to-[#3026C1]/20" />
-          </div>
-
-          <div className="relative mx-auto max-w-6xl">
-            <div className="fade-item text-center">
-              <SectionTag>Korak po korak</SectionTag>
-              <h2 className="mx-auto mt-8 max-w-3xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
-                Od stalnog termina do pune ekipe
-              </h2>
-              <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-white/80 md:text-base">
-                Bez prebacivanja između više aplikacija i bez nepotrebnih
-                nedolazaka. SportSync prati dolaske, omogućuje komunikaciju
-                sudionika, sinkronizira kalendar i pomaže pronaći nove igrače
-                samo kad ih stvarno trebaš.
-              </p>
+          <div className="mx-auto max-w-6xl">
+            <div className="fade-item mx-auto max-w-3xl text-center">
+              <div>
+                <SectionTag>Korak po korak</SectionTag>
+                <h2 className="mx-auto mt-7 max-w-[12ch] text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-[#1f2430] sm:text-5xl lg:text-[3.5rem]">
+                  Od svog termina do pune ekipe i ocjene nakon igre.
+                </h2>
+              </div>
+              <div className="mt-6">
+                <p className="mx-auto max-w-2xl text-base leading-8 text-[#4a4f5e] md:text-lg">
+                  SportSync nije samo za pronalazak igrača kad netko otkaže.
+                  Prvo vodiš svoj stalni termin, pratiš tko dolazi, po potrebi
+                  popunjavaš slobodna mjesta i nakon utakmice ocjenjuješ
+                  iskustvo s igračima.
+                </p>
+              </div>
             </div>
 
-            <div className="relative mt-16 grid gap-5 md:grid-cols-2 md:gap-6">
-              {steps.map((step) => (
-                <article
-                  key={step.title}
-                  className="fade-item rounded-[1.6rem] bg-white px-5 py-5 text-[#222222] shadow-[0_24px_40px_rgba(13,8,67,0.18)] md:min-h-[180px] md:px-6"
-                >
-                  <div className="flex items-start gap-4">
-                    {step.iconType === "image" && step.icon ? (
-                      <Image
-                        src={step.icon}
-                        alt=""
-                        aria-hidden="true"
-                        className="h-16 w-16 shrink-0"
-                      />
-                    ) : step.iconType === "search" ? (
-                      <span
-                        aria-hidden="true"
-                        className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#DDF7A9]"
-                      >
-                        <Search className="h-8 w-8 text-[#3026C1]" />
-                      </span>
-                    ) : (
-                      <span
-                        aria-hidden="true"
-                        className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#DDF7A9]"
-                      >
-                        <Star className="h-8 w-8 fill-[#3026C1] text-[#3026C1]" />
-                      </span>
-                    )}
-                    <div className="min-w-0">
-                      <h3 className="text-3xl font-medium tracking-[-0.03em] md:text-[1.85rem]">
-                        {step.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-6 text-[#4a4f5e]">
-                        {step.description}
-                      </p>
-                    </div>
+            <div className="relative mt-16 md:mt-20">
+              <div
+                aria-hidden="true"
+                className="absolute bottom-10 left-1/2 top-10 hidden w-px -translate-x-1/2 bg-gradient-to-b from-[#3026C1]/0 via-[#3026C1]/18 to-[#3026C1]/0 lg:block"
+              />
+
+              <ol className="space-y-16 md:space-y-20 lg:space-y-24">
+                <li className="journey-step grid gap-8 lg:grid-cols-[1fr_88px_1fr] lg:items-center">
+                  <div className="lg:pr-10">
+                    <span className="inline-flex rounded-full bg-[#3026C1] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white lg:hidden">
+                      01
+                    </span>
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#3026C1] lg:mt-0">
+                      01 · Kreiraj svoj stalni termin
+                    </p>
+                    <h3 className="mt-3 max-w-[14ch] text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1f2430] sm:text-[2.3rem]">
+                      Prvo postavi termin za ekipu s kojom igraš redovno.
+                    </h3>
+                    <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
+                      Odaberi sport, lokaciju i vrijeme, pa od jednog dogovora
+                      napravi termin koji se može ponavljati svaki tjedan. Tako
+                      sve kreće od tvoje ekipe, a ne od traženja zamjena.
+                    </p>
                   </div>
-                </article>
-              ))}
+
+                  <div className="hidden lg:flex lg:justify-center">
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-[#3026C1]/14 bg-white text-lg font-semibold text-[#3026C1] shadow-[0_18px_35px_rgba(48,38,193,0.12)]">
+                      01
+                    </span>
+                  </div>
+
+                  <div className="relative mx-auto w-full max-w-xl">
+                    <AppPhonePreview className="lg:ml-auto lg:mr-0">
+                      <Image
+                        src={CreateTermScreenshot}
+                        alt="SportSync prikaz detalja kreiranog stalnog termina"
+                        className="h-full w-full object-cover"
+                        quality={100}
+                        sizes="(max-width: 768px) 250px, 290px"
+                      />
+                    </AppPhonePreview>
+                  </div>
+                </li>
+
+                <li className="journey-step grid gap-8 lg:grid-cols-[1fr_88px_1fr] lg:items-center">
+                  <div className="relative order-2 mx-auto w-full max-w-xl lg:order-1">
+                    <AppPhonePreview className="lg:ml-0 lg:mr-auto">
+                      <Image
+                        src={AttendanceScreenshot}
+                        alt="SportSync prikaz potvrda dolazaka i objave utakmice"
+                        className="h-full w-full object-cover"
+                        quality={100}
+                        sizes="(max-width: 768px) 250px, 290px"
+                      />
+                    </AppPhonePreview>
+                  </div>
+
+                  <div className="hidden lg:order-2 lg:flex lg:justify-center">
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-[#3026C1]/14 bg-white text-lg font-semibold text-[#3026C1] shadow-[0_18px_35px_rgba(48,38,193,0.12)]">
+                      02
+                    </span>
+                  </div>
+
+                  <div className="order-1 lg:order-3 lg:pl-10">
+                    <span className="inline-flex rounded-full bg-[#3026C1] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white lg:hidden">
+                      02
+                    </span>
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#3026C1] lg:mt-0">
+                      02 · Prati tko dolazi
+                    </p>
+                    <h3 className="mt-3 max-w-[13ch] text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1f2430] sm:text-[2.3rem]">
+                      U svakom trenutku vidiš jeste li se skupili za igru.
+                    </h3>
+                    <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
+                      Igrači potvrđuju dolazak direktno u aplikaciji, a ti bez
+                      dodatnog dopisivanja vidiš tko dolazi, tko ne dolazi i
+                      koliko vas još nedostaje do pune utakmice.
+                    </p>
+                  </div>
+                </li>
+
+                <li className="journey-step grid gap-8 lg:grid-cols-[1fr_88px_1fr] lg:items-center">
+                  <div className="lg:pr-10">
+                    <span className="inline-flex rounded-full bg-[#3026C1] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white lg:hidden">
+                      03
+                    </span>
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#3026C1] lg:mt-0">
+                      03 · Popuni slobodna mjesta
+                    </p>
+                    <h3 className="mt-3 max-w-[14ch] text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1f2430] sm:text-[2.3rem]">
+                      Ako vas nema dovoljno, tek tada tražiš dodatne igrače.
+                    </h3>
+                    <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
+                      Najprije proširi poziv među svojim prijateljima. Ako još
+                      fali igrača, objavi slobodna mjesta i otvori termin drugim
+                      korisnicima aplikacije koji žele uskočiti.
+                    </p>
+                  </div>
+
+                  <div className="hidden lg:flex lg:justify-center">
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-[#3026C1]/14 bg-white text-lg font-semibold text-[#3026C1] shadow-[0_18px_35px_rgba(48,38,193,0.12)]">
+                      03
+                    </span>
+                  </div>
+
+                  <div className="relative mx-auto w-full max-w-xl">
+                    <AppPhonePreview className="lg:ml-auto lg:mr-0">
+                      <Image
+                        src={PublishMatchScreenshot}
+                        alt="SportSync prikaz objave utakmice prijateljima ili svim korisnicima"
+                        className="h-full w-full object-cover"
+                        quality={100}
+                        sizes="(max-width: 768px) 250px, 290px"
+                      />
+                    </AppPhonePreview>
+                  </div>
+                </li>
+
+                <li className="journey-step grid gap-8 lg:grid-cols-[1fr_88px_1fr] lg:items-center">
+                  <div className="relative order-2 mx-auto w-full max-w-xl lg:order-1">
+                    <AppPhonePreview className="lg:ml-0 lg:mr-auto">
+                      <Image
+                        src={RatingScreenshot}
+                        alt="SportSync prikaz ocjenjivanja igrača nakon utakmice"
+                        className="h-full w-full object-cover"
+                        quality={100}
+                        sizes="(max-width: 768px) 250px, 290px"
+                      />
+                    </AppPhonePreview>
+                  </div>
+
+                  <div className="hidden lg:order-2 lg:flex lg:justify-center">
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-[#3026C1]/14 bg-white text-lg font-semibold text-[#3026C1] shadow-[0_18px_35px_rgba(48,38,193,0.12)]">
+                      04
+                    </span>
+                  </div>
+
+                  <div className="order-1 lg:order-3 lg:pl-10">
+                    <span className="inline-flex rounded-full bg-[#3026C1] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white lg:hidden">
+                      04
+                    </span>
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#3026C1] lg:mt-0">
+                      04 · Završite termin ocjenom
+                    </p>
+                    <h3 className="mt-3 max-w-[13ch] text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1f2430] sm:text-[2.3rem]">
+                      Nakon igre ostavi dojam o igraču s kojim si igrao.
+                    </h3>
+                    <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
+                      Ocjene pomažu da zajednica bude pouzdanija, a ekipama daju
+                      bolji osjećaj koga žele ponovno pozvati na idući termin.
+                    </p>
+                  </div>
+                </li>
+              </ol>
             </div>
           </div>
         </section>
