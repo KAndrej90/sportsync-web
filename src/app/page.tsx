@@ -21,10 +21,10 @@ import SeasonScreenshotResults from "./assets/sezone/Simulator Screenshot - iPho
 import SeasonScreenshotPlayers from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.41.png";
 import SeasonScreenshotTrophy from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.55.png";
 import SeasonScreenshotAchievements from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.30.02.png";
-import AttendanceScreenshot from "./assets/howitworks/dolazakiobjavi.png";
-import CreateTermScreenshot from "./assets/howitworks/Termin create 2026-06-29 at 14.24.46.png";
-import PublishMatchScreenshot from "./assets/howitworks/Objavi 2026-06-29 at 14.26.45.png";
-import RatingScreenshot from "./assets/howitworks/ocijeni.png";
+import AttendanceIllustration from "./assets/howitworks/attendance-illustration.png";
+import CreateTermIllustration from "./assets/howitworks/create-term-illustration.png";
+import FindPlayersIllustration from "./assets/howitworks/find-players-illustration.png";
+import RatingIllustration from "./assets/howitworks/rating-illustration.png";
 
 const navLinks = [
   { href: "#sezone", label: "Sezone", isNew: true },
@@ -112,7 +112,7 @@ function SectionTag({ children }: { children: React.ReactNode }) {
   );
 }
 
-function AppPhonePreview({
+function JourneyIllustration({
   children,
   className = "",
 }: {
@@ -120,12 +120,12 @@ function AppPhonePreview({
   className?: string;
 }) {
   return (
-    <div className={`relative mx-auto w-[250px] sm:w-[290px] ${className}`}>
+    <div className={`relative mx-auto w-[280px] sm:w-[330px] ${className}`}>
       <div
         aria-hidden="true"
-        className="absolute inset-x-5 top-12 h-48 rounded-full bg-[#3026C1]/15 blur-3xl"
+        className="absolute inset-x-10 bottom-[12%] h-1/2 rounded-full bg-[#3026C1]/12 blur-3xl"
       />
-      <div className="relative aspect-[1206/2622] overflow-hidden rounded-[2.35rem] border-[6px] border-[#181c32] bg-[#f4f4fb] shadow-[0_30px_60px_rgba(24,28,50,0.24)]">
+      <div className="relative overflow-hidden rounded-[3rem] shadow-[0_28px_65px_rgba(48,38,193,0.08)]">
         {children}
       </div>
     </div>
@@ -307,7 +307,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-6xl">
             <div className="fade-item mx-auto max-w-3xl text-center">
-              <SectionTag>Novo · Sezone</SectionTag>
+              <SectionTag>Sezone</SectionTag>
               <h2 className="mt-7 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#1f2430] sm:text-5xl lg:text-[3.5rem]">
                 Svaki termin sada piše veću priču.
               </h2>
@@ -335,6 +335,18 @@ export default function Home() {
                 <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
                   Od prvog kola do zadnjeg trofeja
                 </h3>
+                <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 text-xs font-semibold sm:text-sm">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-[#89FC00] px-4 py-2 text-[#2017a7] shadow-[0_10px_24px_rgba(137,252,0,0.18)]">
+                    <span
+                      aria-hidden="true"
+                      className="h-2 w-2 rounded-full bg-[#3026C1]"
+                    />
+                    Trenutačno samo za nogomet
+                  </span>
+                  <span className="rounded-full border border-dashed border-white/30 bg-white/[0.07] px-4 py-2 text-white/75">
+                    Ostali sportovi dolaze uskoro
+                  </span>
+                </div>
                 <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-medium text-white/80 sm:text-sm">
                   {["Tablica", "Rezultati", "Statistika", "Postignuća"].map(
                     (item) => (
@@ -349,7 +361,10 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative mt-9 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[12vw] pb-6 pt-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:px-[20vw] lg:mt-12 lg:grid lg:grid-cols-5 lg:items-start lg:gap-3 lg:overflow-visible lg:px-0 lg:pb-0">
+              <div className="relative mt-9 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[12vw] pb-6 pt-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:px-[20vw] lg:mt-12 lg:grid lg:grid-cols-5 lg:items-start lg:gap-3 lg:overflow-visible lg:px-0 lg:pb-0 lg:pt-3">
+                <span className="absolute left-0 top-9 z-20 -rotate-6 rounded-r-full bg-[#89FC00] py-2 pl-6 pr-8 text-xs font-extrabold uppercase tracking-[0.2em] text-[#3026C1] shadow-[0_12px_28px_rgba(10,6,62,0.28)] sm:pl-8 lg:-left-8 lg:top-12 lg:pl-10 lg:pr-10">
+                  Novo
+                </span>
                 {seasonScreens.map((screen, index) => (
                   <figure
                     key={screen.title}
@@ -434,29 +449,29 @@ export default function Home() {
                   </div>
 
                   <div className="relative mx-auto w-full max-w-xl">
-                    <AppPhonePreview className="lg:ml-auto lg:mr-0">
+                    <JourneyIllustration className="lg:ml-auto lg:mr-0">
                       <Image
-                        src={CreateTermScreenshot}
-                        alt="SportSync prikaz detalja kreiranog stalnog termina"
-                        className="h-full w-full object-cover"
+                        src={CreateTermIllustration}
+                        alt="Ilustracija ekipe koja kreira stalni termin za različite sportove"
+                        className="h-auto w-full"
                         quality={100}
-                        sizes="(max-width: 768px) 250px, 290px"
+                        sizes="(max-width: 768px) 280px, 330px"
                       />
-                    </AppPhonePreview>
+                    </JourneyIllustration>
                   </div>
                 </li>
 
                 <li className="journey-step grid gap-8 lg:grid-cols-[1fr_88px_1fr] lg:items-center">
                   <div className="relative order-2 mx-auto w-full max-w-xl lg:order-1">
-                    <AppPhonePreview className="lg:ml-0 lg:mr-auto">
+                    <JourneyIllustration className="lg:ml-0 lg:mr-auto">
                       <Image
-                        src={AttendanceScreenshot}
-                        alt="SportSync prikaz potvrda dolazaka i objave utakmice"
-                        className="h-full w-full object-cover"
+                        src={AttendanceIllustration}
+                        alt="Ilustracija igrača različitih sportova koji potvrđuju dolazak"
+                        className="h-auto w-full"
                         quality={100}
-                        sizes="(max-width: 768px) 250px, 290px"
+                        sizes="(max-width: 768px) 280px, 330px"
                       />
-                    </AppPhonePreview>
+                    </JourneyIllustration>
                   </div>
 
                   <div className="hidden lg:order-2 lg:flex lg:justify-center">
@@ -508,29 +523,29 @@ export default function Home() {
                   </div>
 
                   <div className="relative mx-auto w-full max-w-xl">
-                    <AppPhonePreview className="lg:ml-auto lg:mr-0">
+                    <JourneyIllustration className="lg:ml-auto lg:mr-0">
                       <Image
-                        src={PublishMatchScreenshot}
-                        alt="SportSync prikaz objave utakmice prijateljima ili svim korisnicima"
-                        className="h-full w-full object-cover"
+                        src={FindPlayersIllustration}
+                        alt="Ilustracija pronalaska igrača različitih sportova za slobodna mjesta"
+                        className="h-auto w-full"
                         quality={100}
-                        sizes="(max-width: 768px) 250px, 290px"
+                        sizes="(max-width: 768px) 280px, 330px"
                       />
-                    </AppPhonePreview>
+                    </JourneyIllustration>
                   </div>
                 </li>
 
                 <li className="journey-step grid gap-8 lg:grid-cols-[1fr_88px_1fr] lg:items-center">
                   <div className="relative order-2 mx-auto w-full max-w-xl lg:order-1">
-                    <AppPhonePreview className="lg:ml-0 lg:mr-auto">
+                    <JourneyIllustration className="lg:ml-0 lg:mr-auto">
                       <Image
-                        src={RatingScreenshot}
-                        alt="SportSync prikaz ocjenjivanja igrača nakon utakmice"
-                        className="h-full w-full object-cover"
+                        src={RatingIllustration}
+                        alt="Ilustracija igrača različitih sportova koji se ocjenjuju nakon termina"
+                        className="h-auto w-full"
                         quality={100}
-                        sizes="(max-width: 768px) 250px, 290px"
+                        sizes="(max-width: 768px) 280px, 330px"
                       />
-                    </AppPhonePreview>
+                    </JourneyIllustration>
                   </div>
 
                   <div className="hidden lg:order-2 lg:flex lg:justify-center">
