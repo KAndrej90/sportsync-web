@@ -16,8 +16,13 @@ export default function FreeTrialSeasonPage() {
           Zatražite besplatnu probnu sezonu za svoj termin
         </h1>
         <p className={styles.lastUpdated}>
-          Probna sezona traje 3 mjeseca i ne zahtijeva unos bankovnih
-          podataka. Nakon što pošaljete zahtjev, javit ćemo vam se e-mailom s
+          Probna sezona traje 3 mjeseca i ne zahtijeva unos podataka za plaćanje. 
+          <br/>
+          Tijekom probnog razdoblja dostupne su vam sve funkcionalnosti kao i u punoj sezoni: 
+          unos rezultata te vođenje statistike strijelaca, asistenata i MVP igrača. 
+          Svi uneseni rezultati i podaci ostaju trajno sačuvani.
+          <br/>
+          Nakon što pošaljete zahtjev, javit ćemo vam se e-mailom s
           potvrdom i sljedećim koracima.
         </p>
       </div>
