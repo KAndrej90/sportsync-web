@@ -65,6 +65,110 @@
   border: 1px solid rgba(48, 38, 193, 0.15);
 }
 
+.seasonShowcase {
+  position: relative;
+  overflow: hidden;
+  margin: 30px 0 24px 0;
+  border-radius: 32px;
+  background: #3026c1;
+  padding: 28px 0 24px 0;
+  box-shadow: 0 30px 70px rgba(48, 38, 193, 0.18);
+}
+
+.seasonShowcase::before {
+  content: "";
+  position: absolute;
+  left: -80px;
+  top: -80px;
+  width: 220px;
+  height: 220px;
+  border: 42px solid rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+.seasonShowcase::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: 40px;
+  width: 190px;
+  height: 190px;
+  border-radius: 999px;
+  background: rgba(137, 252, 0, 0.16);
+  filter: blur(46px);
+}
+
+.seasonShowcaseContent {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 620px;
+  padding: 0 24px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.seasonEyebrow {
+  color: #89fc00;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.seasonTitle {
+  margin: 10px 0 0 0;
+  color: #ffffff;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.seasonScreens {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 14px;
+  margin-top: 28px;
+  overflow-x: auto;
+  padding: 8px 16vw 8px 16vw;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.seasonScreens::-webkit-scrollbar {
+  display: none;
+}
+
+.seasonScreen {
+  flex: 0 0 min(58vw, 190px);
+  margin: 0;
+  scroll-snap-align: center;
+}
+
+.phoneFrame {
+  overflow: hidden;
+  border: 5px solid #16123f;
+  border-radius: 28px;
+  background: #16123f;
+  box-shadow: 0 22px 42px rgba(10, 6, 62, 0.36);
+}
+
+.phoneImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.seasonScreen figcaption {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .cardGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -75,6 +179,40 @@
 @media (min-width: 640px) {
   .cardGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .seasonShowcase {
+    padding: 34px 28px 44px 28px;
+  }
+
+  .seasonScreens {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: start;
+    gap: 12px;
+    overflow: visible;
+    padding: 28px 0 0 0;
+  }
+
+  .seasonScreen {
+    flex: initial;
+  }
+
+  .seasonScreen:nth-child(1),
+  .seasonScreen:nth-child(5) {
+    transform: translateY(30px);
+  }
+
+  .seasonScreen:nth-child(2),
+  .seasonScreen:nth-child(4) {
+    transform: translateY(14px);
+  }
+
+  .phoneFrame {
+    border-width: 4px;
+    border-radius: 24px;
   }
 }
 
