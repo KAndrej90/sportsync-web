@@ -1,5 +1,7 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import LanguageVariant from "../LanguageVariant";
+import TermsEnglish from "./TermsEnglish";
 import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
@@ -9,6 +11,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
+    <LanguageVariant english={<TermsEnglish />}>
     <article className={styles.prose}>
       <h1 className={styles.pageTitle}>Uvjeti korištenja</h1>
       <p className={styles.lastUpdated}>Zadnje ažuriranje: 26. lipnja 2026.</p>
@@ -632,5 +635,6 @@ export default function TermsPage() {
         propisanom zakonom.
       </p>
     </article>
+    </LanguageVariant>
   );
 }

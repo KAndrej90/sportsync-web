@@ -1,10 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "../../localization/LanguageProvider";
 
 const apiBase = "https://sport-sync-api-5xwpa.ondigitalocean.app/api";
 
 export default function FreeTrialSeasonForm() {
+  const { language } = useLanguage();
+  const text = language === "hr"
+    ? {
+        firstRequired: "Ime je obavezno.", lastRequired: "Prezime je obavezno.", emailRequired: "Email je obavezan.", emailInvalid: "Unesite ispravnu email adresu.", eventRequired: "Naziv termina je obavezan.", teamsRequired: "Unesite najmanje dva naziva tima.",
+        success: "Zahtjev je poslan. Javit ćemo vam se e-mailom s potvrdom i sljedećim koracima.", aria: "Free Trial Season forma", first: "Ime", last: "Prezime", email: "Email", event: "Naziv termina", teams: "Nazivi timova", add: "Dodaj tim", team: "Tim", removeTeam: "Ukloni tim", remove: "Ukloni", sending: "Šaljem...", submit: "Zatraži probnu sezonu", messageTitle: "Zahtjev za Free Trial Season", messageEvent: "Naziv termina", messageTeams: "Timovi",
+      }
+    : {
+        firstRequired: "First name is required.", lastRequired: "Last name is required.", emailRequired: "Email is required.", emailInvalid: "Enter a valid email address.", eventRequired: "Event name is required.", teamsRequired: "Enter at least two team names.",
+        success: "Your request has been sent. We will email you with confirmation and the next steps.", aria: "Free Trial Season form", first: "First name", last: "Last name", email: "Email", event: "Event name", teams: "Team names", add: "Add team", team: "Team", removeTeam: "Remove team", remove: "Remove", sending: "Sending...", submit: "Request a trial season", messageTitle: "Free Trial Season request", messageEvent: "Event name", messageTeams: "Teams",
+      };
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -38,27 +49,27 @@ export default function FreeTrialSeasonForm() {
     const filledTeams = teams.map((team) => team.trim()).filter(Boolean);
 
     if (!firstName.trim()) {
-      setError("Ime je obavezno.");
+      setError(text.firstRequired);
       return false;
     }
     if (!lastName.trim()) {
-      setError("Prezime je obavezno.");
+      setError(text.lastRequired);
       return false;
     }
     if (!email.trim()) {
-      setError("Email je obavezan.");
+      setError(text.emailRequired);
       return false;
     }
     if (!/^\S+@\S+\.\S+$/.test(email)) {
-      setError("Unesite ispravnu email adresu.");
+      setError(text.emailInvalid);
       return false;
     }
     if (!eventName.trim()) {
-      setError("Naziv termina je obavezan.");
+      setError(text.eventRequired);
       return false;
     }
     if (filledTeams.length < 2) {
-      setError("Unesite najmanje dva naziva tima.");
+      setError(text.teamsRequired);
       return false;
     }
 
@@ -77,10 +88,10 @@ export default function FreeTrialSeasonForm() {
       const name = `${firstName.trim()} ${lastName.trim()}`;
       const filledTeams = teams.map((team) => team.trim()).filter(Boolean);
       const message = [
-        "Zahtjev za Free Trial Season",
+        text.messageTitle,
         "",
-        `Naziv termina: ${eventName.trim()}`,
-        "Timovi:",
+        `${text.messageEvent}: ${eventName.trim()}`,
+        `${text.messageTeams}:`,
         ...filledTeams.map((team, index) => `${index + 1}. ${team}`),
       ].join("\n");
 
@@ -102,7 +113,7 @@ export default function FreeTrialSeasonForm() {
       const data = await res.json().catch(() => ({}));
       setSuccess(
         data?.message ||
-          "Zahtjev je poslan. Javit ćemo vam se e-mailom s potvrdom i sljedećim koracima.",
+          text.success,
       );
       setFirstName("");
       setLastName("");
@@ -121,12 +132,12 @@ export default function FreeTrialSeasonForm() {
     <form
       onSubmit={handleSubmit}
       className="mt-8 space-y-5"
-      aria-label="Free trial Season forma"
+      aria-label={text.aria}
     >
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <input
           type="text"
-          placeholder="Ime"
+          placeholder={text.first}
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           className="rounded-2xl border border-[#cfd3f4] bg-[#f8f9ff] px-4 py-3 text-[#222222] outline-none transition placeholder:text-[#7a8093] focus:border-[#3026C1] focus:bg-white focus:ring-4 focus:ring-[#3026C1]/10"
@@ -134,7 +145,7 @@ export default function FreeTrialSeasonForm() {
         />
         <input
           type="text"
-          placeholder="Prezime"
+          placeholder={text.last}
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           className="rounded-2xl border border-[#cfd3f4] bg-[#f8f9ff] px-4 py-3 text-[#222222] outline-none transition placeholder:text-[#7a8093] focus:border-[#3026C1] focus:bg-white focus:ring-4 focus:ring-[#3026C1]/10"
@@ -145,7 +156,7 @@ export default function FreeTrialSeasonForm() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <input
           type="email"
-          placeholder="Email"
+          placeholder={text.email}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="rounded-2xl border border-[#cfd3f4] bg-[#f8f9ff] px-4 py-3 text-[#222222] outline-none transition placeholder:text-[#7a8093] focus:border-[#3026C1] focus:bg-white focus:ring-4 focus:ring-[#3026C1]/10"
@@ -153,7 +164,7 @@ export default function FreeTrialSeasonForm() {
         />
         <input
           type="text"
-          placeholder="Naziv termina"
+          placeholder={text.event}
           value={eventName}
           onChange={(e) => setEventName(e.target.value)}
           className="rounded-2xl border border-[#cfd3f4] bg-[#f8f9ff] px-4 py-3 text-[#222222] outline-none transition placeholder:text-[#7a8093] focus:border-[#3026C1] focus:bg-white focus:ring-4 focus:ring-[#3026C1]/10"
@@ -164,14 +175,14 @@ export default function FreeTrialSeasonForm() {
       <div className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <label className="text-sm font-semibold text-[#1f2430]">
-            Nazivi timova
+            {text.teams}
           </label>
           <button
             type="button"
             onClick={addTeam}
             className="rounded-full border border-[#3026C1]/25 px-4 py-2 text-sm font-semibold text-[#3026C1] transition hover:bg-[#3026C1]/5"
           >
-            Dodaj tim
+            {text.add}
           </button>
         </div>
 
@@ -179,7 +190,7 @@ export default function FreeTrialSeasonForm() {
           <div key={index} className="flex gap-3">
             <input
               type="text"
-              placeholder={`Tim ${index + 1}`}
+              placeholder={`${text.team} ${index + 1}`}
               value={team}
               onChange={(e) => updateTeam(index, e.target.value)}
               className="min-w-0 flex-1 rounded-2xl border border-[#cfd3f4] bg-[#f8f9ff] px-4 py-3 text-[#222222] outline-none transition placeholder:text-[#7a8093] focus:border-[#3026C1] focus:bg-white focus:ring-4 focus:ring-[#3026C1]/10"
@@ -190,9 +201,9 @@ export default function FreeTrialSeasonForm() {
                 type="button"
                 onClick={() => removeTeam(index)}
                 className="shrink-0 rounded-full border border-[#efb1b1] px-4 py-2 text-sm font-semibold text-[#a12d2d] transition hover:bg-[#fff1f1]"
-                aria-label={`Ukloni tim ${index + 1}`}
+                aria-label={`${text.removeTeam} ${index + 1}`}
               >
-                Ukloni
+                {text.remove}
               </button>
             )}
           </div>
@@ -221,7 +232,7 @@ export default function FreeTrialSeasonForm() {
         disabled={loading}
         className="inline-flex items-center justify-center rounded-full bg-[#89FC00] px-6 py-3 text-sm font-semibold text-[#3026C1] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {loading ? "Šaljem..." : "Zatraži probnu sezonu"}
+        {loading ? text.sending : text.submit}
       </button>
     </form>
   );

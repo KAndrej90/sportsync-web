@@ -1,5 +1,8 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import LocalizedLink from "../../localization/LocalizedLink";
+import LanguageVariant from "../LanguageVariant";
+import PrivacyEnglish from "./PrivacyEnglish";
 import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
@@ -9,6 +12,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
+    <LanguageVariant english={<PrivacyEnglish />}>
     <article className={styles.prose}>
       <h1 className={styles.pageTitle}>Politika privatnosti</h1>
       <p className={styles.lastUpdated}>Zadnje ažuriranje: 26. lipnja 2026.</p>
@@ -25,7 +29,7 @@ export default function PrivacyPage() {
         Europskog parlamenta i Vijeća (GDPR) i Zakonom o provedbi Opće uredbe o
         zaštiti podataka (NN 42/2018). Preporučujemo da pažljivo pročitate ovaj
         dokument i naše{" "}
-        <Link href="/terms">Uvjete korištenja</Link>.
+        <LocalizedLink href="/terms">Uvjete korištenja</LocalizedLink>.
       </p>
 
       {/* 1 */}
@@ -41,13 +45,13 @@ export default function PrivacyPage() {
         <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>
         <br />
         Kontaktni obrazac:{" "}
-        <Link href="/contact">contact</Link>
+        <LocalizedLink href="/contact">contact</LocalizedLink>
       </p>
       <p>
         Za sva pitanja vezana uz privatnost, obradu osobnih podataka ili
         ostvarivanje vaših prava možete nam se obratiti na{" "}
         <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>{" "}
-        ili putem <Link href="/contact">kontaktnog obrasca</Link>.
+        ili putem <LocalizedLink href="/contact">kontaktnog obrasca</LocalizedLink>.
       </p>
 
       {/* 2 */}
@@ -82,6 +86,12 @@ export default function PrivacyPage() {
         <li>
           <strong>Sportske preferencije i razina igre</strong> – za
           personalizaciju prikaza termina i ocjenjivanje prema sportu.
+        </li>
+        <li>
+          <strong>Grad</strong> – grad koji odaberete tijekom registracije ili
+          naknadno u postavkama profila, radi prikaza relevantnih Termina,
+          obavijesti i sadržaja u vašoj blizini. Grad nije vidljiv drugim
+          korisnicima i ne predstavlja preciznu lokaciju vašeg uređaja.
         </li>
         <li>
           <strong>Sigurnosne i komunikacijske postavke</strong> – podaci o
@@ -172,7 +182,7 @@ export default function PrivacyPage() {
         to ne znači da s nama potpisujete poseban papirnati ugovor. To znači da
         određene podatke moramo obraditi kako bismo vam mogli pružiti uslugu
         koju koristite putem SportSync aplikacije, u skladu s našim{" "}
-        <Link href="/terms">Uvjetima korištenja</Link>. Primjerice, bez e-mail
+        <LocalizedLink href="/terms">Uvjetima korištenja</LocalizedLink>. Primjerice, bez e-mail
         adrese nije moguće kreirati račun, bez podataka o Terminu nije moguće
         organizirati Termin, a bez podataka o kupnji nije moguće aktivirati
         kupljenu funkcionalnost.
@@ -245,6 +255,13 @@ export default function PrivacyPage() {
           Platforme. Pravna osnova je <em>izvršavanje ugovora</em>.
         </li>
         <li>
+          <strong>Prikaz relevantnih Termina, obavijesti i sadržaja prema
+            gradu</strong> – grad koji ste odabrali koristimo kako bismo vam
+          prikazali sadržaj relevantan za vaše područje. Grad nije vidljiv
+          drugim korisnicima i ne koristimo ga za praćenje vaše lokacije u
+          stvarnom vremenu. Pravna osnova je <em>izvršavanje ugovora</em>.
+        </li>
+        <li>
           <strong>Vidljivost profila u pretraživanju</strong> – ime i prezime,
           profilna fotografija, odabrani sportovi i prosječna ocjena mogu biti
           vidljivi registriranim korisnicima u rezultatima pretraživanja i na
@@ -252,7 +269,7 @@ export default function PrivacyPage() {
           korisnicima. Pravna osnova je <em>izvršavanje ugovora</em>. Do
           uvođenja postavke privatnog profila zahtjev za uklanjanje iz
           pretraživanja možete poslati putem{" "}
-          <Link href="/contact">kontaktnog obrasca</Link>.
+          <LocalizedLink href="/contact">kontaktnog obrasca</LocalizedLink>.
         </li>
         <li>
           <strong>Ocjenjivanje korisnika</strong> – ocjene koristimo kako bi
@@ -394,7 +411,7 @@ export default function PrivacyPage() {
         Apple i Google za obrade koje provode kao samostalni voditelji primjenjuju
         vlastite mehanizme međunarodnog prijenosa opisane u njihovim pravilima
         privatnosti. Za dodatne informacije možete nam se obratiti putem{" "}
-        <Link href="/contact">kontaktnog obrasca</Link>.
+        <LocalizedLink href="/contact">kontaktnog obrasca</LocalizedLink>.
       </p>
 
       {/* 6 */}
@@ -475,5 +492,6 @@ export default function PrivacyPage() {
       </p>
 
       {/* 8 */} <h2 className={styles.sectionTitle}>8. Kolačići i slične tehnologije</h2> <p> Web-stranica sportsync.hr koristi tehničke kolačiće neophodne za njezino ispravno funkcioniranje te, uz vašu izričitu privolu, analitičke kolačiće (Google Analytics) za poboljšanje korisničkog iskustva. Analitički kolačići postavljaju se tek nakon što prihvatite banner za kolačiće pri prvom posjetu. Detalji su opisani u našoj{" "} <Link href="/cookies">Politici kolačića</Link>. </p> <p> Mobilna aplikacija ne koristi kolačiće, već lokalno pohranjuje autentikacijski token na vašem uređaju isključivo radi održavanja prijavljene sesije. </p> {/* 9 */} <h2 className={styles.sectionTitle}>9. Maloljetnici</h2> <p> Platforma je namijenjena osobama starijim od <strong>16 godina</strong>. Godinu rođenja prikupljamo pri registraciji isključivo radi provjere ispunjenja ovog uvjeta. Ne prikupljamo svjesno osobne podatke osoba mlađih od 16 godina. </p> <p> Ako posumnjate da je osoba mlađa od 16 godina registrirala račun ili ako ste roditelj/skrbnik i primijetili ste da vaše dijete koristi Platformu, molimo vas da nas odmah kontaktirate putem{" "} <Link href="/contact">kontaktnog obrasca</Link>. Takve ćemo račune zatvoriti i obrisati povezane osobne podatke, osim ako postoji zakonska obveza ili opravdan razlog za privremeno čuvanje određenih podataka. </p> {/* 10 */} <h2 className={styles.sectionTitle}>10. Vaša prava kao ispitanika</h2> <p> Sukladno GDPR-u, imate sljedeća prava u pogledu vaših osobnih podataka: </p> <ul> <li> <strong>Pravo na pristup</strong> – možete zatražiti potvrdu obrađujemo li vaše podatke i kopiju tih podataka. </li> <li> <strong>Pravo na ispravak</strong> – možete zahtijevati ispravak netočnih ili dopunu nepotpunih podataka. Mnoge podatke možete sami izmijeniti u postavkama profila. </li> <li> <strong>Pravo na brisanje (&ldquo;pravo na zaborav&rdquo;)</strong> – možete zatražiti brisanje računa i svih osobnih podataka. Detalje pogledajte na stranici{" "} <Link href="/delete-account">Brisanje računa</Link>. Imajte na umu da se ranije poslane chat poruke i transakcijski podaci koje moramo zadržati radi zakonskih obveza, reklamacija, prijevara ili pravnih zahtjeva ne moraju obrisati odmah; na njih se primjenjuju rokovi iz čl. 6 ove Politike. </li> <li> <strong>Pravo na ograničenje obrade</strong> – u određenim slučajevima možete zahtijevati da obustavimo obradu vaših podataka. </li> <li> <strong>Pravo na prigovor</strong> – možete se protiviti obradi temeljenoj na legitimnom interesu. Ako se protivite vidljivosti vašeg profila u pretraživanju, možete zatražiti uklanjanje iz tražilice putem{" "} <Link href="/contact">kontaktnog obrasca</Link> — obradit ćemo zahtjev u roku od <strong>5 radnih dana</strong>. </li> <li> <strong>Pravo na prenosivost podataka</strong> – možete zatražiti kopiju podataka u strojno čitljivom formatu, gdje je primjenjivo. </li> <li> <strong>Pravo na povlačenje privole</strong> – gdje se obrada temelji na privoli, možete je povući u bilo koje vrijeme bez utjecaja na zakonitost prethodne obrade. </li> </ul> <p> Zahtjeve za ostvarenje prava podnesite putem{" "} <Link href="/contact">kontaktnog obrasca</Link>. Odgovorit ćemo u roku od <strong>30 dana</strong> od primitka zahtjeva (uz mogućnost produženja za složene slučajeve, o čemu ćemo vas obavijestiti). </p> {/* 11 */} <h2 className={styles.sectionTitle}>11. Pritužba nadzornom tijelu</h2> <p> Ako smatrate da obrada vaših osobnih podataka krši GDPR ili primjenjive propise, imate pravo podnijeti pritužbu nadležnom nadzornom tijelu: </p> <p> <strong>Agencija za zaštitu osobnih podataka (AZOP)</strong> <br /> Ulica Metela Ožegovića 16, 10 000 Zagreb <br /> Web:{" "} <a href="https://azop.hr" target="_blank" rel="noopener noreferrer" > azop.hr </a> <br /> E-mail:{" "} <a href="mailto:azop@azop.hr">azop@azop.hr</a> </p> <p> Molimo vas da nas prije podnošenja pritužbe kontaktirate kako bismo pokušali riješiti vaš upit izravno. </p> {/* 12 */} <h2 className={styles.sectionTitle}>12. Automatizirano donošenje odluka i profiliranje</h2> <p> SportSync ne koristi automatizirane sustave koji bi donosili pravno obvezujuće odluke ili odluke koje imaju značajan utjecaj na vas bez ljudske intervencije. Preporuke termina i prikaz sadržaja temelje se na vašim postavljenim preferencijama, a ne na automatiziranom profiliranju koje bi imalo pravne ili slične značajne učinke. </p> {/* 13 */} <h2 className={styles.sectionTitle}>13. Kupnje unutar aplikacije</h2> <p> Za nogometne Termine Platforma omogućuje jednokratnu kupnju proizvoda &ldquo;Jednogodišnja sezona&rdquo;. Kupnju obrađuje Apple App Store na iOS-u odnosno Google Play na Androidu, a RevenueCat se koristi za tehničku provjeru statusa kupnje i povrata. </p> <p> SportSync ne prima podatke o platnoj kartici ni bankovnom računu. Primamo samo tehničke i transakcijske podatke navedene u čl. 2 ove Politike, koji su potrebni za vezivanje kupnje uz konkretni Termin, omogućavanje pristupa, sinkronizaciju između platformi te postupanje u slučaju povrata ili opoziva. </p> <p> Ako Apple ili Google odobri povrat odnosno opozove transakciju, RevenueCat nam može dostaviti promijenjeni status kupnje. Tada se uređivanje Sezone povezane s tom transakcijom prekida u skladu s Uvjetima korištenja. Zasebna, kasnija valjana kupnja za novu Sezonu nije pogođena opozivom prethodne transakcije. </p> {/* 14 */} <h2 className={styles.sectionTitle}>14. Izmjene Politike privatnosti</h2> <p> Ovu Politiku možemo povremeno ažurirati radi promjena Platforme, pružatelja usluga ili pravnih zahtjeva. Nova verzija bit će objavljena na ovoj stranici s ažuriranim datumom &ldquo;Zadnje ažuriranje&rdquo;. </p> <p> Kada je to potrebno prema primjenjivim propisima ili kada izmjena može značajno utjecati na vaše interese, obavijestit ćemo vas prije njezina stupanja na snagu. Izmjene koje opisuju novu, opcionalnu funkcionalnost mogu stupiti na snagu istodobno s objavom te funkcionalnosti. Ova Politika služi kao obavijest o obradi osobnih podataka; pravna osnova obrade ne temelji se samo na nastavku korištenja Platforme. </p> {/* 15 */} <h2 className={styles.sectionTitle}>15. Kontakt</h2> <p> Za sva pitanja, prigovore ili zahtjeve vezane uz obradu osobnih podataka obratite nam se putem{" "} <Link href="/contact">kontaktnog obrasca</Link> ili emailom na{" "} <a href="mailto:support@sportsync.hr">support@sportsync.hr</a>. </p> </article>
+    </LanguageVariant>
   );
 }

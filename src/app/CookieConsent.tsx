@@ -2,11 +2,29 @@
 
 import { useState, useEffect } from "react";
 import Script from "next/script";
+import LocalizedLink from "./localization/LocalizedLink";
+import { useLanguage } from "./localization/LanguageProvider";
 
 const GA_ID = "G-54SYQBBVX7";
 const CONSENT_KEY = "sportsync_analytics_consent";
 
 export default function CookieConsent() {
+  const { language } = useLanguage();
+  const text = language === "hr"
+    ? {
+        aria: "Kolačići",
+        body: "Koristimo kolačiće kako bismo poboljšali korisničko iskustvo. Više informacija u našoj",
+        policy: "Politici kolačića",
+        accept: "Prihvaćam",
+        deny: "Odbijam",
+      }
+    : {
+        aria: "Cookies",
+        body: "We use cookies to improve your experience. Learn more in our",
+        policy: "Cookie Policy",
+        accept: "Accept",
+        deny: "Reject",
+      };
   const [consent, setConsent] = useState<"granted" | "denied" | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -55,7 +73,7 @@ export default function CookieConsent() {
       {visible && (
         <div
           role="dialog"
-          aria-label="Kolačići"
+          aria-label={text.aria}
           style={{
             position: "fixed",
             bottom: 0,
@@ -75,11 +93,10 @@ export default function CookieConsent() {
           }}
         >
           <p style={{ margin: 0, maxWidth: 600 }}>
-            Koristimo kolačiće kako bismo
-            poboljšali korisničko iskustvo. Više informacija u našoj{" "}
-            <a href="/cookies" style={{ color: "#3026c1", textDecoration: "underline" }}>
-              Politici kolačića
-            </a>
+            {text.body}{" "}
+            <LocalizedLink href="/cookies" style={{ color: "#3026c1", textDecoration: "underline" }}>
+              {text.policy}
+            </LocalizedLink>
             .
           </p>
           <div style={{ display: "flex", gap: "8px" }}>
@@ -96,7 +113,7 @@ export default function CookieConsent() {
                 fontSize: "14px",
               }}
             >
-              Prihvaćam
+              {text.accept}
             </button>
             <button
               onClick={deny}
@@ -111,7 +128,7 @@ export default function CookieConsent() {
                 fontSize: "14px",
               }}
             >
-              Odbijam
+              {text.deny}
             </button>
           </div>
         </div>

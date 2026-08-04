@@ -5,7 +5,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import LanguageChooser from "./localization/LanguageChooser";
+import LocalizedLink from "./localization/LocalizedLink";
+import { useLanguage } from "./localization/LanguageProvider";
 import LogoAndName from "./assets/logoAndName.svg";
 import AppStoreBadge from "./assets/Download_on_the_App_Store_Badge_HR_blk_082124.svg";
 import GooglePlayBadge from "./assets/GetItOnGooglePlay_Badge_Web_color_Croatian.svg";
@@ -26,75 +28,63 @@ import CreateTermIllustration from "./assets/howitworks/create-term-illustration
 import FindPlayersIllustration from "./assets/howitworks/find-players-illustration.png";
 import RatingIllustration from "./assets/howitworks/rating-illustration.png";
 
-const navLinks = [
-  { href: "#sezone", label: "Sezone", isNew: true },
-  { href: "#kako-funkcionira", label: "Kako funkcionira" },
-  { href: "#sportovi", label: "Sportovi" },
-  { href: "/contact", label: "Kontakt" },
+const sportImages = [
+  SportImageOne,
+  SportImageTwo,
+  SportImageThree,
+  SportImageFour,
+  HandballImage,
+  WaterPoloImage,
 ];
 
-const storeLinks = [
-  {
-    href: "https://play.google.com/store/apps/details?id=com.andrejk90.SPORTSYNC",
-    label: "Preuzmi SportSync na Google Play trgovini",
-    badge: GooglePlayBadge,
-  },
-  {
-    href: "https://apps.apple.com/hr/app/sportsync/id6758768052?l=hr",
-    label: "Preuzmi SportSync na App Storeu",
-    badge: AppStoreBadge,
-  },
+const seasonImages = [
+  SeasonScreenshotTable,
+  SeasonScreenshotResults,
+  SeasonScreenshotPlayers,
+  SeasonScreenshotTrophy,
+  SeasonScreenshotAchievements,
 ];
 
-const sports = [
-  {
-    title: "Nogomet na\nmali i veliki gol",
-    image: SportImageOne,
+const copy = {
+  hr: {
+    home: "SportSync početna", logo: "SportSync logotip", new: "Novo", download: "Preuzmi aplikaciju",
+    nav: ["Sezone", "Kako funkcionira", "Sportovi", "Kontakt"],
+    stores: ["Preuzmi SportSync na Google Play trgovini", "Preuzmi SportSync na App Storeu"],
+    storeButtons: ["Dostupno na Google Playu", "Preuzmite na App Storeu"],
+    heroTitleStart: "Organiziraj svoj termin.", heroAccent: "Sinkroniziraj", heroTitleEnd: " svoju igru.",
+    heroDescription: <>SportSync ti pomaže voditi stalne sportske termine, pratiti dolaske svoje ekipe i po potrebi pronaći dodatne igrače kad se otvori slobodno mjesto. Također podržavamo mogućnost sezona, gdje možeš pratiti rezultate utakmica, strijelce, asistente i MVP. <strong>Manje dogovaranja, više igre.</strong></>,
+    heroAlt: "SportSync mobilna aplikacija",
+    seasonTag: "Sezone", seasonTitle: "Svaki termin sada piše veću priču.", seasonDescription: "Poveži utakmice u sezonu, prati tablicu i rezultate te otkrij tko predvodi ekipu. Statistika, postignuća i trofeji ostaju sačuvani na jednom mjestu.", seasonEyebrow: "Cijela sezona u džepu", seasonHeading: "Od prvog kola do zadnjeg trofeja", footballOnly: "Trenutačno samo za nogomet", moreSports: "Ostali sportovi dolaze uskoro", seasonFeatures: ["Tablica", "Rezultati", "Statistika", "Postignuća"], swipe: "Povuci za pregled svih mogućnosti", screenAlt: "SportSync prikaz",
+    journeyTag: "Korak po korak", journeyTitle: "Od svog termina do pune ekipe i ocjene nakon igre.", journeyIntro: "SportSync nije samo za pronalazak igrača kad netko otkaže. Prvo vodiš svoj stalni termin, pratiš tko dolazi, po potrebi popunjavaš slobodna mjesta i nakon utakmice ocjenjuješ iskustvo s igračima.",
+    steps: [
+      { label: "Kreiraj svoj stalni termin", title: "Prvo postavi termin za ekipu s kojom igraš redovno.", description: "Odaberi sport, lokaciju i vrijeme, pa od jednog dogovora napravi termin koji se može ponavljati svaki tjedan. Tako sve kreće od tvoje ekipe.", alt: "Ilustracija ekipe koja kreira stalni termin za različite sportove" },
+      { label: "Prati tko dolazi", title: "U svakom trenutku vidiš jeste li se skupili za igru.", description: "Igrači potvrđuju dolazak direktno u aplikaciji, a ti bez dodatnog dopisivanja vidiš tko dolazi, tko ne dolazi i koliko vas još nedostaje do pune utakmice.", alt: "Ilustracija igrača različitih sportova koji potvrđuju dolazak" },
+      { label: "Popuni slobodna mjesta", title: "Ako vas nema dovoljno, tek tada tražiš dodatne igrače.", description: "Proširi poziv među svojim prijateljima. Ako još fali igrača, objavi slobodna mjesta i otvori termin drugim korisnicima aplikacije koji žele uskočiti.", alt: "Ilustracija pronalaska igrača različitih sportova za slobodna mjesta" },
+      { label: "Završite termin ocjenom", title: "Nakon igre ostavi dojam o igraču s kojim si igrao.", description: "Ocjene pomažu da zajednica bude pouzdanija, a ekipama daju bolji osjećaj koga žele ponovno pozvati na idući termin.", alt: "Ilustracija igrača različitih sportova koji se ocjenjuju nakon termina" },
+    ],
+    sportsTag: "Izaberi ritam", sportsTitle: "Za termine koje igraš svaki tjedan", sportsDescription: "Bez obzira treniraš li ozbiljno ili igraš rekreativno, SportSync ti daje prostor za organizaciju omiljenog sporta, tvoje ekipe i novih igrača kada ih zatreba.", sports: ["Nogomet na\nmali i veliki gol", "Košarka na otvorenom\ni u dvorani", "Odbojka i odbojka\nna pijesku", "Tenis, padel,\nsquash i badminton", "Rukomet", "Vaterpolo"],
+    footerTag: "Budućnost sporta", footerTitle: "Vodi svoj termin lakše i igraj s punom ekipom.", footerDescription: "Postavi stalni termin, okupi svoje igrače i pronađi zamjenu kad ti zatreba. Preuzmi aplikaciju i vidimo se na terenu!", rights: "© 2026 SportSync. Sva prava pridržana.", company: "Codemem Consulting d.o.o. · Obedišće, Općina Križ, Hrvatska · OIB: 26881262647", legal: ["Kontakt", "Politika privatnosti", "Uvjeti korištenja", "Brisanje podataka"],
   },
-  {
-    title: "Košarka na otvorenom\ni u dvorani",
-    image: SportImageTwo,
+  en: {
+    home: "SportSync home", logo: "SportSync logo", new: "New", download: "Download the app",
+    nav: ["Seasons", "How it works", "Sports", "Contact"],
+    stores: ["Download SportSync on Google Play", "Download SportSync on the App Store"],
+    storeButtons: ["Get it on Google Play", "Download on the App Store"],
+    heroTitleStart: "Organize your game.", heroAccent: "Synchronize", heroTitleEnd: " how you play.",
+    heroDescription: <>SportSync helps you manage recurring sports games, track your team’s attendance, and find additional players when a spot opens up. We also support seasons, where you can track match results, goalscorers, assists, and MVPs. <strong>Less coordinating, more playing.</strong></>,
+    heroAlt: "SportSync mobile app",
+    seasonTag: "Seasons", seasonTitle: "Every game now tells a bigger story.", seasonDescription: "Connect matches into a season, follow the table and results, and discover who leads the team. Statistics, achievements, and trophies stay saved in one place.", seasonEyebrow: "A whole season in your pocket", seasonHeading: "From the first round to the final trophy", footballOnly: "Currently available for football only", moreSports: "More sports are coming soon", seasonFeatures: ["Table", "Results", "Statistics", "Achievements"], swipe: "Swipe to see all features", screenAlt: "SportSync screen",
+    journeyTag: "Step by step", journeyTitle: "From your regular game to a full team and post-game ratings.", journeyIntro: "SportSync is not only for finding players when someone cancels. First, you manage your recurring game and track who is coming. When needed, you fill open spots and rate your experience with other players after the match.",
+    steps: [
+      { label: "Create your recurring game", title: "First, set up a game for the team you play with regularly.", description: "Choose the sport, location, and time, then turn one arrangement into a game that can repeat every week. It all starts with your team.", alt: "A team creating a recurring game for different sports" },
+      { label: "Track who is coming", title: "See at any moment whether you have enough players for the game.", description: "Players confirm their attendance directly in the app, so without extra messages you can see who is coming, who is not, and how many players are still needed for a full match.", alt: "Players from different sports confirming attendance" },
+      { label: "Fill open spots", title: "If you do not have enough players, only then look for additional ones.", description: "Share the invitation with your friends. If players are still missing, publish the open spots and make the game available to other app users who want to join.", alt: "Finding players from different sports for open spots" },
+      { label: "Finish with a rating", title: "After the game, share your impression of a player you played with.", description: "Ratings help make the community more reliable and give teams a better sense of whom they want to invite again next time.", alt: "Players from different sports rating each other after a game" },
+    ],
+    sportsTag: "Choose your rhythm", sportsTitle: "For the games you play every week", sportsDescription: "Whether you train seriously or play recreationally, SportSync gives you a place to organize your favorite sport, your team, and new players whenever you need them.", sports: ["Small- and full-sized\ngoal football", "Outdoor and indoor\nbasketball", "Volleyball and\nbeach volleyball", "Tennis, padel,\nsquash, and badminton", "Handball", "Water polo"],
+    footerTag: "The future of sport", footerTitle: "Manage your game more easily and play with a full team.", footerDescription: "Set up a recurring game, gather your players, and find a replacement when you need one. Download the app and see you on the court!", rights: "© 2026 SportSync. All rights reserved.", company: "Codemem Consulting d.o.o. · Obedišće, Municipality of Križ, Croatia · OIB: 26881262647", legal: ["Contact", "Privacy Policy", "Terms of Use", "Data deletion"],
   },
-  {
-    title: "Odbojka i odbojka\nna pijesku",
-    image: SportImageThree,
-  },
-  {
-    title: "Tenis, padel,\nsquash i badminton",
-    image: SportImageFour,
-  },
-  {
-    title: "Rukomet",
-    image: HandballImage,
-  },
-  {
-    title: "Vaterpolo",
-    image: WaterPoloImage,
-  },
-];
-
-const seasonScreens = [
-  {
-    title: "Tablica",
-    image: SeasonScreenshotTable,
-  },
-  {
-    title: "Rezultati",
-    image: SeasonScreenshotResults,
-  },
-  {
-    title: "Igrači",
-    image: SeasonScreenshotPlayers,
-  },
-  {
-    title: "Postignuća",
-    image: SeasonScreenshotTrophy,
-  },
-  {
-    title: "Trofeji",
-    image: SeasonScreenshotAchievements,
-  },
-];
+};
 
 const seasonScreenPositions = [
   "lg:translate-y-12",
@@ -133,6 +123,16 @@ function JourneyIllustration({
 }
 
 export default function Home() {
+  const { language } = useLanguage();
+  const text = copy[language];
+  const navLinks = ["#sezone", "#kako-funkcionira", "#sportovi", "/contact"].map((href, index) => ({ href, label: text.nav[index], isNew: index === 0 }));
+  const sports = text.sports.map((title, index) => ({ title, image: sportImages[index] }));
+  const screenTitles = language === "hr" ? ["Tablica", "Rezultati", "Igrači", "Postignuća", "Trofeji"] : ["Table", "Results", "Players", "Achievements", "Trophies"];
+  const seasonScreens = screenTitles.map((title, index) => ({ title, image: seasonImages[index] }));
+  const storeLinks = [
+    { href: "https://play.google.com/store/apps/details?id=com.andrejk90.SPORTSYNC", label: text.stores[0], badge: GooglePlayBadge },
+    { href: `https://apps.apple.com/hr/app/sportsync/id6758768052?l=${language}`, label: text.stores[1], badge: AppStoreBadge },
+  ];
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -202,18 +202,18 @@ export default function Home() {
     >
       <header className="sticky top-0 z-40 border-b border-[#4138d0] bg-[#3026C1]">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-5 py-5 md:px-8">
-          <Link href="/" aria-label="SportSync početna" className="shrink-0">
+          <LocalizedLink href="/" aria-label={text.home} className="shrink-0">
             <Image
               src={LogoAndName}
-              alt="SportSync logotip"
+              alt={text.logo}
               priority
               className="h-9 w-auto md:h-10"
             />
-          </Link>
+          </LocalizedLink>
 
           <nav className="hidden items-center gap-8 text-sm text-white/80 lg:flex">
             {navLinks.map((link) => (
-              <Link
+              <LocalizedLink
                 key={link.href}
                 href={link.href}
                 className="group inline-flex items-center gap-2 rounded-full px-1 py-1 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
@@ -221,31 +221,34 @@ export default function Home() {
                 {link.label}
                 {link.isNew ? (
                   <span className="rounded-full bg-[#89FC00] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[#3026C1] transition group-hover:scale-[1.04]">
-                    Novo
+                    {text.new}
                   </span>
                 ) : null}
-              </Link>
+              </LocalizedLink>
             ))}
           </nav>
 
-          <Link
+          <LocalizedLink
             href="#sezone"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-2 text-xs font-medium text-white transition hover:border-white/40 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white lg:hidden"
+            className="hidden items-center gap-2 rounded-full border border-white/20 px-3 py-2 text-xs font-medium text-white transition hover:border-white/40 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:inline-flex lg:hidden"
           >
-            Sezone
+            {text.nav[0]}
             <span className="rounded-full bg-[#89FC00] px-2 py-0.5 text-[0.58rem] font-semibold uppercase tracking-[0.1em] text-[#3026C1]">
-              Novo
+              {text.new}
             </span>
-          </Link>
+          </LocalizedLink>
 
-          <a
-            href="https://apps.apple.com/hr/app/sportsync/id6758768052?l=hr"
-            target="_blank"
-            rel="noreferrer"
-            className="hidden rounded-full bg-[#89FC00] px-6 py-3 text-sm font-semibold text-[#3026C1] transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white lg:inline-flex"
-          >
-            Preuzmi aplikaciju
-          </a>
+          <div className="flex items-center gap-3">
+            <LanguageChooser compact />
+            <a
+              href={`https://apps.apple.com/hr/app/sportsync/id6758768052?l=${language}`}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden rounded-full bg-[#89FC00] px-6 py-3 text-sm font-semibold text-[#3026C1] transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white lg:inline-flex"
+            >
+              {text.download}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -254,18 +257,13 @@ export default function Home() {
           <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-24">
             <div className="hero-animate">
               <h1 className="max-w-[12ch] text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-[#1f2430] sm:text-5xl lg:text-[3.9rem]">
-                Organiziraj svoj termin.
+                {text.heroTitleStart}
                 <br />
-                <span className="text-[#3026C1]">Sinkroniziraj</span> svoju
-                igru.
+                <span className="text-[#3026C1]">{text.heroAccent}</span>{text.heroTitleEnd}
               </h1>
 
               <p className="mt-6 max-w-xl text-base leading-8 text-[#2f3443] md:text-lg">
-                SportSync ti pomaže voditi stalne sportske termine, pratiti
-                dolaske svoje ekipe i po potrebi pronaći dodatne igrače kad se
-                otvori slobodno mjesto. Također podržavamo mogućnost sezona,
-                gdje možeš pratiti rezultate utakmica, strijelce, asistente i
-                MVP. <strong>Manje dogovaranja, više igre.</strong>
+                {text.heroDescription}
               </p>
 
               <div
@@ -281,11 +279,7 @@ export default function Home() {
                     aria-label={store.label}
                     className="transition hover:-translate-y-0.5"
                   >
-                    <Image
-                      src={store.badge}
-                      alt={store.label}
-                      className="h-[54px] w-auto"
-                    />
+                    {language === "hr" ? <Image src={store.badge} alt={store.label} className="h-[54px] w-auto" /> : <span className="inline-flex h-[54px] items-center rounded-xl bg-black px-5 text-sm font-semibold text-white">{text.storeButtons[storeLinks.indexOf(store)]}</span>}
                   </a>
                 ))}
               </div>
@@ -294,7 +288,7 @@ export default function Home() {
             <div className="hero-animate relative flex justify-center lg:justify-end">
               <Image
                 src={HeroImage}
-                alt="SportSync mobilna aplikacija"
+                alt={text.heroAlt}
                 priority
                 className="relative w-[460px] max-w-[92vw] md:w-[660px] lg:max-w-none lg:translate-x-8"
               />
@@ -308,14 +302,12 @@ export default function Home() {
         >
           <div className="mx-auto max-w-6xl">
             <div className="fade-item mx-auto max-w-3xl text-center">
-              <SectionTag>Sezone</SectionTag>
+              <SectionTag>{text.seasonTag}</SectionTag>
               <h2 className="mt-7 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#1f2430] sm:text-5xl lg:text-[3.5rem]">
-                Svaki termin sada piše veću priču.
+                {text.seasonTitle}
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#4a4f5e] md:text-lg">
-                Poveži utakmice u sezonu, prati tablicu i rezultate te otkrij
-                tko predvodi ekipu. Statistika, postignuća i trofeji ostaju
-                sačuvani na jednom mjestu.
+                {text.seasonDescription}
               </p>
             </div>
 
@@ -331,10 +323,10 @@ export default function Home() {
 
               <div className="relative flex flex-col items-center px-6 text-center text-white">
                 <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#89FC00]">
-                  Cijela sezona u džepu
+                  {text.seasonEyebrow}
                 </span>
                 <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
-                  Od prvog kola do zadnjeg trofeja
+                  {text.seasonHeading}
                 </h3>
                 <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 text-xs font-semibold sm:text-sm">
                   <span className="inline-flex items-center gap-2 rounded-full bg-[#89FC00] px-4 py-2 text-[#2017a7] shadow-[0_10px_24px_rgba(137,252,0,0.18)]">
@@ -342,14 +334,14 @@ export default function Home() {
                       aria-hidden="true"
                       className="h-2 w-2 rounded-full bg-[#3026C1]"
                     />
-                    Trenutačno samo za nogomet
+                    {text.footballOnly}
                   </span>
                   <span className="rounded-full border border-dashed border-white/30 bg-white/[0.07] px-4 py-2 text-white/75">
-                    Ostali sportovi dolaze uskoro
+                    {text.moreSports}
                   </span>
                 </div>
                 <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-medium text-white/80 sm:text-sm">
-                  {["Tablica", "Rezultati", "Statistika", "Postignuća"].map(
+                  {text.seasonFeatures.map(
                     (item) => (
                       <span
                         key={item}
@@ -364,7 +356,7 @@ export default function Home() {
 
               <div className="relative mt-9 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[12vw] pb-6 pt-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:px-[20vw] lg:mt-12 lg:grid lg:grid-cols-5 lg:items-start lg:gap-3 lg:overflow-visible lg:px-0 lg:pb-0 lg:pt-3">
                 <span className="absolute left-0 top-9 z-20 -rotate-6 rounded-r-full bg-[#89FC00] py-2 pl-6 pr-8 text-xs font-extrabold uppercase tracking-[0.2em] text-[#3026C1] shadow-[0_12px_28px_rgba(10,6,62,0.28)] sm:pl-8 lg:-left-8 lg:top-12 lg:pl-10 lg:pr-10">
-                  Novo
+                  {text.new}
                 </span>
                 {seasonScreens.map((screen, index) => (
                   <figure
@@ -374,7 +366,7 @@ export default function Home() {
                     <div className="overflow-hidden rounded-[2rem] border-[5px] border-[#16123f] bg-[#16123f] shadow-[0_24px_45px_rgba(10,6,62,0.38)] transition duration-300 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_30px_55px_rgba(10,6,62,0.5)] lg:rounded-[1.55rem] lg:border-[4px]">
                       <Image
                         src={screen.image}
-                        alt={`SportSync prikaz: ${screen.title}`}
+                        alt={`${text.screenAlt}: ${screen.title}`}
                         className="h-auto w-full"
                         quality={100}
                         sizes="(max-width: 1023px) 68vw, 210px"
@@ -390,7 +382,7 @@ export default function Home() {
               </div>
 
               <p className="relative mt-1 text-center text-xs text-white/55 lg:hidden">
-                Povuci za pregled svih mogućnosti
+                {text.swipe}
               </p>
             </div>
           </div>
@@ -403,17 +395,14 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <div className="fade-item mx-auto max-w-3xl text-center">
               <div>
-                <SectionTag>Korak po korak</SectionTag>
+                <SectionTag>{text.journeyTag}</SectionTag>
                 <h2 className="mx-auto mt-7 max-w-[12ch] text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-[#1f2430] sm:text-5xl lg:text-[3.5rem]">
-                  Od svog termina do pune ekipe i ocjene nakon igre.
+                  {text.journeyTitle}
                 </h2>
               </div>
               <div className="mt-6">
                 <p className="mx-auto max-w-2xl text-base leading-8 text-[#4a4f5e] md:text-lg">
-                  SportSync nije samo za pronalazak igrača kad netko otkaže.
-                  Prvo vodiš svoj stalni termin, pratiš tko dolazi, po potrebi
-                  popunjavaš slobodna mjesta i nakon utakmice ocjenjuješ
-                  iskustvo s igračima.
+                  {text.journeyIntro}
                 </p>
               </div>
             </div>
@@ -431,15 +420,13 @@ export default function Home() {
                       01
                     </span>
                     <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#3026C1] lg:mt-0">
-                      01 · Kreiraj svoj stalni termin
+                      01 · {text.steps[0].label}
                     </p>
                     <h3 className="mt-3 max-w-[14ch] text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1f2430] sm:text-[2.3rem]">
-                      Prvo postavi termin za ekipu s kojom igraš redovno.
+                      {text.steps[0].title}
                     </h3>
                     <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
-                      Odaberi sport, lokaciju i vrijeme, pa od jednog dogovora
-                      napravi termin koji se može ponavljati svaki tjedan. Tako
-                      sve kreće od tvoje ekipe.
+                      {text.steps[0].description}
                     </p>
                   </div>
 
@@ -453,7 +440,7 @@ export default function Home() {
                     <JourneyIllustration className="lg:ml-auto lg:mr-0">
                       <Image
                         src={CreateTermIllustration}
-                        alt="Ilustracija ekipe koja kreira stalni termin za različite sportove"
+                        alt={text.steps[0].alt}
                         className="h-auto w-full"
                         quality={100}
                         sizes="(max-width: 768px) 280px, 330px"
@@ -467,7 +454,7 @@ export default function Home() {
                     <JourneyIllustration className="lg:ml-0 lg:mr-auto">
                       <Image
                         src={AttendanceIllustration}
-                        alt="Ilustracija igrača različitih sportova koji potvrđuju dolazak"
+                        alt={text.steps[1].alt}
                         className="h-auto w-full"
                         quality={100}
                         sizes="(max-width: 768px) 280px, 330px"
@@ -486,15 +473,13 @@ export default function Home() {
                       02
                     </span>
                     <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#3026C1] lg:mt-0">
-                      02 · Prati tko dolazi
+                      02 · {text.steps[1].label}
                     </p>
                     <h3 className="mt-3 max-w-[13ch] text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1f2430] sm:text-[2.3rem]">
-                      U svakom trenutku vidiš jeste li se skupili za igru.
+                      {text.steps[1].title}
                     </h3>
                     <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
-                      Igrači potvrđuju dolazak direktno u aplikaciji, a ti bez
-                      dodatnog dopisivanja vidiš tko dolazi, tko ne dolazi i
-                      koliko vas još nedostaje do pune utakmice.
+                      {text.steps[1].description}
                     </p>
                   </div>
                 </li>
@@ -505,15 +490,13 @@ export default function Home() {
                       03
                     </span>
                     <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#3026C1] lg:mt-0">
-                      03 · Popuni slobodna mjesta
+                      03 · {text.steps[2].label}
                     </p>
                     <h3 className="mt-3 max-w-[14ch] text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1f2430] sm:text-[2.3rem]">
-                      Ako vas nema dovoljno, tek tada tražiš dodatne igrače.
+                      {text.steps[2].title}
                     </h3>
                     <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
-                      Proširi poziv među svojim prijateljima. Ako još fali
-                      igrača, objavi slobodna mjesta i otvori termin drugim
-                      korisnicima aplikacije koji žele uskočiti.
+                      {text.steps[2].description}
                     </p>
                   </div>
 
@@ -527,7 +510,7 @@ export default function Home() {
                     <JourneyIllustration className="lg:ml-auto lg:mr-0">
                       <Image
                         src={FindPlayersIllustration}
-                        alt="Ilustracija pronalaska igrača različitih sportova za slobodna mjesta"
+                        alt={text.steps[2].alt}
                         className="h-auto w-full"
                         quality={100}
                         sizes="(max-width: 768px) 280px, 330px"
@@ -541,7 +524,7 @@ export default function Home() {
                     <JourneyIllustration className="lg:ml-0 lg:mr-auto">
                       <Image
                         src={RatingIllustration}
-                        alt="Ilustracija igrača različitih sportova koji se ocjenjuju nakon termina"
+                        alt={text.steps[3].alt}
                         className="h-auto w-full"
                         quality={100}
                         sizes="(max-width: 768px) 280px, 330px"
@@ -560,14 +543,13 @@ export default function Home() {
                       04
                     </span>
                     <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#3026C1] lg:mt-0">
-                      04 · Završite termin ocjenom
+                      04 · {text.steps[3].label}
                     </p>
                     <h3 className="mt-3 max-w-[13ch] text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1f2430] sm:text-[2.3rem]">
-                      Nakon igre ostavi dojam o igraču s kojim si igrao.
+                      {text.steps[3].title}
                     </h3>
                     <p className="mt-5 max-w-xl text-base leading-8 text-[#505565]">
-                      Ocjene pomažu da zajednica bude pouzdanija, a ekipama daju
-                      bolji osjećaj koga žele ponovno pozvati na idući termin.
+                      {text.steps[3].description}
                     </p>
                   </div>
                 </li>
@@ -582,14 +564,12 @@ export default function Home() {
         >
           <div className="mx-auto max-w-6xl">
             <div className="fade-item">
-              <SectionTag>Izaberi ritam</SectionTag>
+              <SectionTag>{text.sportsTag}</SectionTag>
               <h2 className="mt-8 max-w-3xl text-3xl font-semibold tracking-[-0.03em] text-[#1f2430] sm:text-4xl">
-                Za termine koje igraš svaki tjedan
+                {text.sportsTitle}
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-[#4a4f5e] md:text-base">
-                Bez obzira treniraš li ozbiljno ili igraš rekreativno, SportSync
-                ti daje prostor za organizaciju omiljenog sporta, tvoje ekipe i
-                novih igrača kada ih zatreba.
+                {text.sportsDescription}
               </p>
             </div>
 
@@ -621,14 +601,13 @@ export default function Home() {
             <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
               <div className="fade-item max-w-2xl">
                 <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-white/75">
-                  Budućnost sporta
+                  {text.footerTag}
                 </span>
                 <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-[-0.03em] text-white md:text-5xl">
-                  Vodi svoj termin lakše i igraj s punom ekipom.
+                  {text.footerTitle}
                 </h2>
                 <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">
-                  Postavi stalni termin, okupi svoje igrače i pronađi zamjenu
-                  kad ti zatreba. Preuzmi aplikaciju i vidimo se na terenu!
+                  {text.footerDescription}
                 </p>
               </div>
 
@@ -642,11 +621,7 @@ export default function Home() {
                     aria-label={store.label}
                     className="flex min-h-[112px] min-w-[152px] items-center justify-center rounded-[1.4rem] bg-white px-7 py-6 shadow-[0_20px_35px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5"
                   >
-                    <Image
-                      src={store.badge}
-                      alt={store.label}
-                      className="h-[42px] w-auto"
-                    />
+                    {language === "hr" ? <Image src={store.badge} alt={store.label} className="h-[42px] w-auto" /> : <span className="text-center text-sm font-semibold text-black">{text.storeButtons[storeLinks.indexOf(store)]}</span>}
                   </a>
                 ))}
               </div>
@@ -654,30 +629,27 @@ export default function Home() {
 
             <div className="mt-14 flex flex-col gap-8 border-t border-white/10 pt-8 text-white/65 lg:flex-row lg:items-end lg:justify-between">
               <div className="fade-item max-w-xl text-base leading-8">
-                <p className="m-0">© 2026 SportSync. Sva prava pridržana.</p>
-                <p className="m-0">
-                  Codemem Consulting d.o.o. · Obedišće, Općina Križ, Hrvatska ·
-                  OIB: 26881262647
-                </p>
+                <p className="m-0">{text.rights}</p>
+                <p className="m-0">{text.company}</p>
               </div>
 
               <div className="fade-item flex flex-col gap-6 lg:items-end">
                 <nav className="flex flex-wrap gap-x-8 gap-y-3 text-base">
-                  <Link href="/contact" className="transition hover:text-white">
-                    Kontakt
-                  </Link>
-                  <Link href="/privacy" className="transition hover:text-white">
-                    Politika privatnosti
-                  </Link>
-                  <Link href="/terms" className="transition hover:text-white">
-                    Uvjeti korištenja
-                  </Link>
-                  <Link
+                  <LocalizedLink href="/contact" className="transition hover:text-white">
+                    {text.legal[0]}
+                  </LocalizedLink>
+                  <LocalizedLink href="/privacy" className="transition hover:text-white">
+                    {text.legal[1]}
+                  </LocalizedLink>
+                  <LocalizedLink href="/terms" className="transition hover:text-white">
+                    {text.legal[2]}
+                  </LocalizedLink>
+                  <LocalizedLink
                     href="/delete-account"
                     className="transition hover:text-white"
                   >
-                    Brisanje podataka
-                  </Link>
+                    {text.legal[3]}
+                  </LocalizedLink>
                 </nav>
 
                 <div className="flex items-center gap-5">

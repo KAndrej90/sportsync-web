@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "./CookieConsent";
+import { Suspense } from "react";
+import { LanguageProvider } from "./localization/LanguageProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,8 +80,12 @@ export default function RootLayout({
   return (
     <html lang="hr">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-        <CookieConsent />
+        <Suspense fallback={children}>
+          <LanguageProvider>
+            {children}
+            <CookieConsent />
+          </LanguageProvider>
+        </Suspense>
       </body>
     </html>
   );
