@@ -11,6 +11,8 @@ import { useLanguage } from "./localization/LanguageProvider";
 import LogoAndName from "./assets/logoAndName.svg";
 import AppStoreBadge from "./assets/Download_on_the_App_Store_Badge_HR_blk_082124.svg";
 import GooglePlayBadge from "./assets/GetItOnGooglePlay_Badge_Web_color_Croatian.svg";
+import AppStoreBadgeEnglish from "./assets/Download_on_the_App_Store_Badge_EN_blk.svg";
+import GooglePlayBadgeEnglish from "./assets/GetItOnGooglePlay_Badge_Web_color_English.png";
 import HeroImage from "./assets/hero.svg";
 import SportImageOne from "./assets/11 1.png";
 import SportImageTwo from "./assets/12 1.png";
@@ -130,8 +132,8 @@ export default function Home() {
   const screenTitles = language === "hr" ? ["Tablica", "Rezultati", "Igrači", "Postignuća", "Trofeji"] : ["Table", "Results", "Players", "Achievements", "Trophies"];
   const seasonScreens = screenTitles.map((title, index) => ({ title, image: seasonImages[index] }));
   const storeLinks = [
-    { href: "https://play.google.com/store/apps/details?id=com.andrejk90.SPORTSYNC", label: text.stores[0], badge: GooglePlayBadge },
-    { href: `https://apps.apple.com/hr/app/sportsync/id6758768052?l=${language}`, label: text.stores[1], badge: AppStoreBadge },
+    { href: "https://play.google.com/store/apps/details?id=com.andrejk90.SPORTSYNC", label: text.stores[0], badge: language === "hr" ? GooglePlayBadge : GooglePlayBadgeEnglish, platform: "google" },
+    { href: `https://apps.apple.com/hr/app/sportsync/id6758768052?l=${language}`, label: text.stores[1], badge: language === "hr" ? AppStoreBadge : AppStoreBadgeEnglish, platform: "apple" },
   ];
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -268,7 +270,7 @@ export default function Home() {
 
               <div
                 id="preuzmi"
-                className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap"
+                className="mt-8 flex flex-row flex-nowrap items-center gap-2 sm:gap-4"
               >
                 {storeLinks.map((store) => (
                   <a
@@ -277,9 +279,13 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={store.label}
-                    className="transition hover:-translate-y-0.5"
+                    className="inline-flex h-[40px] items-center sm:h-[54px] transition hover:-translate-y-0.5"
                   >
-                    {language === "hr" ? <Image src={store.badge} alt={store.label} className="h-[54px] w-auto" /> : <span className="inline-flex h-[54px] items-center rounded-xl bg-black px-5 text-sm font-semibold text-white">{text.storeButtons[storeLinks.indexOf(store)]}</span>}
+                    <Image
+                      src={store.badge}
+                      alt={store.label}
+                      className={language === "en" && store.platform === "google" ? "h-[59px] w-auto sm:h-[80px]" : "h-[40px] w-auto sm:h-[54px]"}
+                    />
                   </a>
                 ))}
               </div>
@@ -621,7 +627,11 @@ export default function Home() {
                     aria-label={store.label}
                     className="flex min-h-[112px] min-w-[152px] items-center justify-center rounded-[1.4rem] bg-white px-7 py-6 shadow-[0_20px_35px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5"
                   >
-                    {language === "hr" ? <Image src={store.badge} alt={store.label} className="h-[42px] w-auto" /> : <span className="text-center text-sm font-semibold text-black">{text.storeButtons[storeLinks.indexOf(store)]}</span>}
+                    <Image
+                      src={store.badge}
+                      alt={store.label}
+                      className={language === "en" && store.platform === "google" ? "-my-[10px] h-[62px] w-auto" : "h-[42px] w-auto"}
+                    />
                   </a>
                 ))}
               </div>
