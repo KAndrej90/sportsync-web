@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   // Keep Turbopack's development files separate from production builds. This
   // prevents `next build` from removing manifests used by a running dev server.
   distDir: isProd ? ".next" : ".next-dev",
-  // Dynamic announcement links are resolved at request time.
+  output: "export",
   images: { unoptimized: true },
   basePath: "", // za Project Pages (username.github.io/repo)
   assetPrefix: "", // da asseti rade u pod-stazi
