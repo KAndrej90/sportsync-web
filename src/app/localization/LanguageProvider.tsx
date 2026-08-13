@@ -13,7 +13,7 @@ import {
   LANGUAGE_STORAGE_KEY,
   Language,
   parseLanguage,
-  queryLanguageRoutes,
+  usesQueryLanguage,
 } from "./language";
 
 type LanguageContextValue = {
@@ -33,7 +33,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>("hr");
 
   useEffect(() => {
-    const queryLanguage = queryLanguageRoutes.has(pathname)
+    const queryLanguage = usesQueryLanguage(pathname)
       ? parseLanguage(searchParams.get("language"))
       : null;
     const storedLanguage = parseLanguage(
@@ -52,7 +52,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       window.localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLanguage);
       document.documentElement.lang = nextLanguage;
 
-      if (queryLanguageRoutes.has(pathname)) {
+      if (usesQueryLanguage(pathname)) {
         const params = new URLSearchParams(searchParams.toString());
         params.set("language", nextLanguage);
         router.replace(`${pathname}?${params.toString()}`, { scroll: false });

@@ -11,6 +11,13 @@ export const queryLanguageRoutes = new Set([
   "/free-trial-season",
 ]);
 
+export function usesQueryLanguage(pathname: string): boolean {
+  return (
+    queryLanguageRoutes.has(pathname) ||
+    pathname.startsWith("/match-announcements/")
+  );
+}
+
 export function parseLanguage(value: string | null | undefined): Language | null {
   const normalized = value?.trim().toLowerCase();
   return normalized === "hr" || normalized === "en" ? normalized : null;
