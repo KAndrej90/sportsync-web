@@ -13,6 +13,7 @@ import LogoAndName from "../assets/logoAndName.svg";
 import LanguageChooser from "../localization/LanguageChooser";
 import LocalizedLink from "../localization/LocalizedLink";
 import { useLanguage } from "../localization/LanguageProvider";
+import MatchLocationMap from "./MatchLocationMap";
 import styles from "./match-announcement.module.css";
 
 const API_BASE_URL = "https://sport-sync-api-5xwpa.ondigitalocean.app/api";
@@ -32,6 +33,8 @@ type Announcement = {
   startsAt: string;
   pricePerPlayer: number | null;
   missingPlayers: number | null;
+  latitude: number | null;
+  longitude: number | null;
 };
 
 const sportNames = {
@@ -65,7 +68,9 @@ const copy = {
       date: "Datum i vrijeme",
       price: "Cijena po igraču",
       missing: "Nedostaje igrača",
+      map: "Karta lokacije",
     },
+    openMap: "Otvori veću kartu",
     apply: "Prijavi se",
     notFound: "Utakmica nije pronađena",
     notFoundHint: "Provjerite poveznicu ili pronađite drugu utakmicu u aplikaciji.",
@@ -91,7 +96,9 @@ const copy = {
       date: "Date and time",
       price: "Price per player",
       missing: "Players needed",
+      map: "Location map",
     },
+    openMap: "Open larger map",
     apply: "Join match",
     notFound: "Match not found",
     notFoundHint: "Check the link or find another match in the app.",
@@ -173,7 +180,28 @@ function normalizeAnnouncement(payload: unknown): Announcement {
         "playersMissing",
       ]),
     ),
+    latitude:
+      asNumber(firstValue(source, ["latitude", "lat"])) ??
+      asNumber(firstValue(location, ["latitude", "lat"])),
+    longitude:
+      asNumber(firstValue(source, ["longitude", "lng", "lon"])) ??
+      asNumber(firstValue(location, ["longitude", "lng", "lon"])),
   };
+}
+
+function getValidCoordinates(latitude: number | null, longitude: number | null) {
+  if (
+    latitude === null ||
+    longitude === null ||
+    latitude < -90 ||
+    latitude > 90 ||
+    longitude < -180 ||
+    longitude > 180
+  ) {
+    return null;
+  }
+
+  return { latitude, longitude };
 }
 
 function getStoreUrl() {
@@ -282,6 +310,9 @@ export default function MatchAnnouncementPage({
   const location = announcement
     ? [announcement.objectName, announcement.address].filter(Boolean).join(" · ") || text.unknown
     : text.unknown;
+  const coordinates = announcement
+    ? getValidCoordinates(announcement.latitude, announcement.longitude)
+    : null;
 
   const handleAppAction = () => openAppOrStore(announcementId);
 
@@ -343,6 +374,14 @@ export default function MatchAnnouncementPage({
                   <dd>{announcement.missingPlayers ?? text.unknown}</dd>
                 </div>
               </dl>
+              {coordinates && (
+                <MatchLocationMap
+                  latitude={coordinates.latitude}
+                  longitude={coordinates.longitude}
+                  title={text.labels.map}
+                  openMapLabel={text.openMap}
+                />
+              )}
               <button type="button" className={styles.primaryButton} onClick={handleAppAction}>
                 {text.apply}
               </button>

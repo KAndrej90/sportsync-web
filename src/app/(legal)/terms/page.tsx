@@ -7,6 +7,12 @@ import styles from "../legal.module.css";
 export const metadata: Metadata = {
   title: "Uvjeti korištenja",
   description: "Uvjeti korištenja za SportSync.",
+  alternates: { canonical: "/terms" },
+  openGraph: {
+    url: "/terms",
+    title: "Uvjeti korištenja | SportSync",
+    description: "Uvjeti korištenja mobilne aplikacije i web stranice SportSync.",
+  },
 };
 
 export default function TermsPage() {

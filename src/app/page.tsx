@@ -13,22 +13,22 @@ import AppStoreBadge from "./assets/Download_on_the_App_Store_Badge_HR_blk_08212
 import GooglePlayBadge from "./assets/GetItOnGooglePlay_Badge_Web_color_Croatian.svg";
 import AppStoreBadgeEnglish from "./assets/Download_on_the_App_Store_Badge_EN_blk.svg";
 import GooglePlayBadgeEnglish from "./assets/GetItOnGooglePlay_Badge_Web_color_English.png";
-import HeroImage from "./assets/hero.svg";
+import HeroImage from "./assets/hero-optimized.webp";
 import SportImageOne from "./assets/11 1.png";
 import SportImageTwo from "./assets/12 1.png";
 import SportImageThree from "./assets/13 1.png";
 import SportImageFour from "./assets/14 1.png";
-import HandballImage from "./assets/handball-pexels.jpg";
-import WaterPoloImage from "./assets/waterpolo-pexels.jpg";
+import HandballImage from "./assets/handball-pexels.webp";
+import WaterPoloImage from "./assets/waterpolo-pexels.webp";
 import SeasonScreenshotTable from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.27.png";
 import SeasonScreenshotResults from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.34.png";
 import SeasonScreenshotPlayers from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.41.png";
 import SeasonScreenshotTrophy from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.29.55.png";
 import SeasonScreenshotAchievements from "./assets/sezone/Simulator Screenshot - iPhone 17 Pro Max - 2026-06-29 at 11.30.02.png";
-import AttendanceIllustration from "./assets/howitworks/attendance-illustration.png";
-import CreateTermIllustration from "./assets/howitworks/create-term-illustration.png";
-import FindPlayersIllustration from "./assets/howitworks/find-players-illustration.png";
-import RatingIllustration from "./assets/howitworks/rating-illustration.png";
+import AttendanceIllustration from "./assets/howitworks/attendance-illustration.webp";
+import CreateTermIllustration from "./assets/howitworks/create-term-illustration.webp";
+import FindPlayersIllustration from "./assets/howitworks/find-players-illustration.webp";
+import RatingIllustration from "./assets/howitworks/rating-illustration.webp";
 
 const sportImages = [
   SportImageOne,
@@ -88,6 +88,68 @@ const copy = {
   },
 };
 
+const seoGuides = {
+  hr: {
+    tag: "Vodiči",
+    title: "Pronađi rješenje za svoju ekipu",
+    description: "Saznaj kako SportSync olakšava organizaciju termina, pronalazak igrača i vođenje nogometne sezone.",
+    cards: [
+      { href: "/organizacija-sportskih-termina", title: "Organizacija sportskih termina", description: "Termin, potvrde dolaska i ekipa na jednom mjestu." },
+      { href: "/pronadi-igrace", title: "Pronađi dodatne igrače", description: "Popuni slobodno mjesto kada netko iz ekipe otkaže." },
+      { href: "/nogometna-sezona-i-statistika", title: "Nogometna sezona i statistika", description: "Vodi tablicu, rezultate, strijelce, asistencije i MVP igrače." },
+    ],
+    action: "Saznaj više",
+  },
+  en: {
+    tag: "Guides",
+    title: "Find the right solution for your team",
+    description: "See how SportSync helps organize games, find players, and manage a football season.",
+    cards: [
+      { href: "/organizacija-sportskih-termina", title: "Organize sports games", description: "Keep your game, attendance, and team in one place." },
+      { href: "/pronadi-igrace", title: "Find additional players", description: "Fill an open spot when somebody from the team cancels." },
+      { href: "/nogometna-sezona-i-statistika", title: "Football seasons and statistics", description: "Track standings, results, goals, assists, and MVPs." },
+    ],
+    action: "Learn more",
+  },
+};
+
+const homepageStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "SportSync",
+    alternateName: "Sport Sync",
+    url: "https://sportsync.hr/",
+    inLanguage: "hr-HR",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "SportSync",
+    legalName: "Codemem Consulting d.o.o.",
+    url: "https://sportsync.hr/",
+    logo: "https://sportsync.hr/icon-512.png",
+    sameAs: [
+      "https://www.facebook.com/profile.php?id=61589590073833",
+      "https://www.instagram.com/sportsync_hr/",
+      "https://www.linkedin.com/company/sport-sync",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "SportSync",
+    applicationCategory: "SportsApplication",
+    operatingSystem: "Android, iOS",
+    url: "https://sportsync.hr/",
+    description: "Aplikacija za organizaciju sportskih termina, praćenje dolazaka i pronalazak dodatnih igrača.",
+    sameAs: [
+      "https://play.google.com/store/apps/details?id=com.andrejk90.SPORTSYNC",
+      "https://apps.apple.com/hr/app/sportsync/id6758768052",
+    ],
+  },
+];
+
 const seasonScreenPositions = [
   "lg:translate-y-12",
   "lg:translate-y-5",
@@ -127,6 +189,7 @@ function JourneyIllustration({
 export default function Home() {
   const { language } = useLanguage();
   const text = copy[language];
+  const guides = seoGuides[language];
   const navLinks = ["#sezone", "#kako-funkcionira", "#sportovi", "/contact"].map((href, index) => ({ href, label: text.nav[index], isNew: index === 0 }));
   const sports = text.sports.map((title, index) => ({ title, image: sportImages[index] }));
   const screenTitles = language === "hr" ? ["Tablica", "Rezultati", "Igrači", "Postignuća", "Trofeji"] : ["Table", "Results", "Players", "Achievements", "Trophies"];
@@ -202,6 +265,10 @@ export default function Home() {
       ref={containerRef}
       className="min-h-screen bg-[#E4E6F6] text-[#222222]"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageStructuredData) }}
+      />
       <header className="sticky top-0 z-40 border-b border-[#4138d0] bg-[#3026C1]">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-5 py-5 md:px-8">
           <LocalizedLink href="/" aria-label={text.home} className="shrink-0">
@@ -298,6 +365,35 @@ export default function Home() {
                 priority
                 className="relative w-[460px] max-w-[92vw] md:w-[660px] lg:max-w-none lg:translate-x-8"
               />
+            </div>
+          </div>
+        </section>
+
+        <section className="fade-section bg-white px-5 py-16 md:px-8 md:py-24">
+          <div className="mx-auto max-w-6xl">
+            <div className="fade-item max-w-3xl">
+              <SectionTag>{guides.tag}</SectionTag>
+              <h2 className="mt-8 text-3xl font-semibold tracking-[-0.03em] text-[#1f2430] sm:text-4xl">
+                {guides.title}
+              </h2>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-[#4a4f5e]">
+                {guides.description}
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 md:grid-cols-3">
+              {guides.cards.map((card) => (
+                <a
+                  key={card.href}
+                  href={card.href}
+                  className="fade-item group rounded-[1.5rem] border border-[#3026C1]/10 bg-[#E4E6F6] p-6 shadow-[0_14px_30px_rgba(48,38,193,0.07)] transition hover:-translate-y-1 hover:shadow-[0_20px_35px_rgba(48,38,193,0.12)]"
+                >
+                  <h3 className="text-xl font-semibold text-[#1f2430]">{card.title}</h3>
+                  <p className="mt-3 leading-7 text-[#505565]">{card.description}</p>
+                  <span className="mt-6 inline-flex font-semibold text-[#3026C1]">
+                    {guides.action} →
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         </section>

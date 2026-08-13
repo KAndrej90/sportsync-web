@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sportsync.hr"),
   title: {
-    default: "SportSync | Spoji se kroz sport",
+    default: "SportSync – Organizacija sportskih termina i pronalazak igrača",
     template: "%s | SportSync",
   },
   description:
-    "Sportsync okuplja sportske rekreativce u Hrvatskoj i olakšava dogovor grupnih sportskih aktivnosti.",
+    "Organiziraj sportske termine, prati dolaske ekipe i pronađi dodatne igrače za nogomet, košarku, padel i druge sportove.",
   alternates: {
     canonical: "/",
   },
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://sportsync.hr/",
     siteName: "SportSync",
-    title: "SportSync | Spoji se kroz sport",
+    title: "SportSync – Organizacija sportskih termina i pronalazak igrača",
     description:
-      "Sportsync okuplja sportske rekreativce u Hrvatskoj i olakšava dogovor grupnih sportskih aktivnosti.",
+      "Organiziraj sportske termine, prati dolaske ekipe i pronađi dodatne igrače za nogomet, košarku, padel i druge sportove.",
     images: [
       {
         url: "/og.png",
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SportSync | Spoji se kroz sport",
+    title: "SportSync – Organizacija sportskih termina i pronalazak igrača",
     description:
-      "Sportsync okuplja sportske rekreativce u Hrvatskoj i olakšava dogovor grupnih sportskih aktivnosti.",
+      "Organiziraj sportske termine, prati dolaske ekipe i pronađi dodatne igrače za nogomet, košarku, padel i druge sportove.",
     images: ["/og.png"],
   },
   robots: {

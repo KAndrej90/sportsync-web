@@ -32,7 +32,7 @@ export default function ResetPasswordPage() {
     try {
       const params = new URLSearchParams(window.location.search)
       setToken(params.get("token") ?? "")
-    } catch (_err) {
+    } catch {
       setToken("")
     }
   }, [])
@@ -90,7 +90,7 @@ export default function ResetPasswordPage() {
       setSuccess(text.success)
       setPassword("")
       setConfirm("")
-    } catch (err: unknown) {
+    } catch {
       setError(text.failure)
     } finally {
       setLoading(false)

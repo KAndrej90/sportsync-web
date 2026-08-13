@@ -8,6 +8,12 @@ import styles from "../legal.module.css";
 export const metadata: Metadata = {
   title: "Politika privatnosti",
   description: "Politika privatnosti za SportSync (Codemem Consulting d.o.o.).",
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    url: "/privacy",
+    title: "Politika privatnosti | SportSync",
+    description: "Politika privatnosti za SportSync (Codemem Consulting d.o.o.).",
+  },
 };
 
 export default function PrivacyPage() {

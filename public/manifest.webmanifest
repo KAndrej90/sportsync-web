@@ -1,7 +1,7 @@
 ﻿{
   "name": "SportSync",
   "short_name": "SportSync",
-  "description": "SportSync okuplja sportske rekreativce u Hrvatskoj i olakšava dogovor grupnih sportskih aktivnosti.",
+  "description": "Organiziraj sportske termine, prati dolaske ekipe i pronađi dodatne igrače uz SportSync.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#e4e6f6",

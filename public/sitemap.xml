@@ -4,9 +4,6 @@
     <loc>https://sportsync.hr/</loc>
   </url>
   <url>
-    <loc>https://sportsync.hr/reset-password</loc>
-  </url>
-  <url>
     <loc>https://sportsync.hr/privacy</loc>
   </url>
   <url>
@@ -20,6 +17,18 @@
   </url>
   <url>
     <loc>https://sportsync.hr/delete-account</loc>
+  </url>
+  <url>
+    <loc>https://sportsync.hr/free-trial-season</loc>
+  </url>
+  <url>
+    <loc>https://sportsync.hr/organizacija-sportskih-termina</loc>
+  </url>
+  <url>
+    <loc>https://sportsync.hr/pronadi-igrace</loc>
+  </url>
+  <url>
+    <loc>https://sportsync.hr/nogometna-sezona-i-statistika</loc>
   </url>
 </urlset>
 
