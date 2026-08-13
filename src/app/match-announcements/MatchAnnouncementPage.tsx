@@ -34,6 +34,23 @@ type Announcement = {
   missingPlayers: number | null;
 };
 
+const sportNames = {
+  football: { hr: "Nogomet", en: "Football" },
+  handball: { hr: "Rukomet", en: "Handball" },
+  basketball: { hr: "Košarka", en: "Basketball" },
+  tennis: { hr: "Tenis", en: "Tennis" },
+  padel: { hr: "Padel", en: "Padel" },
+  squash: { hr: "Squash", en: "Squash" },
+  badminton: { hr: "Badminton", en: "Badminton" },
+  volleyball: { hr: "Odbojka", en: "Volleyball" },
+  waterpolo: { hr: "Vaterpolo", en: "Water polo" },
+} as const;
+
+function translateSportType(sportType: string, language: "hr" | "en"): string {
+  const key = sportType.replace(/[\s_-]/g, "").toLowerCase();
+  return sportNames[key as keyof typeof sportNames]?.[language] ?? sportType;
+}
+
 const copy = {
   hr: {
     home: "SportSync početna",
@@ -168,7 +185,7 @@ function getStoreUrl() {
 
 function openAppOrStore(announcementId: string) {
   const encodedId = encodeURIComponent(announcementId);
-  const deepLinkPath = `match-announcements/${encodedId}`;
+  const deepLinkPath = `announcedMatch/${encodedId}`;
   const userAgent = navigator.userAgent.toLowerCase();
 
   if (/android/.test(userAgent)) {
@@ -299,7 +316,11 @@ export default function MatchAnnouncementPage({
                 <div className={styles.detail}>
                   <Trophy aria-hidden="true" />
                   <dt>{text.labels.sport}</dt>
-                  <dd>{announcement.sportType || text.unknown}</dd>
+                  <dd>
+                    {announcement.sportType
+                      ? translateSportType(announcement.sportType, language)
+                      : text.unknown}
+                  </dd>
                 </div>
                 <div className={styles.detail}>
                   <MapPin aria-hidden="true" />
