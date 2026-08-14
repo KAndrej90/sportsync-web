@@ -22,7 +22,8 @@ const API_BASE_URL = "https://sport-sync-api-5xwpa.ondigitalocean.app/api";
 const MOBILE_DEEP_LINK_SCHEME = "myapp";
 const ANDROID_PACKAGE = "com.andrejk90.SPORTSYNC";
 const GOOGLE_PLAY_URL = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
-const APP_STORE_URL = "https://apps.apple.com/hr/app/sportsync/id6758768052";
+const APP_STORE_URL = "https://apps.apple.com/hr/app/sportsync/id6758768052?l=hr";
+const IOS_UNIVERSAL_LINK_BASE = "https://links.sportsync.hr/announcedMatch";
 
 type PageStatus = "loading" | "ready" | "not-found" | "closed" | "error";
 type UnknownRecord = Record<string, unknown>;
@@ -231,6 +232,9 @@ function openAppOrStore(announcementId: string) {
   const encodedId = encodeURIComponent(announcementId);
   const deepLinkPath = `announcedMatch/${encodedId}`;
   const userAgent = navigator.userAgent.toLowerCase();
+  const isIOS =
+    /iphone|ipad|ipod/.test(userAgent) ||
+    (/macintosh/.test(userAgent) && navigator.maxTouchPoints > 1);
 
   if (/android/.test(userAgent)) {
     const fallback = encodeURIComponent(GOOGLE_PLAY_URL);
@@ -238,17 +242,8 @@ function openAppOrStore(announcementId: string) {
     return;
   }
 
-  if (/iphone|ipad|ipod/.test(userAgent)) {
-    let appOpened = false;
-    const markOpened = () => {
-      if (document.hidden) appOpened = true;
-    };
-    document.addEventListener("visibilitychange", markOpened, { once: true });
-    window.location.href = `${MOBILE_DEEP_LINK_SCHEME}://${deepLinkPath}`;
-    window.setTimeout(() => {
-      document.removeEventListener("visibilitychange", markOpened);
-      if (!appOpened) window.location.href = APP_STORE_URL;
-    }, 1400);
+  if (isIOS) {
+    window.location.href = `${IOS_UNIVERSAL_LINK_BASE}/${encodedId}`;
     return;
   }
 
