@@ -18,9 +18,7 @@ import { useLanguage } from "../localization/LanguageProvider";
 import MatchLocationMap from "./MatchLocationMap";
 import styles from "./match-announcement.module.css";
 
-// const API_BASE_URL = "https://sport-sync-api-5xwpa.ondigitalocean.app/api";
-
-const API_BASE_URL = "http://192.168.100.32:7064/api";
+const API_BASE_URL = "https://sport-sync-api-5xwpa.ondigitalocean.app/api";
 const MOBILE_DEEP_LINK_SCHEME = "myapp";
 const ANDROID_PACKAGE = "com.andrejk90.SPORTSYNC";
 const GOOGLE_PLAY_URL = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
