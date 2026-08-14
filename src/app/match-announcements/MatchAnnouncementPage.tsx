@@ -5,7 +5,9 @@ import {
   CalendarDays,
   CircleDollarSign,
   MapPin,
+  MessageSquareText,
   Trophy,
+  UserRound,
   UserRoundPlus,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -16,7 +18,9 @@ import { useLanguage } from "../localization/LanguageProvider";
 import MatchLocationMap from "./MatchLocationMap";
 import styles from "./match-announcement.module.css";
 
-const API_BASE_URL = "https://sport-sync-api-5xwpa.ondigitalocean.app/api";
+// const API_BASE_URL = "https://sport-sync-api-5xwpa.ondigitalocean.app/api";
+
+const API_BASE_URL = "http://192.168.100.32:7064/api";
 const MOBILE_DEEP_LINK_SCHEME = "myapp";
 const ANDROID_PACKAGE = "com.andrejk90.SPORTSYNC";
 const GOOGLE_PLAY_URL = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
@@ -33,6 +37,9 @@ type Announcement = {
   startsAt: string;
   pricePerPlayer: number | null;
   missingPlayers: number | null;
+  announcementNotes: string;
+  announcerName: string;
+  announcerProfileImageUrl: string;
   latitude: number | null;
   longitude: number | null;
 };
@@ -68,6 +75,8 @@ const copy = {
       date: "Datum i vrijeme",
       price: "Cijena po igraču",
       missing: "Nedostaje igrača",
+      notes: "Napomena",
+      announcer: "Organizator",
       map: "Karta lokacije",
     },
     openMap: "Otvori veću kartu",
@@ -96,6 +105,8 @@ const copy = {
       date: "Date and time",
       price: "Price per player",
       missing: "Players needed",
+      notes: "Announcement notes",
+      announcer: "Announcer",
       map: "Location map",
     },
     openMap: "Open larger map",
@@ -179,6 +190,13 @@ function normalizeAnnouncement(payload: unknown): Announcement {
         "numberOfMissingPlayers",
         "playersMissing",
       ]),
+    ),
+    announcementNotes: asText(
+      firstValue(source, ["announcementNotes", "nnouncementNotes"]),
+    ),
+    announcerName: asText(firstValue(source, ["announcerName"])),
+    announcerProfileImageUrl: asText(
+      firstValue(source, ["announcerProfileImageUrl"]),
     ),
     latitude:
       asNumber(firstValue(source, ["latitude", "lat"])) ??
@@ -368,11 +386,37 @@ export default function MatchAnnouncementPage({
                   <dt>{text.labels.price}</dt>
                   <dd>{price}</dd>
                 </div>
-                <div className={`${styles.detail} ${styles.fullWidth}`}>
-                  <UserRoundPlus aria-hidden="true" />
-                  <dt>{text.labels.missing}</dt>
-                  <dd>{announcement.missingPlayers ?? text.unknown}</dd>
-                </div>
+                {announcement.missingPlayers !== null && (
+                  <div className={`${styles.detail} ${styles.fullWidth}`}>
+                    <UserRoundPlus aria-hidden="true" />
+                    <dt>{text.labels.missing}</dt>
+                    <dd>{announcement.missingPlayers}</dd>
+                  </div>
+                )}
+                {(announcement.announcerName || announcement.announcerProfileImageUrl) && (
+                  <div className={`${styles.detail} ${styles.fullWidth}`}>
+                    {announcement.announcerProfileImageUrl ? (
+                      <Image
+                        src={announcement.announcerProfileImageUrl}
+                        alt={announcement.announcerName || text.labels.announcer}
+                        width={40}
+                        height={40}
+                        className={styles.announcerImage}
+                      />
+                    ) : (
+                      <UserRound aria-hidden="true" />
+                    )}
+                    <dt>{text.labels.announcer}</dt>
+                    {announcement.announcerName && <dd>{announcement.announcerName}</dd>}
+                  </div>
+                )}
+                {announcement.announcementNotes && (
+                  <div className={`${styles.detail} ${styles.fullWidth}`}>
+                    <MessageSquareText aria-hidden="true" />
+                    <dt>{text.labels.notes}</dt>
+                    <dd>{announcement.announcementNotes}</dd>
+                  </div>
+                )}
               </dl>
               {coordinates && (
                 <MatchLocationMap
