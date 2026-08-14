@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import CookieConsent from "./CookieConsent";
 import { Suspense } from "react";
 import { LanguageProvider } from "./localization/LanguageProvider";
 
@@ -83,7 +82,6 @@ export default function RootLayout({
         <Suspense fallback={children}>
           <LanguageProvider>
             {children}
-            <CookieConsent />
           </LanguageProvider>
         </Suspense>
       </body>

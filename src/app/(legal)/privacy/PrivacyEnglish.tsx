@@ -33,7 +33,6 @@ export default function PrivacyEnglish() {
       <li><strong>Ratings</strong> – ratings you gave to or received from users with whom you played a Game, linked to the specific sport.</li>
       <li><strong>Chat data</strong> – content of direct messages and Game chat messages, sender and recipient or chat-member identities, associated Game, sending time, and data connected with blocking, muting, and in-chat reports.</li>
       <li><strong>Technical data</strong> – IP address, device type, operating-system and application version, and push-notification token. This data is collected automatically for proper Platform operation, security, and troubleshooting.</li>
-      <li><strong>Website analytics data</strong> – with your consent, Google Analytics collects anonymized website-usage data: pages visited, visit duration, browser and device type, and approximate geographic location. The IP address is anonymized before processing.</li>
     </ul>
     <p>Chat messages are not end-to-end encrypted. SportSync may access and read messages when necessary to deliver chat functionality, provide customer support, maintain account security, manually process reports, and prevent abuse.</p>
     <p><strong>2.3. Data we do not collect</strong></p>
@@ -64,7 +63,6 @@ export default function PrivacyEnglish() {
       <li><strong>Purchase verification and activation</strong> – transaction data confirms purchases, activates the One-year Season, links the purchase to a Game, synchronizes access between iOS and Android, and handles refunds or revocations. The basis is <em>performance of a contract</em>.</li>
       <li><strong>Fraud prevention, complaint resolution, and protection of legal claims</strong> – transaction and related technical data prevents abuse, resolves complaints, verifies purchase status, and protects our or users’ rights. The basis is our <em>legitimate interest</em> and, where applicable, compliance with <em>legal obligations</em>.</li>
       <li><strong>Platform improvement and troubleshooting</strong> – technical data maintains stability, detects problems, supports security, and improves user experience. The basis is our <em>legitimate interest</em>. Where possible, data is used anonymously or in aggregate.</li>
-      <li><strong>Website analytics</strong> – Google Analytics cookies are used only if you consent through the cookie banner. The basis is <em>consent</em>, which you may withdraw at any time by deleting or changing browser cookie settings.</li>
       <li><strong>Compliance with legal obligations</strong> – certain data may be processed for accounting records, competent-authority requests, or other legal obligations. The basis is a <em>legal obligation</em>.</li>
     </ul>
     <p>We do not use your data for automated decision-making or profiling that would produce legal or similarly significant effects on you.</p>
@@ -77,14 +75,13 @@ export default function PrivacyEnglish() {
       <li><strong>Apple</strong> – iOS purchase processing, billing, transaction confirmation, receipts, and refund requests under Apple’s rules.</li>
       <li><strong>Google</strong> – Android purchase processing, billing, transaction confirmation, receipts, and refund requests under Google Play rules.</li>
       <li><strong>RevenueCat, Inc.</strong> – technical verification and management of purchase status. RevenueCat receives the internal user identifier and purchase/store-account data required to confirm a transaction, but not the user’s name, email, mobile number, or payment-card data.</li>
-      <li><strong>Google Ireland Limited</strong> (Google Analytics) – website analytics, solely with your consent.</li>
     </ul>
     <p>We do not sell, rent, or commercially share personal data with third parties for their own marketing purposes.</p>
     <p>Chat messages are stored within our server infrastructure. We do not use a separate external chat provider, although hosting providers may act as processors to the extent necessary to operate the Platform.</p>
     <p>We may disclose data to competent authorities when required by law, necessary to comply with a binding request, or needed to establish, exercise, or defend legal claims.</p>
 
     <h2 className={styles.sectionTitle}>5. Transfers outside the EU/EEA</h2>
-    <p>Certain providers, including cloud-infrastructure providers, Google Analytics, Apple, Google, and RevenueCat, may process data outside the European Economic Area (EEA), particularly in the United States. Where we are responsible for such a transfer, we ensure an appropriate safeguard, such as:</p>
+    <p>Certain providers, including cloud-infrastructure providers, Apple, Google, and RevenueCat, may process data outside the European Economic Area (EEA), particularly in the United States. Where we are responsible for such a transfer, we ensure an appropriate safeguard, such as:</p>
     <ul><li>a European Commission adequacy decision, including the EU–U.S. Data Privacy Framework where applicable; or</li><li>the European Commission’s Standard Contractual Clauses (SCCs) and, where necessary, additional safeguards.</li></ul>
     <p>For processing they conduct as independent controllers, Apple and Google apply their own international-transfer mechanisms described in their privacy policies. Contact us through the <LocalizedLink href="/contact">contact form</LocalizedLink> for further information.</p>
 
@@ -107,7 +104,7 @@ export default function PrivacyEnglish() {
     <p>Although chat messages are protected in transit and storage using appropriate security measures, they are not end-to-end encrypted.</p>
 
     <h2 className={styles.sectionTitle}>8. Cookies and similar technologies</h2>
-    <p>The sportsync.hr website uses technical cookies necessary for proper operation and, with your express consent, analytics cookies (Google Analytics) to improve user experience. Analytics cookies are placed only after you accept the cookie banner on your first visit. Details are provided in our <LocalizedLink href="/cookies">Cookie Policy</LocalizedLink>.</p>
+    <p>The sportsync.hr website does not use analytics, advertising, or marketing cookies and does not use Google Analytics. It stores your selected language in your browser&apos;s local storage solely to display the website in your chosen language. This preference is not used to track you. Details are provided in our <LocalizedLink href="/cookies">Cookie Policy</LocalizedLink>.</p>
     <p>The mobile application does not use cookies; it stores an authentication token locally on your device solely to maintain your signed-in session.</p>
     <h2 className={styles.sectionTitle}>9. Minors</h2>
     <p>The Platform is intended for persons over <strong>16 years of age</strong>. We collect year of birth during registration solely to verify this condition. We do not knowingly collect personal data from persons under 16.</p>
