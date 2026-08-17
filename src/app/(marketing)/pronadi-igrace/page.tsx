@@ -25,7 +25,7 @@ export default function FindPlayersPage() {
         {
           title: "Od slobodnog mjesta do pune ekipe",
           paragraphs: [
-            "Kada igrač otkaže nogomet, košarku, padel ili drugi dogovoreni sport, organizator odmah vidi da se otvorilo mjesto. Poziv može prvo podijeliti s prijateljima, a zatim termin učiniti dostupnim drugim korisnicima aplikacije.",
+            "Kada igrač otkaže nogomet, košarku, padel ili drugi dogovoreni sport, organizator odmah vidi da se otvorilo mjesto. Na taj način na vrijeme može objaviti utakmicu drugim korisnicima aplikacije.",
             "Zainteresirani igrači vide relevantne informacije o aktivnosti prije slanja zahtjeva. Organizator tako zadržava pregled i kontrolu nad time tko se pridružuje ekipi.",
           ],
           bullets: ["Objava slobodnog mjesta", "Poziv prijateljima", "Zahtjevi za pridruživanje", "Ocjene nakon zajedničke igre"],
