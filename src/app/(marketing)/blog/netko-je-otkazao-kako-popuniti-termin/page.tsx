@@ -16,7 +16,7 @@ import {
 import LogoAndName from "../../../assets/logoAndName.svg";
 import FindPlayersIllustration from "../../../assets/howitworks/find-players-illustration.webp";
 
-const path = "/savjeti/netko-je-otkazao-kako-popuniti-termin";
+const path = "/blog/netko-je-otkazao-kako-popuniti-termin";
 const canonicalUrl = `https://sportsync.hr${path}`;
 const title = "Netko je otkazao u zadnji čas – kako popuniti termin?";
 const description =
@@ -139,7 +139,7 @@ export default function LastMinuteCancellationArticle() {
                 Početna
               </Link>
               <span aria-hidden="true"> / </span>
-              <span>Savjeti</span>
+              <span>Blog</span>
             </nav>
 
             <div className="mt-10 grid grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">

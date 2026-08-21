@@ -45,7 +45,7 @@ export default function FindPlayersPage() {
         },
       ]}
       related={[
-        { href: "/savjeti/netko-je-otkazao-kako-popuniti-termin", label: "Netko je otkazao – što sada?" },
+        { href: "/blog/netko-je-otkazao-kako-popuniti-termin", label: "Netko je otkazao – što sada?" },
         { href: "/organizacija-sportskih-termina", label: "Organizacija sportskih termina" },
         { href: "/nogometna-sezona-i-statistika", label: "Nogometne sezone i statistika" },
         { href: "/#sportovi", label: "Podržani sportovi" },
