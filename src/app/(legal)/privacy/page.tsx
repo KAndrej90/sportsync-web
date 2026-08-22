@@ -21,7 +21,7 @@ export default function PrivacyPage() {
     <LanguageVariant english={<PrivacyEnglish />}>
     <article className={styles.prose}>
       <h1 className={styles.pageTitle}>Politika privatnosti</h1>
-      <p className={styles.lastUpdated}>Zadnje ažuriranje: 26. lipnja 2026.</p>
+      <p className={styles.lastUpdated}>Zadnje ažuriranje: 22. kolovoza 2026.</p>
 
       <p>
         Ova Politika privatnosti opisuje kako <strong>Codemem Consulting d.o.o.</strong>,
@@ -70,12 +70,9 @@ export default function PrivacyPage() {
       <p><strong>2.1. Podaci koje vi izravno pružate</strong></p>
       <ul>
         <li>
-          <strong>E-mail adresa</strong> – za kreiranje računa, prijavu i slanje
-          linka za resetiranje lozinke.
-        </li>
-        <li>
-          <strong>Broj mobilnog telefona</strong> – za verifikaciju identiteta
-          putem jednokratnog SMS koda (OTP) pri registraciji i promjeni broja.
+          <strong>E-mail adresa</strong> – za kreiranje računa i prijavu te, za
+          račune s omogućenom prijavom lozinkom, slanje poveznice za resetiranje
+          lozinke.
         </li>
         <li>
           <strong>Godina rođenja</strong> – za provjeru minimalne dobi od 16
@@ -107,7 +104,40 @@ export default function PrivacyPage() {
         </li>
       </ul>
 
-      <p><strong>2.2. Podaci koji nastaju korištenjem Platforme</strong></p>
+      <p><strong>2.2. Podaci koje primamo od Googlea ili Applea</strong></p>
+      <p>
+        Ako odaberete prijavu putem Googlea ili Applea, odabrani pružatelj
+        potvrđuje vaš identitet i SportSyncu prosljeđuje podatke potrebne za
+        kreiranje, povezivanje ili prijavu na račun:
+      </p>
+      <ul>
+        <li>
+          <strong>Google</strong> – jedinstveni identifikator Google računa,
+          potvrđenu e-mail adresu, ime i prezime te osnovne podatke profila koje
+          Google učini dostupnima, uključujući mogući URL profilne fotografije.
+          SportSync koristi identifikator, e-mail te ime i prezime; Googleovu
+          profilnu fotografiju ne uvozimo niti spremamo kao SportSync profilnu
+          fotografiju. Tražimo samo standardne opsege <em>openid</em>,{" "}
+          <em>email</em> i <em>profile</em>, a ne pristup kontaktima, datotekama,
+          kalendaru ili drugim Google uslugama.
+        </li>
+        <li>
+          <strong>Apple</strong> – jedinstveni identifikator Apple računa,
+          potvrđenu e-mail adresu te, kada ih Apple učini dostupnima, ime i
+          prezime. Možete odabrati Appleovu privatnu relay adresu umjesto svoje
+          stvarne e-mail adrese; SportSync tada prima i sprema tu relay adresu.
+        </li>
+      </ul>
+      <p>
+        U oba slučaja primamo identitetski token koji naš poslužitelj provjerava
+        radi potvrde autentičnosti, valjanosti, izdavatelja i namjene tokena.
+        Jedinstveni identifikator pružatelja spremamo uz SportSync račun kako
+        bismo vas prepoznali pri sljedećoj prijavi. Godinu rođenja i grad ne
+        dobivamo od Googlea ili Applea; unosite ih izravno u SportSyncu pri
+        dovršetku registracije.
+      </p>
+
+      <p><strong>2.3. Podaci koji nastaju korištenjem Platforme</strong></p>
       <ul>
         <li>
           <strong>Podaci o terminima</strong> – termini koje ste kreirali
@@ -154,8 +184,12 @@ export default function PrivacyPage() {
         sprječavanje zlouporaba.
       </p>
 
-      <p><strong>2.3. Podaci koje ne prikupljamo</strong></p>
+      <p><strong>2.4. Podaci koje ne prikupljamo</strong></p>
       <ul>
+        <li>
+          Ne prikupljamo niti pohranjujemo broj mobilnog telefona i ne koristimo
+          SMS OTP kodove.
+        </li>
         <li>
           Ne prikupljamo niti pohranjujemo broj platne kartice, podatke o
           bankovnom računu, sigurnosni kod kartice ni druge vjerodajnice za
@@ -190,9 +224,11 @@ export default function PrivacyPage() {
       <ul>
         <li>
           <strong>Registracija, prijava i upravljanje računom</strong> –
-          koristimo e-mail adresu, broj mobitela, lozinku i povezane sigurnosne
-          podatke kako bismo vam omogućili kreiranje računa, prijavu, reset
-          lozinke i zaštitu računa. Pravna osnova je{" "}
+          koristimo e-mail adresu i povezane sigurnosne podatke te, ovisno o
+          odabranom načinu prijave, lozinku ili identifikator i identitetski
+          token Googlea odnosno Applea, kako bismo omogućili
+          kreiranje i povezivanje računa, prijavu, reset lozinke kada je
+          primjenjiv i zaštitu računa. Pravna osnova je{" "}
           <em>izvršavanje ugovora</em>, a za sigurnosne mjere i naš{" "}
           <em>legitimni interes</em>.
         </li>
@@ -205,15 +241,10 @@ export default function PrivacyPage() {
           neprimjerenog korištenja.
         </li>
         <li>
-          <strong>OTP verifikacija putem SMS-a</strong> – broj mobitela
-          koristimo za dostavu jednokratnog SMS koda pri registraciji i promjeni
-          broja. Pravna osnova je <em>izvršavanje ugovora</em> i naš{" "}
-          <em>legitimni interes</em> zaštite sigurnosti računa.
-        </li>
-        <li>
-          <strong>Reset lozinke putem e-maila</strong> – e-mail adresu koristimo
-          za slanje linka za reset lozinke isključivo na vaš zahtjev. Pravna
-          osnova je <em>izvršavanje ugovora</em>.
+          <strong>Reset lozinke putem e-maila</strong> – za račune s omogućenom
+          prijavom lozinkom e-mail adresu koristimo za slanje poveznice za reset
+          lozinke isključivo na vaš zahtjev. Pravna osnova je{" "}
+          <em>izvršavanje ugovora</em>.
         </li>
         <li>
           <strong>Push obavijesti</strong> – token uređaja koristimo za slanje
@@ -333,7 +364,6 @@ export default function PrivacyPage() {
           <strong>Pružatelji cloud infrastrukture i hostinga</strong> – pohrana
           podataka i isporuka aplikacije.
         </li>
-        <li><strong>SMS gateway</strong> – dostava OTP kodova.</li>
         <li>
           <strong>Pružatelj usluge push obavijesti</strong> – dostava push
           obavijesti na vaš uređaj.
@@ -344,21 +374,24 @@ export default function PrivacyPage() {
         </li>
         <li><strong>Pohrana datoteka</strong> – pohrana profilnih fotografija.</li>
         <li>
-          <strong>Apple</strong> – obrada kupnje na iOS-u, naplata, potvrda
-          transakcije, izdavanje potvrde o kupnji i postupanje po zahtjevima za
-          povrat prema Appleovim pravilima.
+          <strong>Apple</strong> – ako odaberete prijavu putem Applea, potvrda
+          identiteta i dostava podataka navedenih u čl. 2.2.; za kupnje na iOS-u
+          obrada kupnje i naplate, potvrda transakcije, izdavanje potvrde o
+          kupnji i postupanje po zahtjevima za povrat prema Appleovim pravilima.
         </li>
         <li>
-          <strong>Google</strong> – obrada kupnje na Androidu, naplata, potvrda
-          transakcije, izdavanje potvrde o kupnji i postupanje po zahtjevima za
-          povrat prema pravilima Google Playa.
+          <strong>Google</strong> – ako odaberete prijavu putem Googlea, potvrda
+          identiteta i dostava podataka navedenih u čl. 2.2.; za kupnje na
+          Androidu obrada kupnje i naplate, potvrda transakcije, izdavanje
+          potvrde o kupnji i postupanje po zahtjevima za povrat prema pravilima
+          Google Playa.
         </li>
         <li>
           <strong>RevenueCat, Inc.</strong> – tehnička provjera i upravljanje
           statusom kupnje. RevenueCatu se dostavljaju interni identifikator
           korisnika i podaci o kupnji/računu trgovine potrebni za potvrdu
-          transakcije, ali ne dostavljamo korisnikovo ime, e-mail adresu, broj
-          mobitela ni podatke o platnoj kartici.
+          transakcije, ali ne dostavljamo korisnikovo ime, e-mail adresu ni
+          podatke o platnoj kartici.
         </li>
       </ul>
       <p>
@@ -407,8 +440,9 @@ export default function PrivacyPage() {
       <h2 className={styles.sectionTitle}>6. Rokovi čuvanja podataka</h2>
       <ul>
         <li>
-          <strong>Korisnički račun i profil</strong> – čuvaju se dok je račun
-          aktivan. Nakon zatvaranja računa podaci se brišu ili anonimiziraju u
+          <strong>Korisnički račun i profil</strong> – uključujući povezani
+          Googleov ili Appleov identifikator, čuvaju se dok je račun aktivan.
+          Nakon zatvaranja računa podaci se brišu ili anonimiziraju u
           roku od <strong>30 dana</strong>, osim podataka koje moramo ili smijemo
           dulje čuvati radi zakonskih obveza, prijevara, reklamacija ili pravnih
           zahtjeva.
@@ -448,10 +482,6 @@ export default function PrivacyPage() {
           <strong>12 mjeseci</strong>, nakon čega se brišu ili anonimiziraju,
           osim ako su potrebni za istragu incidenta ili pravni zahtjev.
         </li>
-        <li>
-          <strong>SMS OTP kodovi</strong> – ne pohranjuju se trajno i istječu
-          unutar nekoliko minuta od slanja.
-        </li>
       </ul>
 
       {/* 7 */}
@@ -463,7 +493,7 @@ export default function PrivacyPage() {
       <ul>
         <li>TLS enkripciju pri svakom prijenosu podataka između aplikacije i poslužitelja.</li>
         <li>Hashiranje lozinki – lozinke se nikada ne pohranjuju u čitljivom obliku.</li>
-        <li>Višestruku verifikaciju identiteta (OTP putem SMS-a) pri registraciji i osjetljivim promjenama.</li>
+        <li>Provjeru identitetskih tokena kod prijave putem Googlea ili Applea.</li>
         <li>Kontrolu pristupa chat porukama – pristup sadržaju poruka imaju samo ovlaštene osobe kada je to nužno za podršku, sigurnost i ručnu obradu prijava.</li>
         <li>Kontrolu pristupa podacima – zaposlenici i suradnici imaju pristup samo podacima koji su im nužni za obavljanje posla.</li>
         <li>Redovite sigurnosne preglede koda i infrastrukture.</li>

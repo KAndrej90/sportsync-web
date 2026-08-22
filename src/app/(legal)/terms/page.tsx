@@ -20,7 +20,7 @@ export default function TermsPage() {
     <LanguageVariant english={<TermsEnglish />}>
     <article className={styles.prose}>
       <h1 className={styles.pageTitle}>Uvjeti korištenja</h1>
-      <p className={styles.lastUpdated}>Zadnje ažuriranje: 26. lipnja 2026.</p>
+      <p className={styles.lastUpdated}>Zadnje ažuriranje: 22. kolovoza 2026.</p>
 
       <p>
         Ovi Uvjeti korištenja (&ldquo;Uvjeti&rdquo;) pravno obvezujući su ugovor između vas i
@@ -115,21 +115,29 @@ export default function TermsPage() {
       {/* 4 */}
       <h2 className={styles.sectionTitle}>4. Registracija i korisnički račun</h2>
       <p>
-        Korištenje Platforme zahtijeva obveznu registraciju. Za kreiranje
-        računa potrebno je navesti važeću e‑mail adresu, broj mobilnog
-        telefona (koji se verificira jednokratnom SMS lozinkom – OTP) i
-        godinu rođenja.
+        Korištenje Platforme zahtijeva registraciju. Račun možete kreirati
+        e-mailom i lozinkom ili putem podržane prijave Googleom odnosno Appleom.
+        U svim slučajevima potrebni su važeća e-mail adresa, ime i prezime,
+        godina rođenja i grad.
       </p>
       <p>
-        Potvrda identiteta pri registraciji provodi se putem OTP koda
-        dostavljenog SMS‑om. Isti postupak primjenjuje se kod promjene
-        registriranog broja mobitela.
+        Ako odaberete prijavu putem Googlea ili Applea, taj pružatelj potvrđuje
+        vaš identitet i SportSyncu dostavlja provjerenu e-mail adresu,
+        jedinstveni identifikator računa te ime i prezime kada su dostupni.
+        Apple vam može omogućiti uporabu privatne relay e-mail adrese. Podatke
+        koji nedostaju, uključujući godinu rođenja i grad, unosite izravno u
+        SportSyncu. SportSync ne prima lozinku vašeg Google ili Apple računa.
+      </p>
+      <p>
+        Ako se prijavite Googleom ili Appleom koristeći provjerenu e-mail adresu
+        koja već pripada postojećem SportSync računu, taj se način prijave
+        povezuje s postojećim računom umjesto stvaranja drugog računa.
       </p>
       <p>
         Odgovorni ste za točnost svih podataka koje navodite te za ažuriranje
         tih podataka u slučaju promjene. Obvezni ste čuvati povjerljivost
-        vjerodajnica (lozinka, OTP kodovi) i niste ih ovlašteni dijeliti s
-        trećim osobama.
+        lozinke, kada je primjenjiva, te sigurnost Google ili Apple računa kojim
+        se prijavljujete i niste ih ovlašteni dijeliti s trećim osobama.
       </p>
       <p>
         Svaka fizička osoba smije imati samo jedan aktivni korisnički račun.
@@ -258,9 +266,8 @@ export default function TermsPage() {
         pretraživanja i na pregledu termina.
       </p>
       <p>
-        <strong>Kontaktni podaci nisu javni</strong> – e‑mail adresa, broj
-        mobilnog telefona i godina rođenja nikada nisu vidljivi drugim
-        korisnicima.
+        <strong>Kontaktni podaci nisu javni</strong> – e-mail adresa i godina
+        rođenja nikada nisu vidljivi drugim korisnicima.
       </p>
       <p>
         <strong>DM komunikacija između korisnika</strong> – svaki registrirani
@@ -301,17 +308,12 @@ export default function TermsPage() {
         uređaja. Možete upravljati push obavijestima u postavkama uređaja.
       </p>
       <p>
-        <strong>E‑mail obavijesti</strong> – šalju se isključivo u svrhu
-        resetiranja lozinke.
-      </p>
-      <p>
-        <strong>SMS obavijesti</strong> – jednokratni OTP kodovi koji se šalju
-        pri registraciji te pri promjeni registriranog broja mobilnog telefona.
+        <strong>E‑mail obavijesti</strong> – za račune s omogućenom prijavom
+        lozinkom šalju se isključivo u svrhu resetiranja lozinke.
       </p>
       <p>
         Isključivanjem push obavijesti na uređaju možete propustiti važne
-        informacije o vašim Terminima. Za tehničke obavijesti (OTP) nije moguće
-        isključiti dostavu jer su neophodne za sigurnost računa.
+        informacije o vašim Terminima.
       </p>
 
       {/* 11 */}
@@ -566,9 +568,10 @@ export default function TermsPage() {
       <h2 className={styles.sectionTitle}>19. Usluge trećih strana</h2>
       <p>
         Platforma koristi usluge trećih pružatelja, uključujući cloud hosting,
-        push obavijesti, SMS gateway, pohranu podataka, Apple App Store, Google
-        Play i RevenueCat. Kupnja unutar aplikacije dodatno podliježe uvjetima
-        i pravilima Applea odnosno Googlea.
+        push obavijesti, pohranu podataka, prijavu putem Googlea i Applea, Apple
+        App Store, Google Play i RevenueCat. Korištenje prijave
+        putem Googlea ili Applea te kupnja unutar aplikacije dodatno podliježu
+        uvjetima i pravilima odgovarajućeg pružatelja.
       </p>
       <p>
         SportSync nije odgovoran za samostalne odluke Applea ili Googlea o

@@ -4,7 +4,7 @@ import styles from "../legal.module.css"
 export default function TermsEnglish() {
   return <article className={styles.prose}>
     <h1 className={styles.pageTitle}>Terms of Use</h1>
-    <p className={styles.lastUpdated}>Last updated: 26 June 2026</p>
+    <p className={styles.lastUpdated}>Last updated: August, 22 2026</p>
     <p>These Terms of Use (“Terms”) are a legally binding agreement between you and <strong>Codemem Consulting d.o.o.</strong>, with its registered office in Obedišće, Municipality of Križ, Republic of Croatia (OIB: 26881262647) (hereinafter: “SportSync”, “we”, “us”, “our”), and govern your access to and use of the SportSync mobile application and associated website (together: the “Platform”). Please read these Terms carefully before using the Platform.</p>
 
     <h2 className={styles.sectionTitle}>1. Acceptance of the Terms</h2>
@@ -30,9 +30,10 @@ export default function TermsEnglish() {
     <p>We reserve the right to suspend or close an account that we reasonably suspect is used by a person under 16 and to handle related data in accordance with the Privacy Policy.</p>
 
     <h2 className={styles.sectionTitle}>4. Registration and user account</h2>
-    <p>Use of the Platform requires registration. To create an account, you must provide a valid email address, mobile phone number (verified by a one-time SMS password—OTP), and year of birth.</p>
-    <p>Identity confirmation during registration uses an OTP delivered by SMS. The same process applies when changing the registered mobile number.</p>
-    <p>You are responsible for the accuracy of all data you provide and for updating it when it changes. You must keep credentials (passwords and OTP codes) confidential and may not share them with third parties.</p>
+    <p>Use of the Platform requires registration. You may create an account by email and password or through supported Google or Apple sign-in. In all cases, a valid email address, first and last name, year of birth, and city are required.</p>
+    <p>If you choose Google or Apple sign-in, that provider verifies your identity and sends SportSync a verified email address, a unique account identifier, and first and last name when available. Apple may allow you to use a private relay email address. You enter missing data, including year of birth and city, directly in SportSync. SportSync does not receive your Google or Apple Account password.</p>
+    <p>If you sign in with Google or Apple using a verified email address that already belongs to an existing SportSync account, that sign-in method is linked to the existing account instead of creating a second account.</p>
+    <p>You are responsible for the accuracy of all data you provide and for updating it when it changes. You must keep your password, where applicable, and the Google or Apple Account you use to sign in secure and may not share them with third parties.</p>
     <p>Each natural person may have only one active user account. Creating an account for another person without their express authorization is prohibited.</p>
     <p>If your account is accessed without authorization, notify us immediately through the <LocalizedLink href="/contact">contact form</LocalizedLink>. We are not liable for damage caused by unauthorized use before you notify us.</p>
 
@@ -65,7 +66,7 @@ export default function TermsEnglish() {
     <p>SportSync is a social platform intended to connect recreational athletes. Public profile visibility is a fundamental characteristic of the service and necessary for it to work—without it, users could not find players, fill Games, or be found by Organizers.</p>
     <p>By registering and using the Platform, you accept the following visibility conditions:</p>
     <p><strong>Public profile</strong> – your first and last name, profile photo (if uploaded), selected sports, and average rating are visible to all registered Platform users in search results and Game views.</p>
-    <p><strong>Contact details are not public</strong> – email address, mobile number, and year of birth are never visible to other users.</p>
+    <p><strong>Contact details are not public</strong> – email address and year of birth are never visible to other users.</p>
     <p><strong>Direct messaging between users</strong> – any registered user may start a direct-message chat with another. Starting a conversation does not disclose your contact details; only information publicly displayed within the Platform remains visible.</p>
     <p><strong>Future privacy setting</strong> – SportSync plans to introduce a “private” profile mode that excludes a user from search results. Users will be notified when this feature is introduced.</p>
     <p><strong>Request for removal from search</strong> – until privacy settings are introduced, a user may request removal from search through the <LocalizedLink href="/contact">contact form</LocalizedLink>. We will process the request within <strong>5 business days</strong>.</p>
@@ -74,9 +75,8 @@ export default function TermsEnglish() {
     <h2 className={styles.sectionTitle}>10. Notifications</h2>
     <p>The Platform sends the following types of notifications:</p>
     <p><strong>Push notifications</strong> – for Game events (booking confirmation, Game cancellation, new player request, Game filled, etc.) and new chat messages. Depending on device settings, a notification may include a message preview. You can manage push notifications in device settings.</p>
-    <p><strong>Email notifications</strong> – sent exclusively for password resets.</p>
-    <p><strong>SMS notifications</strong> – one-time OTP codes sent during registration and when changing the registered mobile number.</p>
-    <p>If you disable push notifications, you may miss important information about your Games. Technical notifications (OTP) cannot be disabled because they are necessary for account security.</p>
+    <p><strong>Email notifications</strong> – for accounts with password sign-in enabled, sent exclusively for password resets.</p>
+    <p>If you disable push notifications, you may miss important information about your Games.</p>
 
     <h2 className={styles.sectionTitle}>11. Chat, blocking, and reports</h2>
     <p>The Platform offers two chat types: <strong>direct-message chat</strong> between two registered users and <strong>Game chat</strong> available only to that Game’s members. The Organizer has no special moderation right to delete Game-chat messages.</p>
@@ -128,7 +128,7 @@ export default function TermsEnglish() {
     <p>A User may close their account at any time in application settings or through the <LocalizedLink href="/contact">contact form</LocalizedLink>. After closure, personal data will be deleted or anonymized under our <LocalizedLink href="/privacy">Privacy Policy</LocalizedLink>. For data-deletion instructions, also see <LocalizedLink href="/delete-account">Account deletion</LocalizedLink>.</p>
 
     <h2 className={styles.sectionTitle}>19. Third-party services</h2>
-    <p>The Platform uses third-party services, including cloud hosting, push notifications, an SMS gateway, data storage, Apple App Store, Google Play, and RevenueCat. In-app purchases are additionally subject to Apple’s or Google’s terms and rules.</p>
+    <p>The Platform uses third-party services, including cloud hosting, push notifications, data storage, Google and Apple sign-in, Apple App Store, Google Play, and RevenueCat. Use of Google or Apple sign-in and in-app purchases is additionally subject to the applicable provider’s terms and rules.</p>
     <p>SportSync is not responsible for Apple’s or Google’s independent decisions about billing, account status, or refunds, but we will reasonably cooperate in resolving a technical issue concerning product activation within the Platform. This does not exclude SportSync’s responsibility for its own obligations under mandatory law.</p>
     <p>External links are provided for information and do not mean SportSync endorses their content or assumes responsibility for third-party practices.</p>
 
